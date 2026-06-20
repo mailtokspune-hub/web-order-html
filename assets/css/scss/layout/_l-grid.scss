@@ -1,0 +1,132 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-grid{
+  &__moment-grid{
+    display: grid;
+    grid-template-columns: 1fr 40rem;
+    gap:2.4rem;
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
+    @include media(sm){
+    grid-template-columns: 1fr;
+    }
+  }
+
+  &__moment-image{
+    width:100%;
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      width:40rem;
+      display: block;
+      margin:0 auto;
+    }
+  }
+}
+
+.l-grid02{
+   &__contents{
+    padding:.8rem;
+    background-color:#F7F7F7 ;
+    @include media(sm) {
+      padding:1.6rem;
+    }
+    
+  }
+
+  &__list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18.8rem, 1fr));
+    gap:.8rem;
+
+    @include media(sm) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__list-item{
+    cursor: pointer;
+    display: flex;
+    gap:.8rem;
+    align-items: center;
+    padding:.8rem;
+    border-radius: 4px;
+    transition: $transition;
+    font-weight: bold;
+    background: color(default-white);
+    border:1px solid #E5E5E5;
+    @media screen and (min-width: 768px) and (max-width: 960px) {
+      width:100%
+    }
+    @include media(sm) {
+      width:auto;
+    }
+    &:hover{
+      border:1px solid color(theme);
+      background-color: color(hover-theme);
+    }
+    &.is-active{
+      border:1px solid #B2DCF3;
+      background-color: color(hover-theme);
+    }
+  }
+  &__list-item{
+    > *{
+      pointer-events: none;
+    }
+  }
+
+  &__list-txt{
+    @include fz(16, true, 16, 600, 0);
+  }
+
+  &__list-check{
+    @include media(sm) {
+      transform: scale(1.4);
+    }
+  }
+
+  &__list-image{
+    width:4rem;
+    border-radius: 4px;
+    &--mnft{
+      height:4rem;
+      width:auto;
+    }
+  }
+
+  &__btn-area{
+    border-top: 1px solid color(border);
+    padding:.8rem;
+    display: grid;
+    
+    grid-template-columns: 12rem 1fr;
+    gap:.8rem;
+    &--even{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__btn-white{
+    display: flex;
+    height:5.4rem;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    border:1px solid color(border);
+  }
+
+  &__btn-blue{
+    display: flex;
+    height:5.4rem;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    color:color(default-white);
+    font-weight: bold;
+    background-color: color(theme);
+  }
+}

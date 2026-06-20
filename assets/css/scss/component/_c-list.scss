@@ -1,0 +1,52 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-list{
+  &__nav {
+    @include fz(16, true, 24, 600);
+    @include media(sm) {
+      @include fz(14, true, 18, 600);
+    }
+  }
+
+  &__nav-list{
+    display: flex;
+    align-items: center;
+    gap:4rem;
+
+    @include media(sm) {
+      justify-content: center;
+      gap:3.5rem;
+    }
+  }
+
+  &__nav-list-item{
+    position: relative;
+    white-space: nowrap;
+      color:color(default-gray);
+      @include media(sm) {
+        text-align: center;
+      }
+    &.is-active{
+      color:color(theme)
+    }
+    &:not(:last-of-type){
+      &::after{
+        position: absolute;
+        top: calc(50% + .2rem);
+        right: -2.4rem;;
+        content:"";
+        width: .8rem;
+        height: 1.5rem;
+        transform: translateY(-50%);
+        background-image: url(../images/common/arrow-right.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+      }
+    }
+  }
+}

@@ -1,0 +1,228 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-text-result{
+  white-space: nowrap;
+  @include fz(14, true, 24, 400, 0);
+}
+
+.c-text-price{
+  &__item01{
+    @include fz(24, true, 0, 600, 0);
+  }
+
+  &__item02{
+    @include fz(12, true, 24, 400, 0);
+  }
+
+  &__small{
+    padding-left: .4rem;
+    @include fz(14, true, 20, 600, 0);
+  }
+
+  &[data-show-shipping="false"] {
+    .c-text-price__shipping {
+      display: none;
+    }
+  }
+}
+.c-text-error{
+  padding:2.4rem;
+  border:1px solid color(default-red);
+  color:color(default-red)
+}
+
+.c-text-attention{
+
+  color:color(default-red);
+  @include fz(14, true, 20, 400, 0);
+  &__item{
+    padding-left: 1em;
+    text-indent: -1em;
+    display: block;
+  }
+}
+
+.c-text-company{
+  display: flex;
+  align-items: center;
+  gap:.8rem;
+  transition: $transition;
+  cursor: pointer;
+  &:hover{
+    color:color(theme)
+  }
+  &--no-link{
+    &:hover{
+      cursor: initial;
+    color:color(default-black)
+    }
+  }
+  &__icon{
+    border:1px solid #F2F2F2;
+    width:2.4rem;
+    height:2.4rem;
+    object-fit: cover;
+    border-radius: 50%
+  }
+  &__item{
+
+    @include fz(16, true, 20, 600, 0);
+    @include media(sm) {
+      @include fz(14, true, 18, 600, 0);
+    }
+  }
+}
+
+.c-text-normal{
+  @include fz(24, true, 32, 600, 0);
+}
+
+.c-text-link{
+    color:color(theme);
+    display: flex;
+    width:fit-content;
+    cursor: pointer;
+    transition: $transition;
+    align-items: center;
+    @include fz(16, true, 24, 400, 0);
+    @include media(sm) {
+      display: inline-block;
+    }
+    
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &--inline{
+      display: inline;
+      @include media(sm) {
+        display: inline;
+      }
+    }
+    &--underline{
+      text-decoration: underline;
+    }
+    &__icon{
+      margin:0 .4rem;
+      width:1.2rem;
+      @include media(sm) {
+        margin:.4rem .2rem .5rem
+      }
+      path{
+        fill:color(theme)
+      }
+      &--top{
+        position: relative;
+        top:-.4rem;
+        @include media(sm) {
+          top:.1rem
+        }
+      }
+
+      &--top02{
+        position: relative;
+        top:.1rem;
+        @include media(sm) {
+          top:0;
+        }
+      }
+    }
+}
+
+.c-text-caution{
+  border-radius: 2px;
+  white-space: nowrap;
+    padding:0 .5rem .1rem .4rem;
+    color:color(default-red);
+    border: 1px solid color(default-red);
+    @include fz(12, true, 18, 400, 0);
+    background-color: color(default-white);
+}
+
+.c-text-option{
+  border-radius: 2px;
+  white-space: nowrap;
+    padding:0 .5rem .1rem .4rem;
+    color:#B2B2B2;
+    border: 1px solid #B2B2B2;
+    @include fz(12, true, 18, 400, 0);
+    background-color: color(default-white);
+}
+
+.c-text-confirm{
+  border-radius: 2px;
+    padding:0 .5rem .1rem .4rem;
+    color:color(theme);
+    border: 1px solid color(theme);
+    @include fz(12, true, 18, 400, 0);
+    background-color: color(default-white);
+}
+
+.c-text-status{
+  color:#808080;
+  border-radius: 2px;
+  padding:.2rem;
+  width:13.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:1px solid #808080;
+  background-color: #F7F7F7;
+  @include fz(14, true, 20, 600, 0);
+
+  &--orange{
+    border:1px solid #FF7700;
+    color: color(default-white);
+    background-color: #FF7700;
+  }
+}
+
+.c-text-num{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width:2rem;
+    height:2rem;
+    min-width:2rem;
+    min-height:2rem;
+    border-radius: 50%;
+    color:color(default-white);
+    background-color: color(default-red);
+    @include fz(10, true, 10, 600, 0);
+    @include media(sm) {
+      min-width:1.8rem;
+      min-height:1.8rem;
+    }
+
+    &--margin{
+      margin-left: .4rem;
+    }
+}
+
+.c-text-situation{
+  position: relative;
+  padding-left: 1.6rem;
+  color:#B2B2B2;
+  @include fz(14, true, 20, 400, 0);
+  &::before{
+    position: absolute;
+    top: calc(50% + 1px);
+    left: 0;
+    content:"";
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    transform: translateY(-50%);
+    background-color:#B2B2B2;
+  }
+  &.is-active{
+    color:color(default-black);
+    &::before{
+      background-color:#00BC77;
+    }
+  }
+}

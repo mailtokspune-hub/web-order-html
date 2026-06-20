@@ -1,0 +1,411 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.p-home__contents {
+}
+.l-widget {
+	position: relative;
+	z-index: 1;
+}
+
+
+/* スライダー全体の枠 */
+.slider {
+	margin-top: -116px;
+  position: relative;
+  width: 100%;
+  height: 1280px; /* 任意の高さ */
+  overflow: hidden;
+	z-index: 0;
+}
+
+@media screen and (max-width: 767px) {
+	.slider {
+		width: 100%;
+		height: auto !important; /* 任意の高さ */
+	}
+}
+
+/* 各画像（背景として設定） */
+.slider-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* 最初は透明 */
+  animation: fade-animation 15s infinite; /* 15秒のループ */
+}
+
+/* 画像の指定 */
+.item1 { background-image: url("../images/home/fv_pc_01.png"); }
+.item2 { background-image: url("../images/home/fv_pc_02.png"); animation-delay: 5s; } /* 5秒遅らせる */
+.item3 { background-image: url("../images/home/fv_pc_03.png"); animation-delay: 10s; } /* 10秒遅らせる */
+
+/* フェードアニメーションの動き */
+@keyframes fade-animation {
+  0% { opacity: 0; }
+  10% { opacity: 1; }  /* ふわっと表示 */
+  33% { opacity: 1; }  /* 表示を維持 */
+  43% { opacity: 0; }  /* ふわっと消える */
+  100% { opacity: 0; }
+}
+
+
+
+
+.fv-copy {
+	width: 100%;
+	max-width: 1200px;
+	padding: 200px 24px 0;
+	margin: 0 auto;
+	display: block;
+	z-index: 1;
+	position: relative;
+}
+@media screen and (max-width: 767px) {
+.fv-copy {
+	padding: 120px 16px 0;
+	}
+}
+
+.fv-copy h1 {
+	width: 540px;
+	height: auto;
+	display: block;
+	line-height: 0;
+}
+.fv-copy h1 img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.fv-copy .point {
+	width: 900px;
+	height: auto;
+	display: block;
+	margin: 32px 0;
+	line-height: 0;
+}
+.fv-copy .point img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+
+
+
+
+.loop-area {
+  width: 100%;
+  overflow: hidden; /* はみ出しを隠す */
+	margin: -360px 0 0;
+  padding: 0;
+}
+
+.loop-track {
+  display: flex; /* 横並び */
+  width: max-content; /* 中身に合わせて横に伸ばす */
+}
+
+.loop-item {
+  width: 240px; /* 画像の幅 */
+  flex-shrink: 0; /* 幅を縮めない */
+  padding: 0 10px;
+}
+
+.loop-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+.fv-copy h1 {
+	width: 90%;
+	height: auto;
+	display: block;
+	line-height: 0;
+}
+.fv-copy .point {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 32px 0;
+	line-height: 0;
+}
+.loop-area {
+	margin-top: -20px !important;
+}
+	.loop-item {
+  width: 160px; /* 画像の幅 */
+}
+
+}
+
+
+
+.home-sec-box {
+	width: 1200px;
+	height: 320px;
+	display: block;
+	margin: 40px auto;
+	position: relative;
+	z-index: 1;
+}
+
+.home-sec-box .inner {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0;
+}
+.home-login-box {
+	width: 424px;
+	height: 100%;
+	background-color: #fff;
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: space-between;
+	gap: 2.4rem;
+	margin: 0;
+	padding: 32px 24px;
+	border-radius: 4px;
+}
+.home-login-box .box {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0;
+}
+.home-login-box h4 {
+	width: 100%;
+	height: auto;
+	font-size: 1.8rem;
+	text-align: center;
+	margin: 0 0 1em;
+}
+.home-news-box {
+	width: 760px;
+	height: 100%;
+	color: #fff;
+	background-color: #fff;
+	display: block;
+	margin: 0;
+	padding: 24px;
+	border-radius: 4px;
+}
+.home-news-header {
+	width: 100%;
+	max-width: 680px;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: space-between;
+	margin: 0 auto 24px;
+}
+.home-news-header h2 {
+	width: auto;
+	height: auto;
+	color: #4DAFE2;
+	font-size: 3.2rem;
+	display: block;
+	margin: 0;
+}
+.home-news-header a {
+	margin: 0;
+}
+.home-news-list {
+	width: 100%;
+	max-width: 680px;
+	height: auto;
+	display: grid;
+	gap: 1.6rem;
+	margin: 0 auto;
+}
+.home-news-list li {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0;
+}
+.home-news-list a {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0;
+	transition: .2s;
+}
+.home-news-list a:hover {
+	color: #008cd6;
+}
+.home-news-date {
+	width: 80px;
+	height: auto;
+	font-size: 1.6rem;
+	margin: 0;
+}
+.home-news-ttl {
+	width: calc(100% - 100px);
+	height: auto;
+	font-size: 1.6rem;
+	margin: 0;
+	-webkit-box-orient: vertical;
+  overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+}
+
+
+@media screen and (max-width: 767px) {
+	.home-sec-box {
+		width: 100%;
+		height: auto;
+		margin: 40px auto;
+		padding: 16px;
+	}
+	.home-login-box {
+		margin-bottom: 16px;
+	}
+	.home-news-box {
+		width: 100%;
+		height: auto;
+		color: #fff;
+		padding: 16px;
+	}
+
+}
+
+.our-mission {
+	width: 100%;
+	text-align: center;
+	background-color: #008cd6;
+	padding: 400px 0 200px;
+	margin-top: -400px;
+}
+
+
+.sec-reason {
+	width: 100%;
+	background-color: #fff;
+	padding: 160px 0;
+	margin: 0 auto;
+}
+.sec-reason h2 {
+	width: 100%;
+	text-align: center;
+	margin: 0 0 100px;
+}
+.reason-box {
+	width: 100%;
+	max-width: 1200px;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0 auto 40px;
+}
+.reason-box .info {
+	width: 533px;
+	height: auto;
+}
+.reason-box .info a {
+	margin: 20px auto;
+}
+.reason-box .img {
+	width: 522px;
+	height: auto;
+}
+
+
+
+.sec-service {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	padding: 100px 20px;
+}
+.service-box {
+	width: 100%;
+	max-width: 1200px;
+	height: auto;
+	margin: 0 auto 100px;
+}
+.service-box h3 {
+	width: 100%;
+	height: auto;
+	margin: 0 0 40px
+}
+.service-box h3 img {
+	width: auto;
+	height: auto;
+}
+
+.service-02 {
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+.service-02 li {
+	width: 447px;
+	height: auto;
+	display: inline-block;
+}
+.service-02 li img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.service-02 a {
+	margin-top: 40px;
+}
+
+
+
+
+.sec-step {
+	width: 100%;
+	height: auto;
+	background-color: #56A6CF;
+	padding: 100px 20px;
+}
+.free {
+	width: 100%;
+	max-width: 1200px;
+	text-align: center;
+	height: auto;
+	margin: 0 auto 100px;
+}
+.hiw {
+	width: 100%;
+	max-width: 1200px;
+	text-align: center;
+	height: auto;
+	margin: 0 auto;
+}
+.hiw h3 {
+	margin: 0 auto 80px;
+}
+
+@media screen and (max-width: 767px) {
+	.sec-reason {
+		margin-top: 80px;
+	}
+	.reason-box .info {
+		width: 100%;
+		padding: 0 16px;
+	}
+	.service-01 li,
+	.service-02 li {
+		width: 100%;
+	}
+
+}
+

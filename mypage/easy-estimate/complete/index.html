@@ -1,0 +1,396 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>見積依頼</title>
+  <meta name="description" content="サンプルテキストです">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/mypage/easy-estimate/complete/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="見積依頼">
+  <meta property="og:description" content="サンプルテキストです">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/mypage/easy-estimate/complete/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          if (img.hasAttribute('data-no-inline')) continue;
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header">
+      <div class="l-header__inner">
+        <div class="l-header__area">
+          <h1 class="l-header__logo"><a href="/"><img class="l-header__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+        </div>
+        <nav class="l-header__nav">
+          <div class="l-header__list">
+            <div class="l-header__list-area">
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/./"><img class="l-header__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/products/"><img class="l-header__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/guide/"><img class="l-header__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/guide/faq/"><img class="l-header__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></div>
+            </div>
+            <div class="l-header__list-area">
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/news/"><img class="l-header__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-header__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-header__list-icon l-header__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-header__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-header__list-icon l-header__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+            </div>
+          </div>
+          <div class="l-header__btn-area"><a class="c-btn-icon c-btn-icon--responsive" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span class="c-btn-icon__txt c-btn-icon__txt--responsive">お問い合わせ</span> </a><a class="c-btn-icon c-btn-icon--responsive" href="/cart/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-cart.svg" alt="" height="24" width="24" decoding="async"> <span class="c-btn-icon__txt c-btn-icon__txt--responsive">カート</span> <span class="c-btn-icon__num">1</span></a>
+            <div class="l-header__list-menu" data-item-btn="header"><img class="l-header__list-menu-icon" src="/assets/images/common/icon-ellipse.png" alt="" height="48" width="48" decoding="async" loading="lazy"> <span class="c-btn-icon__num">1</span>
+              <div class="c-modal-small c-modal-small--header" data-item="header">
+                <ul class="c-modal-small__list">
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/mypage/"><img src="/assets/images/common/icon-accout.svg" alt="" height="24" width="24" decoding="async"> <span>マイページ</span></a></li>
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/mypage/order/"><img src="/assets/images/common/icon-message.svg" alt="" height="24" width="24" decoding="async"> <span>メッセージ</span> <span class="c-text-num">1</span></a></li>
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/./logout.html"><img src="/assets/images/common/icon-logout.svg" alt="" height="24" width="24" decoding="async"> <span>ログアウト</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="c-hamburger"><span></span> <span></span> <span></span></div>
+    <div class="l-nav-mega">
+      <nav class="l-nav-mega__navigation">
+        <div class="l-nav-mega__area"><a class="c-btn-icon" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>お問い合わせ</span></a></div>
+        <div class="l-widget l-widget--nav">
+          <div class="l-widget__item" data-sort-btn="cat"><span>カテゴリ検索</span></div>
+          <div class="l-widget__item" data-sort-btn="mnft"><span>メーカー検索</span></div>
+          <div class="c-input-search"><input class="c-input-search__item c-input-search__item--white" type="search" placeholder="キーワード検索"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+        </div>
+        <ul class="l-nav-mega__list">
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/./"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/products/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/guide/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/guide/faq/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/news/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-nav-mega__list-icon l-nav-mega__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-nav-mega__list-icon l-nav-mega__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+        </ul>
+      </nav>
+      <div class="l-nav-mega__info"><a class="l-nav-mega__info-item" href="/legal/terms/">ご利用規約</a> <a class="l-nav-mega__info-item" href="/legal/privacy/">プライバシーポリシー</a> <a class="l-nav-mega__info-item" href="/legal/tokushoho/">特定商取引法に基づく表記</a></div>
+    </div>
+    <div class="l-wrapper">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="l-lowpage02 l-lowpage02--responsive">
+            <div class="l-tl02">
+              <div class="c-select c-select--fixed">
+                <div class="c-select__item c-select__item--02" data-nav-sm-btn=""><img class="c-select__icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span class="c-select__txt">見積依頼</span></div>
+              </div>
+              <div class="l-nav-mega02" data-nav-sm="">
+                <div class="l-lowpage02__nav">
+                  <ul class="l-lowpage02__nav-list">
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-dashbord.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> ダッシュボード</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-task.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 案件管理</a>
+                      <div class="l-lowpage02__nav-list-num">
+                        <div class="c-text-num">1</div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage02__nav-list-item is-active"><a href="/mypage/easy-estimate/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 見積依頼</a></li>
+										<li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 注文依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/favorite/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-favorite.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> お気に入り製品</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/invoice/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-request.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 請求書</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/user/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-accout-user.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 会員情報</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/address/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-location.svg" data-no-inline="" alt="" height="24" width="24" decoding="async">納品先</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/members/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-user.svg" data-no-inline="" alt="" height="24" width="24" decoding="async">ユーザー管理</a></li>
+                    <li class="l-lowpage02__nav-list-item l-lowpage02__nav-list-item--accordion"><a href="#" data-ac-btn="nav-toc"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-useful.svg" alt="" height="24" width="24" decoding="async">もっと活用！</a>
+                      <ul class="l-lowpage02__accordion-list" data-ac="nav-toc">
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/">タイトルが入りますタイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="l-lg">
+              <div class="l-widget l-widget--nav">
+                <div class="l-widget__item" data-sort-btn="cat"><span>カテゴリ検索</span></div>
+                <div class="l-widget__item" data-sort-btn="mnft"><span>メーカー検索</span></div>
+                <div class="c-input-search"><input class="c-input-search__item c-input-search__item--white" type="search" placeholder="キーワード検索"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+              </div>
+            </div>
+            <div class="l-breadcrumbs">
+              <ul class="l-breadcrumbs__list">
+                <li class="l-breadcrumbs__list-item"><a href="/./">ホーム</a></li>
+                <li class="l-breadcrumbs__list-item"><a href="/mypage/">マイページ</a></li>
+                <li class="l-breadcrumbs__list-item">見積依頼</li>
+              </ul>
+            </div>
+            <div class="l-lowpage02__area l-sm">
+              <nav class="c-list__nav">
+                <ul class="c-list__nav-list">
+                  <li class="c-list__nav-list-item">❶<br class="l-sm">見積依頼内容を<br class="l-sm">入力</li>
+                  <li class="c-list__nav-list-item">❷<br class="l-sm">見積依頼内容を<br class="l-sm">確認</li>
+                  <li class="c-list__nav-list-item is-active">❸<br class="l-sm">見積依頼<br class="l-sm">完了</li>
+                </ul>
+              </nav>
+            </div>
+            <div class="l-inline-wide">
+              <div class="l-lowpage02__structure">
+                <div class="l-lowpage02__nav l-tl03" data-sticky="">
+                  <ul class="l-lowpage02__nav-list">
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-dashbord.svg" alt="" height="24" width="24" decoding="async"> ダッシュボード</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-task.svg" alt="" height="24" width="24" decoding="async"> 案件管理</a>
+                      <div class="l-lowpage02__nav-list-num">
+                        <div class="c-text-num">1</div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage02__nav-list-item is-active"><a href="/mypage/easy-estimate/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 見積依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 注文依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/favorite/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-favorite.svg" alt="" height="24" width="24" decoding="async"> お気に入り製品</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/invoice/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-request.svg" alt="" height="24" width="24" decoding="async"> 請求書</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/user/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-accout-user.svg" alt="" height="24" width="24" decoding="async"> 会員情報</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/address/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-location.svg" alt="" height="24" width="24" decoding="async">納品先</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/members/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-user.svg" alt="" height="24" width="24" decoding="async">ユーザー管理</a></li>
+                    <li class="l-lowpage02__nav-list-item l-lowpage02__nav-list-item--accordion"><a href="#" class="" data-ac-btn="nav-toc-lg"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-useful.svg" alt="" height="24" width="24" decoding="async">もっと活用！</a>
+                      <ul class="l-lowpage02__accordion-list" data-ac="nav-toc-lg">
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/">タイトルが入りますタイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="l-lowpage02__contents">
+                  <div class="l-lowpage02__contents-area">
+                    <div class="l-lowpage02__area l-lg">
+                      <h2 class="c-ttl-secondary">見積依頼</h2>
+                      <nav class="c-list__nav">
+                        <ul class="c-list__nav-list">
+                          <li class="c-list__nav-list-item">❶<span class="l-lg">&nbsp;</span><br class="l-sm">見積依頼<span class="l-lg">内容</span><br class="l-sm">を入力</li>
+                          <li class="c-list__nav-list-item">❷<span class="l-lg">&nbsp;</span><br class="l-sm">見積依頼<span class="l-lg">内容</span><br class="l-sm">を確認</li>
+                          <li class="c-list__nav-list-item is-active">❸<span class="l-lg">&nbsp;</span><br class="l-sm">見積依頼<br class="l-sm">完了</li>
+                        </ul>
+                      </nav>
+                    </div>
+                    <h2 class="c-ttl-secondary l-sm">見積依頼</h2>
+                    <h2 class="c-ttl-normal u-mt40">見積が完了しました。</h2>
+                    <p class="u-mt20">見積手続きが完了いたしました。<br>ご登録のメールアドレス宛に見積確認メールをお送りしましたので、内容をご確認ください。</p>
+                    <p class="u-fs14 u-text-indent u-lh15 u-mt20">※見積完了後、進捗状況に応じた内容の編集や各種お問い合わせは、マイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" rel="noopener noreferrer">案件管理</a>より行えます。</p>
+                    <p class="u-text-indent u-fs14 u-lh15 u-mt4">※表示されている送料は、現時点での入力内容（納品先・配送条件）に基づいた概算です。見積依頼内容の変更や追加、配送条件の変更が発生した場合は、送料が再計算され変更となる場合がございます。</p>
+                    <p class="u-text-indent u-fs14 u-lh15 u-mt4">※ご記入の納品希望日時は配送手配の目安となります。在庫状況や交通事情、天候等により、予告なく変更となる可能性があることを予めご了承ください。<br>正確な発送日は、確定次第マイページにてお知らせいたします。</p>
+                    <div class="c-unit-btn u-mt32"><a class="c-btn-icon c-btn-icon--grey" href="/./"><img class="c-btn-icon__icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span> </a><a class="c-btn-icon c-btn-icon--grey" href="/mypage/order/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-task.svg" alt="" height="24" width="24" decoding="async"> <span>案件管理</span></a></div>
+                  </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+                  <footer class="l-footer l-footer--padding">
+                    <div class="l-footer__contents">
+                      <div class="l-footer__detail"><a class="l-footer__logo" href="/./"><img src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a>
+                        <ul class="l-footer__list">
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/./"><img class="l-footer__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/products/"><img class="l-footer__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/"><img class="l-footer__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/faq/"><img class="l-footer__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/news/"><img class="l-footer__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+                        </ul>
+                        <div class="l-footer__parts"><a class="l-footer__parts-txt" href="/legal/terms/">ご利用規約</a> <a class="l-footer__parts-txt" href="/legal/tokushoho/">特定商取引法に基づく表記</a> <a class="l-footer__parts-txt" href="/legal/privacy/">プライバシーポリシー</a></div>
+                        <div class="l-footer__area"><a class="c-btn-icon" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>お問い合わせ</span></a>
+                          <div class="l-footer__info">月〜金｜10:00 ~ 17:00<br>土日祝｜定休日</div>
+                        </div>
+                      </div>
+                      <div class="l-footer__detail">
+                        <div class="l-footer__calender">
+                          <div class="l-footer__calender-month"><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-left.svg" alt="" height="11" width="7" decoding="async">
+                            <p class="l-footer__calender-month-txt">2025年12月の営業日</p><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-right.svg" alt="" height="11" width="7" decoding="async">
+                          </div>
+                          <div class="l-footer__calender-table">
+                            <div class="l-footer__calender-tr l-footer__calender-tr--week">
+                              <div class="l-footer__calender-td"><span>月</span></div>
+                              <div class="l-footer__calender-td"><span>火</span></div>
+                              <div class="l-footer__calender-td"><span>水</span></div>
+                              <div class="l-footer__calender-td"><span>木</span></div>
+                              <div class="l-footer__calender-td"><span>金</span></div>
+                              <div class="l-footer__calender-td"><span>土</span></div>
+                              <div class="l-footer__calender-td"><span>日</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">1</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">2</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">3</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">4</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">5</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">6</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">7</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">8</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">9</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">10</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">11</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">12</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">13</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">14</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">15</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">16</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">17</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">18</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">19</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">20</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">21</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">22</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">23</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">24</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">25</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">26</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">27</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">28</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">29</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">30</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">31</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><small>© 空調部材プロ by 靜甲</small>
+                  </footer>
+                </div>
+              </div>
+            </div>
+            <div class="c-modal c-modal--cat c-modal--adjust" data-sort-modal="cat">
+              <div class="c-modal__area l-tl">
+                <div class="c-modal__area-txt">カテゴリ検索</div>
+                <div class="c-modal__close"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal__contents">
+                <ul class="c-modal__list">
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">高置架台</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">防振架台</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image03.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">防振部材</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image04.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">木台</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image05.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ドレンパン</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image06.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ドレンポンプ</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image07.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ワイドパネル</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image08.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ワイドスペーサー</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image09.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">スペーサー</p>
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="c-modal c-modal--mnft c-modal--adjust" data-sort-modal="mnft">
+              <div class="c-modal__area l-tl">
+                <div class="c-modal__area-txt">メーカー検索</div>
+                <div class="c-modal__close"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal__contents">
+                <ul class="c-modal__list">
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">倉敷化工株式会社</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社エヌ・エス・シー</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image03.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社シモヤマ</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image04.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">日晴金属株式会社</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image05.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社ダイアン・サービス</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image06.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社潮</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image08.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">東亜電気工業株式会社</p>
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

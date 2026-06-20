@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>新規会員登録</title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="新規会員登録">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header-register">
+      <div class="l-header-register__inner">
+        <div class="l-header-register__area">
+          <h1 class="l-header-register__logo"><a href="/"><img class="l-header-register__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+          <div class="l-header-register__ttl">新規会員登録</div>
+        </div>
+        <nav class="l-header-register__nav">
+          <ul class="l-header-register__nav-list">
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❶<span class="l-lg">&nbsp;</span><br class="l-sm">会員情報<br class="l-sm">を入力</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❷<span class="l-lg">&nbsp;</span><br class="l-sm">入力内容<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❸<span class="l-lg">&nbsp;</span><br class="l-sm">メール<br class="l-sm">アドレス<br class="l-sm">確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive is-active">❹<span class="l-lg">&nbsp;</span><br class="l-sm">登録受付<br class="l-sm">完了</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--responsive">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="p-register">
+            <div class="l-inline-responsive-none">
+              <div class="p-register__contents">
+                <div class="p-register__moment-grid">
+                  <div class="p-register__moment-grid-item">
+                    <h2 class="c-ttl-normal">新規会員の登録依頼を承りました。</h2>
+                    <p class="u-mt24">お手続きいただき ありがとうございます。<br>弊社内部処理 完了次第、新規会員登録の完了となります。<br>処理完了しましたらメールにてご案内を申し上げます。今しばらくお待ちくださいませ。</p>
+                    <div class="c-card c-card--width u-mt16"><span>送信先</span>
+                      <p>info@seiko-co.com</p>
+                    </div>
+                    <p class="u-text-indent u-fs14 u-lh15 u-mt16">※ドメイン指定受信を設定されている場合は、@seiko-co.com からのメールを受信できるよう設定をお願いします。</p><img class="p-register__moment-image u-mt32 l-sm" src="/assets/images/common/complete-image02.png" alt="" height="652" width="800" decoding="async" loading="lazy">
+                    <div class="c-unit-btn u-mt32"><a class="c-btn-icon c-btn-icon--grey" href="/./"><img class="c-btn-icon__icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span> </a><a class="c-btn-icon c-btn-icon--grey" href="/products/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span> </a><a class="c-btn-icon c-btn-icon--grey" href="/guide/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></div>
+                  </div>
+                  <div class="p-register__moment-grid-item l-lg"><img class="p-register__moment-image" src="/assets/images/common/complete-image02.png" alt="" height="652" width="800" decoding="async" loading="lazy"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

@@ -1,0 +1,167 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+
+.u-gap4{
+  gap: .4rem;
+}
+
+
+.u-gap8{
+  gap: .8rem;
+}
+
+
+.u-gap16{
+  gap: 1.6rem;
+}
+
+.u-gap20{
+  gap: 2rem;
+}
+
+
+.u-gap24{
+  gap: 2.4rem;
+}
+
+.u-gap32{
+  gap: 3.2rem;
+}
+
+.u-gap40{
+  gap: 4rem;
+}
+
+.u-gap48{
+  gap: 4.8rem;
+}
+
+.u-gap56{
+  gap: 5.6rem;
+}
+
+.u-gap64{
+  gap: 6.4rem;
+}
+
+.u-gap70{
+  gap: 7rem;
+}
+
+
+.u-gap80{
+  gap: 8rem;
+}
+
+.u-gap88{
+  gap: 8.8rem;
+}
+
+.u-gap90{
+  gap: 9rem;
+}
+
+.u-gap94{
+  gap: 9.4rem;
+}
+
+.u-gap104{
+  gap: 10.4rem;
+}
+
+.u-gap108{
+  gap: 10.8rem;
+}
+
+.u-gap140{
+  gap: 14rem;
+}
+
+.u-gap144{
+  gap: 14.4rem;
+}
+
+.u-gap8-sm{
+  @include media(sm) {
+    gap: .8rem;
+  }
+}
+
+.u-gap14-sm{
+  @include media(sm) {
+    gap: 1.4rem;
+  }
+}
+
+.u-gap16-sm{
+  @include media(sm) {
+    gap: 1.6rem;
+  }
+}
+
+
+.u-gap20-sm{
+  @include media(sm) {
+    gap: 2rem;
+  }
+}
+
+
+.u-gap24-sm{
+  @include media(sm) {
+    gap: 2.4rem;
+  }
+}
+
+.u-gap28-sm{
+  @include media(sm) {
+    gap: 2.8rem;
+  }
+}
+
+.u-gap32-sm{
+  @include media(sm) {
+    gap: 3.2rem;
+  }
+}
+
+.u-gap40-sm{
+  @include media(sm) {
+    gap: 4rem;
+  }
+}
+
+.u-gap48-sm{
+  @include media(sm) {
+    gap: 4.8rem;
+  }
+}
+
+.u-gap56-sm{
+  @include media(sm) {
+    gap: 5.6rem;
+  }
+}
+
+.u-gap64-sm{
+  @include media(sm) {
+    gap: 6.4rem;
+  }
+}
+
+.u-gap68-sm{
+  @include media(sm) {
+    gap: 6.8rem;
+  }
+}
+
+
+.u-gap80-sm{
+  @include media(sm) {
+    gap: 8rem;
+  }
+}

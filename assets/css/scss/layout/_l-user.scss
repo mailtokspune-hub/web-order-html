@@ -1,0 +1,58 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-user{
+  width: 100%;
+  &__grid{
+    display: grid;
+    gap:2.4rem;
+    grid-template-columns: max-content 1fr;
+    @include media(sm) {
+      grid-template-columns: 1fr;
+    }
+    &--align-center{
+      align-items: center;
+    }
+  }
+  &__image{
+    display: block;
+    border-radius: 50%;
+    width:10rem;
+    height:10rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    object-fit: cover;
+    @include media(sm) {
+      margin:0 auto;
+      width:12rem;
+      height:12rem;
+    }
+    &--02{
+      width:6.4rem;
+    height:6.4rem;
+    }
+  }
+
+  &__ttl{
+    @include fz(24, true, 32, 600, 0);
+  }
+
+  &__grid-parts{
+    display: flex;
+    align-items: center;
+    gap:1.6rem;
+    @include media(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap:1.4rem
+    }
+  }
+
+  &__area-parts{
+    white-space: nowrap;
+    @include fz(12, true, 20, 400, 0);
+  }
+  
+}

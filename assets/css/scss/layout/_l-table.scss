@@ -1,0 +1,60 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-table {
+
+  &__contents{
+    overflow-x: auto;
+    
+  }
+  &__tr{
+    display: grid;
+    transition:$transition;
+    min-width: 116rem;
+    grid-template-columns: 16rem 28rem 24rem 10rem 16rem 1fr;
+    border-top: 1px solid color(border);
+    &:last-of-type{
+      border-bottom: 1px solid color(border);
+    }
+
+    &.is-inactive{
+      &:hover{
+      background-color: transparent;
+    }
+      .l-table__td{
+        color:#B2B2B2;
+      }
+    }
+
+    &:hover{
+      background-color: #F7F7F7;
+      @include media(sm) {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__th{
+    padding:.8rem 0 .8rem 2.4rem;
+    background-color: #F7F7F7;
+    @include fz(12, true, 18, 600, 0);
+  }
+
+  &__td{
+    cursor: pointer;
+    height:7rem;
+    display: flex;
+    align-items: center;
+    padding:1.4rem 1.6rem 1.4rem 2.4rem;
+    @include fz(16, true, 24, 400, 0);
+    &--end{
+      justify-content: flex-end;
+    }
+    span{
+      white-space: nowrap;
+    }
+  }
+}

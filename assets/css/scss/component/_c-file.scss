@@ -1,0 +1,64 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-file{
+  display: flex;
+  flex-wrap: wrap;
+  gap:.8rem;
+  &__item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:.4rem;
+    color:color(default-gray);
+    border: 1px solid color(border);
+    border-radius: 4px;
+    transition: $transition;
+    padding: .4rem 1.2rem;
+    background-color: color(default-white);
+    &--color01{
+      border:none;
+      color:color(default-white);
+      background-color: #1B4D9A;
+      &:hover{
+        background-color: #2266CE;
+      }
+    }
+    &--color02{
+      border:none;
+      color:color(default-white);
+      background-color: #43A1DE;
+      &:hover{
+        background-color: #21B6F2;
+      }
+    }
+    &--color03{
+      border:none;
+      color:color(default-white);
+      background-color: #1CBB9B;
+      &:hover{
+        background-color: #00D0A6;
+      }
+    }
+    &--color04{
+      border:none;
+      color:color(default-white);
+      background-color: #F1C404;
+      &:hover{
+        background-color: #FFAE00;
+      }
+    }
+    &--color05{
+      border:none;
+      color:color(default-white);
+      background-color: #6996AA;
+      &:hover{
+        background-color: #57A6C7;
+      }
+    }
+  }
+}
+

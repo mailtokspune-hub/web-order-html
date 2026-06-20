@@ -1,0 +1,17 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+
+.u-width-full{
+  width:100%
+}
+
+.u-width-full-sm{
+  @include media(sm) {
+    width:100%
+  }
+  
+}

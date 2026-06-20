@@ -1,0 +1,1466 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>ユーザー管理</title>
+  <meta name="description" content="サンプルテキストです">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/mypage/address03/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="ユーザー管理">
+  <meta property="og:description" content="サンプルテキストです">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/mypage/address03/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          if (img.hasAttribute('data-no-inline')) continue;
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header">
+      <div class="l-header__inner">
+        <div class="l-header__area">
+          <h1 class="l-header__logo"><a href="/"><img class="l-header__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+        </div>
+        <nav class="l-header__nav">
+          <div class="l-header__list">
+            <div class="l-header__list-area">
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/./"><img class="l-header__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/products/"><img class="l-header__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/guide/"><img class="l-header__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/guide/faq/"><img class="l-header__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></div>
+            </div>
+            <div class="l-header__list-area">
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/news/"><img class="l-header__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-header__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-header__list-icon l-header__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-header__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-header__list-icon l-header__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+            </div>
+          </div>
+          <div class="l-header__btn-area"><a class="c-btn-icon c-btn-icon--responsive" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span class="c-btn-icon__txt c-btn-icon__txt--responsive">お問い合わせ</span> </a><a class="c-btn-icon c-btn-icon--responsive" href="/cart/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-cart.svg" alt="" height="24" width="24" decoding="async"> <span class="c-btn-icon__txt c-btn-icon__txt--responsive">カート</span> <span class="c-btn-icon__num">1</span></a>
+            <div class="l-header__list-menu" data-item-btn="header"><img class="l-header__list-menu-icon" src="/assets/images/common/icon-ellipse.png" alt="" height="48" width="48" decoding="async" loading="lazy"> <span class="c-btn-icon__num">1</span>
+              <div class="c-modal-small c-modal-small--header" data-item="header">
+                <ul class="c-modal-small__list">
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/mypage/"><img src="/assets/images/common/icon-accout.svg" alt="" height="24" width="24" decoding="async"> <span>マイページ</span></a></li>
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/mypage/order/"><img src="/assets/images/common/icon-message.svg" alt="" height="24" width="24" decoding="async"> <span>メッセージ</span> <span class="c-text-num">1</span></a></li>
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/./logout.html"><img src="/assets/images/common/icon-logout.svg" alt="" height="24" width="24" decoding="async"> <span>ログアウト</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="c-hamburger"><span></span> <span></span> <span></span></div>
+    <div class="l-nav-mega">
+      <nav class="l-nav-mega__navigation">
+        <div class="l-nav-mega__area"><a class="c-btn-icon" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>お問い合わせ</span></a></div>
+        <div class="l-widget l-widget--nav">
+          <div class="l-widget__item" data-sort-btn="cat"><span>カテゴリ検索</span></div>
+          <div class="l-widget__item" data-sort-btn="mnft"><span>メーカー検索</span></div>
+          <div class="c-input-search"><input class="c-input-search__item c-input-search__item--white" type="search" placeholder="キーワード検索"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+        </div>
+        <ul class="l-nav-mega__list">
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/./"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/products/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/guide/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/guide/faq/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/news/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-nav-mega__list-icon l-nav-mega__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-nav-mega__list-icon l-nav-mega__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+        </ul>
+      </nav>
+      <div class="l-nav-mega__info"><a class="l-nav-mega__info-item" href="/legal/terms/">ご利用規約</a> <a class="l-nav-mega__info-item" href="/legal/privacy/">プライバシーポリシー</a> <a class="l-nav-mega__info-item" href="/legal/tokushoho/">特定商取引法に基づく表記</a></div>
+    </div>
+    <div class="l-wrapper">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="l-lowpage02 l-lowpage02--responsive">
+            <div class="l-tl02">
+              <div class="c-select c-select--fixed">
+                <div class="c-select__item c-select__item--02" data-nav-sm-btn=""><img class="c-select__icon" src="/assets/images/common/icon-user.svg" alt="" height="24" width="24" decoding="async"> <span class="c-select__txt">ユーザー管理</span></div>
+              </div>
+              <div class="l-nav-mega02" data-nav-sm="">
+                <div class="l-lowpage02__nav">
+                  <ul class="l-lowpage02__nav-list">
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-dashbord.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> ダッシュボード</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-task.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 案件管理</a>
+                      <div class="l-lowpage02__nav-list-num">
+                        <div class="c-text-num">1</div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-estimate/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 見積依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 注文依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/favorite/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-favorite.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> お気に入り製品</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/invoice/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-request.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 請求書</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/user/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-accout-user.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 会員情報</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/address/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-location.svg" data-no-inline="" alt="" height="24" width="24" decoding="async">納品先</a></li>
+                    <li class="l-lowpage02__nav-list-item is-active"><a href="/mypage/members/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-user.svg" alt="" height="24" width="24" decoding="async">ユーザー管理</a></li>
+                    <li class="l-lowpage02__nav-list-item l-lowpage02__nav-list-item--accordion"><a href="#" data-ac-btn="nav-toc"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-useful.svg" alt="" height="24" width="24" decoding="async">もっと活用！</a>
+                      <ul class="l-lowpage02__accordion-list" data-ac="nav-toc">
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/">タイトルが入りますタイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="l-lg">
+              <div class="l-widget l-widget--nav">
+                <div class="l-widget__item" data-sort-btn="cat"><span>カテゴリ検索</span></div>
+                <div class="l-widget__item" data-sort-btn="mnft"><span>メーカー検索</span></div>
+                <div class="c-input-search"><input class="c-input-search__item c-input-search__item--white" type="search" placeholder="キーワード検索"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+              </div>
+            </div>
+            <div class="l-breadcrumbs">
+              <ul class="l-breadcrumbs__list">
+                <li class="l-breadcrumbs__list-item"><a href="/./">ホーム</a></li>
+                <li class="l-breadcrumbs__list-item"><a href="/mypage/">マイページ</a></li>
+                <li class="l-breadcrumbs__list-item">ユーザー管理</li>
+              </ul>
+            </div>
+            <div class="l-inline-wide">
+              <div class="l-lowpage02__structure">
+                <div class="l-lowpage02__nav l-tl03" data-sticky="">
+                  <ul class="l-lowpage02__nav-list">
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-dashbord.svg" alt="" height="24" width="24" decoding="async"> ダッシュボード</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-task.svg" alt="" height="24" width="24" decoding="async"> 案件管理</a>
+                      <div class="l-lowpage02__nav-list-num">
+                        <div class="c-text-num">1</div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-estimate/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 見積依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 注文依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/favorite/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-favorite.svg" alt="" height="24" width="24" decoding="async"> お気に入り製品</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/invoice/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-request.svg" alt="" height="24" width="24" decoding="async"> 請求書</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/user/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-accout-user.svg" alt="" height="24" width="24" decoding="async"> 会員情報</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/address/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-location.svg" alt="" height="24" width="24" decoding="async">納品先</a></li>
+                    <li class="l-lowpage02__nav-list-item is-active"><a href="/mypage/members/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-user.svg" alt="" height="24" width="24" decoding="async">ユーザー管理</a></li>
+                    <li class="l-lowpage02__nav-list-item l-lowpage02__nav-list-item--accordion"><a href="#" class="" data-ac-btn="nav-toc-lg"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-useful.svg" alt="" height="24" width="24" decoding="async">もっと活用！</a>
+                      <ul class="l-lowpage02__accordion-list" data-ac="nav-toc-lg">
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/">タイトルが入りますタイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="l-lowpage02__contents">
+                  <div class="l-lowpage02__contents-area">
+                    <div class="l-lowpage02__area l-lowpage02__area--responsive-border l-lowpage02__area--responsive-column">
+                      <h2 class="c-ttl-secondary">ユーザー管理</h2>
+                      <div class="u-dp-flex u-al-center u-fw-wrap u-width-full-sm u-gap8 u-mt24-sm"><a href="/./" download="" class="c-btn-icon-small c-btn-icon-small--flex"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">CSVダウンロード</span></a>
+                        <div class="c-btn-icon-small c-btn-icon-small--flex" data-modal-active="add-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-add-user.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">ユーザーの追加</span></div>
+                      </div>
+                    </div>
+                    <div class="l-lowpage__area u-mt24-sm">
+                      <div class="l-lowpage__area-parts">
+                        <div class="c-text-result">検索結果 1,234件（1-20件）</div>
+                      </div>
+                      <div class="c-unit-widget u-mt16-sm">
+                        <div class="c-unit-widget__item l-lg" data-item-btn="display"><span class="c-unit-widget__txt" data-value="display">20件表示</span>
+                          <div class="c-modal-small" data-item="display">
+                            <ul class="c-modal-small__list">
+                              <li class="c-modal-small__list-item" data-option="display"><span>20件表示</span></li>
+                              <li class="c-modal-small__list-item" data-option="display"><span>50件表示</span></li>
+                              <li class="c-modal-small__list-item" data-option="display"><span>100件表示</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="c-unit-widget__item c-unit-widget__item--sort c-unit-widget__item--width l-sm" data-modal-active="mypage-sort"><span class="c-unit-widget__txt">絞り込み</span> <img class="c-unit-widget__icon" src="/assets/images/common/icon-sort.svg" alt="" height="24" width="24" decoding="async"></div>
+                      </div>
+                    </div>
+                    <div class="l-search u-mt24 l-lg" data-search="">
+                      <div class="l-search__accordion-btn" data-ac-btn="search"><span>絞り込み</span></div>
+                      <div class="l-search__accordion-wrapper" data-ac="search">
+                        <div class="l-search__accordion-item">
+                          <div class="l-search__grid u-mt16">
+                            <div class="c-input c-input--row">
+                              <div class="c-input__area">
+                                <div class="c-input__txt">氏名</div>
+                              </div><input class="c-input__item" type="text">
+                            </div>
+                            <div class="c-input c-input--row">
+                              <div class="c-input__area">
+                                <div class="c-input__txt">メールアドレス</div>
+                              </div><input class="c-input__item" type="text">
+                            </div>
+                          </div>
+                          <div class="l-search__area l-search__area--align-start">
+                            <div class="l-search__area-txt l-search__area-txt--padding">カテゴリ</div>
+                            <div class="l-search__area-parts">
+                              <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">ユーザー管理</label></div>
+                              <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">購買</label></div>
+                              <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">日付変更</label></div>
+                              <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">請求書ダウンロード</label></div>
+                            </div>
+                          </div>
+                          <div class="l-search__area l-search__area--align-start">
+                            <div class="l-search__area-txt l-search__area-txt--padding">状態</div>
+                            <div class="l-search__area-parts">
+                              <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">有効</label></div>
+                              <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">無功</label></div>
+                            </div>
+                          </div>
+                          <div class="l-search__area">
+                            <div class="l-search__area-txt">最終ログイン</div>
+                            <div class="c-input">
+                              <div class="c-input__description">
+                                <div class="c-input__calnder"><input class="c-input__item c-input__item--width02" type="text" placeholder="---- / -- / --" data-calendar=""> <img class="c-input__calnder-icon" src="/assets/images/common/icon-calender.svg" alt="" height="24" width="24" decoding="async"></div>
+                                <p class="u-fs14">〜</p>
+                                <div class="c-input__calnder"><input class="c-input__item c-input__item--width02" type="text" placeholder="---- / -- / --" data-calendar=""> <img class="c-input__calnder-icon" src="/assets/images/common/icon-calender.svg" alt="" height="24" width="24" decoding="async"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="l-search__btn">
+                            <div class="c-btn-small c-btn-small--left" data-search-cancel="">リセット</div>
+                            <div class="c-btn-normal c-btn-normal--height c-btn-normal--left">絞り込み</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="l-table l-lg u-mt24">
+                      <div class="l-table__contents">
+                        <div class="l-table__tr">
+                          <div class="l-table__th"><span>氏名</span></div>
+                          <div class="l-table__th"><span>メールアドレス</span></div>
+                          <div class="l-table__th"><span>権限</span></div>
+                          <div class="l-table__th"><span>状態</span></div>
+                          <div class="l-table__th"><span>最終ログイン</span></div>
+                          <div class="l-table__th"></div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr is-inactive" data-modal-active="user-info">
+                          <div class="l-table__td"><span>田中 太郎</span></div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust is-inactive">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation">無効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-table__tr" data-modal-active="user-info">
+                          <div class="l-table__td">
+                            <div class="l-table__td-link">田中 太郎</div>
+                          </div>
+                          <div class="l-table__td"><span>info@seiko-co.com</span></div>
+                          <div class="l-table__td">
+                            <div class="c-tag c-tag--adjust">
+                              <div class="c-tag__item">ユーザー管理</div>
+                              <div class="c-tag__item">購買</div>
+                              <div class="c-tag__item">日付変更</div>
+                              <div class="c-tag__item">請求書ダウンロード</div>
+                            </div>
+                          </div>
+                          <div class="l-table__td">
+                            <div class="c-text-situation is-active">有効</div>
+                          </div>
+                          <div class="l-table__td"><span>2025/01/01 11:00</span></div>
+                          <div class="l-table__td l-table__td--end">
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="l-card u-mt24 u-mt40-sm l-sm">
+                      <ul class="l-card__list l-card__list--responsive">
+                        <li class="l-card__list-item l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--width is-inactive" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt8 is-inactive">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12">無効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="l-card__list-item l-card__list-item--responsive-border l-card__list-item--width" data-modal-active="user-info">
+                          <div class="l-card__list-ttl">田中 太郎 様</div>
+                          <p class="l-card__list-txt">info@seiko-co.com</p>
+                          <div class="c-tag c-tag--adjust u-mt12">
+                            <div class="c-tag__item">ユーザー管理</div>
+                            <div class="c-tag__item">購買</div>
+                            <div class="c-tag__item">日付変更</div>
+                            <div class="c-tag__item">請求書ダウンロード</div>
+                          </div>
+                          <div class="c-text-situation u-mt12 is-active">有効</div>
+                          <p class="u-mt8"><span class="u-fs14">最終ログイン</span>：2025/01/01 11:00</p>
+                          <div class="u-dp-flex u-jc-end u-mt8">
+                            <div class="l-card__list-parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="u-mt64">
+                      <div class="c-pagenation"><a class="c-pagenation__item" href="#"><img src="/assets/images/common/arrow-left-double.svg" alt="" height="11" width="13" decoding="async"> </a><a class="c-pagenation__item" href="#"><img src="/assets/images/common/arrow-left.svg" alt="" height="11" width="7" decoding="async"></a>
+                        <div class="c-pagenation__item is-active"><span class="c-pagenation__num">1</span></div><a class="c-pagenation__item" href="#"><span class="c-pagenation__num">2</span> </a><a class="c-pagenation__item" href="#"><span class="c-pagenation__num">3</span> </a><a class="c-pagenation__item l-lg" href="#"><span class="c-pagenation__num">4</span> </a><a class="c-pagenation__item l-lg" href="#"><span class="c-pagenation__num">5</span></a>
+                        <div class="c-pagenation__item is-inactive"><span class="c-pagenation__num">...</span></div><a class="c-pagenation__item" href="#"><span class="c-pagenation__num">101</span> </a><a class="c-pagenation__item" href="#"><img src="/assets/images/common/arrow-right.svg" alt="" height="11" width="7" decoding="async"> </a><a class="c-pagenation__item" href="#"><img src="/assets/images/common/arrow-right-double.svg" alt="" height="11" width="13" decoding="async"></a>
+                      </div>
+                    </div>
+                  </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+                  <footer class="l-footer l-footer--padding">
+                    <div class="l-footer__contents">
+                      <div class="l-footer__detail"><a class="l-footer__logo" href="/./"><img src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a>
+                        <ul class="l-footer__list">
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/./"><img class="l-footer__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/products/"><img class="l-footer__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/"><img class="l-footer__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/faq/"><img class="l-footer__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/news/"><img class="l-footer__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+                        </ul>
+                        <div class="l-footer__parts"><a class="l-footer__parts-txt" href="/legal/terms/">ご利用規約</a> <a class="l-footer__parts-txt" href="/legal/tokushoho/">特定商取引法に基づく表記</a> <a class="l-footer__parts-txt" href="/legal/privacy/">プライバシーポリシー</a></div>
+                        <div class="l-footer__area"><a class="c-btn-icon" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>お問い合わせ</span></a>
+                          <div class="l-footer__info">月〜金｜10:00 ~ 17:00<br>土日祝｜定休日</div>
+                        </div>
+                      </div>
+                      <div class="l-footer__detail">
+                        <div class="l-footer__calender">
+                          <div class="l-footer__calender-month"><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-left.svg" alt="" height="11" width="7" decoding="async">
+                            <p class="l-footer__calender-month-txt">2025年12月の営業日</p><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-right.svg" alt="" height="11" width="7" decoding="async">
+                          </div>
+                          <div class="l-footer__calender-table">
+                            <div class="l-footer__calender-tr l-footer__calender-tr--week">
+                              <div class="l-footer__calender-td"><span>月</span></div>
+                              <div class="l-footer__calender-td"><span>火</span></div>
+                              <div class="l-footer__calender-td"><span>水</span></div>
+                              <div class="l-footer__calender-td"><span>木</span></div>
+                              <div class="l-footer__calender-td"><span>金</span></div>
+                              <div class="l-footer__calender-td"><span>土</span></div>
+                              <div class="l-footer__calender-td"><span>日</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">1</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">2</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">3</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">4</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">5</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">6</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">7</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">8</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">9</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">10</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">11</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">12</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">13</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">14</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">15</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">16</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">17</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">18</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">19</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">20</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">21</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">22</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">23</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">24</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">25</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">26</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">27</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">28</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">29</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">30</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">31</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><small>© 空調部材プロ by 靜甲</small>
+                  </footer>
+                </div>
+              </div>
+            </div>
+            <div class="c-modal c-modal--cat c-modal--adjust" data-sort-modal="cat">
+              <div class="c-modal__area l-tl">
+                <div class="c-modal__area-txt">カテゴリ検索</div>
+                <div class="c-modal__close"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal__contents">
+                <ul class="c-modal__list">
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">高置架台</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">防振架台</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image03.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">防振部材</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image04.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">木台</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image05.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ドレンパン</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image06.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ドレンポンプ</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image07.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ワイドパネル</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image08.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">ワイドスペーサー</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image09.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">スペーサー</p>
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="c-modal c-modal--mnft c-modal--adjust" data-sort-modal="mnft">
+              <div class="c-modal__area l-tl">
+                <div class="c-modal__area-txt">メーカー検索</div>
+                <div class="c-modal__close"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal__contents">
+                <ul class="c-modal__list">
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">倉敷化工株式会社</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社エヌ・エス・シー</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image03.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社シモヤマ</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image04.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">日晴金属株式会社</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image05.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社ダイアン・サービス</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image06.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">株式会社潮</p>
+                    </a></li>
+                  <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image08.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                      <p class="c-modal__list-txt">東亜電気工業株式会社</p>
+                    </a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="c-modal-login c-modal-login--default" data-modal="mypage-sort" data-search="">
+              <div class="c-modal-login__area">
+                <div class="c-modal-login__area-txt">絞り込み</div>
+                <div class="c-modal-login__close" data-modal-close="mypage-sort"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal-login__contents-wrapper">
+                <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                  <div class="l-search" data-search="">
+                    <div class="l-search__column">
+                      <div class="l-search__grid l-search__grid--responsive">
+                        <div class="l-search__grid">
+                          <div class="l-search__area">
+                            <div class="l-search__area-txt">氏名</div>
+                            <div class="c-input"><input class="c-input__item" type="text"></div>
+                          </div>
+                          <div class="l-search__area">
+                            <div class="l-search__area-txt">メールアドレス</div>
+                            <div class="c-input"><input class="c-input__item" type="text"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="l-search__area l-search__area--align-start">
+                        <div class="l-search__area-txt">権限</div>
+                        <div class="l-search__area-parts l-search__area-parts--responsive-column">
+                          <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">ユーザー管理</label></div>
+                          <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">購買</label></div>
+                          <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">日付変更</label></div>
+                          <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">請求書ダウンロード</label></div>
+                        </div>
+                      </div>
+                      <div class="l-search__area l-search__area--align-start">
+                        <div class="l-search__area-txt">状態</div>
+                        <div class="l-search__area-parts l-search__area-parts--responsive-column">
+                          <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">有効</label></div>
+                          <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">無功</label></div>
+                        </div>
+                      </div>
+                      <div class="l-search__area">
+                        <div class="l-search__area-txt">ご注文日</div>
+                        <div class="c-input">
+                          <div class="c-input__description c-input__description--nowrap">
+                            <div class="c-input__calnder"><input class="c-input__item c-input__item--width02" type="text" placeholder="---- / -- / --" data-calendar=""> <img class="c-input__calnder-icon" src="/assets/images/common/icon-calender.svg" alt="" height="24" width="24" decoding="async"></div>
+                            <p class="u-fs14">〜</p>
+                            <div class="c-input__calnder"><input class="c-input__item c-input__item--width02" type="text" placeholder="---- / -- / --" data-calendar=""> <img class="c-input__calnder-icon" src="/assets/images/common/icon-calender.svg" alt="" height="24" width="24" decoding="async"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-modal__btn-area l-sm">
+                  <div class="c-modal__btn-white" data-search-cancel="">リセット</div>
+                  <div class="c-modal__btn-blue">絞り込み</div>
+                </div>
+              </div>
+            </div>
+            <div class="c-modal-login c-modal-login--default" data-modal="add-user">
+              <div class="c-modal-login__area">
+                <div class="c-modal-login__area-txt">ユーザーの追加｜ユーザー情報入力</div>
+                <div class="c-modal-login__close" data-modal-close="add-user"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal-login__contents-wrapper">
+                <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                  <div class="l-form__table">
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">氏名</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="田中"> <input class="l-form__input" type="text" placeholder="太郎"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">氏名（カナ）</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="タナカ"> <input class="l-form__input" type="text" placeholder="タロウ"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">メールアドレス</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="info@seiko-co.com"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">権限</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="c-unit-check" data-radio="">
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">ユーザー管理</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">購買</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">日付変更</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">請求書ダウンロード</label></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">状態</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="c-input-radio" data-radio="">
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">有効</label></div>
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">無功</label></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">通知メール設定</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="c-unit-check" data-radio="">
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">チャット受信メール通知（顧客からのチャット受信時にメール通知する）</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">案件変更通知メール（顧客からの案件情報変更時にメール通知する）</label></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">会社名</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area">
+                        <div class="c-select" data-select-check-area="">
+                          <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                            <div class="c-select__modal" data-select="company">
+                              <div class="c-select__modal-area">
+                                <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                              </div>
+                              <div class="c-select__modal-contents">
+                                <ul class="c-select__check-list">
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">靜甲株式会社</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="c-select__btn-area">
+                                <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                                <div class="c-select__btn-area-parts">
+                                  <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                                  <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">所属</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">電話番号</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="0362614395" maxlength="10"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">郵便番号</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">都道府県</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid">
+                        <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京都"></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">市区町村</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="千代田区麹町"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">番地・ビル名</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階"></div>
+                    </div>
+                  </div>
+                  <div class="c-btn-normal u-mt40 l-lg" data-modal-active="confirm-user">入力内容を確認する</div>
+                  <div class="c-btn-small u-mt40 l-lg" data-modal-close="add-user">キャンセル</div>
+                </div>
+              </div>
+              <div class="c-modal__btn-area l-sm">
+                <div class="c-modal__btn-white" data-modal-close="add-user">キャンセル</div>
+                <div class="c-modal__btn-blue" data-modal-active="confirm-user">入力内容を確認する</div>
+              </div>
+            </div>
+            <div class="c-modal-login c-modal-login--default" data-modal="edit-user">
+              <div class="c-modal-login__area">
+                <div class="c-modal-login__area-txt">ユーザー情報の編集</div>
+                <div class="c-modal-login__close" data-modal-close="edit-user"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal-login__contents-wrapper">
+                <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                  <div class="l-form__table">
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">氏名</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="田中" value="田中"> <input class="l-form__input" type="text" placeholder="太郎" value="太郎"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">氏名（カナ）</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="タナカ" value="タナカ"> <input class="l-form__input" type="text" placeholder="タロウ" value="タロウ"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">権限</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="c-unit-check" data-radio="">
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">ユーザー管理</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">購買</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">日付変更</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">請求書ダウンロード</label></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">状態</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="c-input-radio" data-radio="">
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-radio-label="">有効</label></div>
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">無功</label></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">通知メール設定</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="c-unit-check" data-radio="">
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">チャット受信メール通知（顧客からのチャット受信時にメール通知する）</label></div>
+                        <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">案件変更通知メール（顧客からの案件情報変更時にメール通知する）</label></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">会社名</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area">
+                        <div class="c-select" data-select-check-area="">
+                          <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                            <div class="c-select__modal" data-select="company">
+                              <div class="c-select__modal-area">
+                                <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                              </div>
+                              <div class="c-select__modal-contents">
+                                <ul class="c-select__check-list">
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-select-check-value="">靜甲株式会社</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                  <li class="c-select__check-list-item" data-select-check="">
+                                    <div class="c-input-radio c-input-radio--ellipsis">
+                                      <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="c-select__btn-area">
+                                <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                                <div class="c-select__btn-area-parts">
+                                  <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                                  <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">所属</div>
+                        <div class="l-form__option">任意</div>
+                      </div>
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部" value="東京営業所 商事事業部"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">電話番号</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="0362614395" maxlength="10" value="0362614395"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">郵便番号</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="1020083" value="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">都道府県</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area l-form__input-area--grid">
+                        <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京都" value="東京都"></div>
+                      </div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">市区町村</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="千代田区麹町" value="千代田区麹町"></div>
+                    </div>
+                    <div class="l-form__tr">
+                      <div class="l-form__parts">
+                        <div class="l-form__txt">番地・ビル名</div>
+                        <div class="l-form__require">必須</div>
+                      </div>
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階" value="5丁目3番地3 麹町KSスクエア3階"></div>
+                    </div>
+                  </div>
+                  <div class="c-btn-normal u-mt40 l-lg">ユーザー情報を変更する</div>
+                  <div class="c-btn-small u-mt40 l-lg" data-modal-close="edit-user">キャンセル</div>
+                </div>
+              </div>
+              <div class="c-modal__btn-area l-sm">
+                <div class="c-modal__btn-white" data-modal-close="edit-user">キャンセル</div>
+                <div class="c-modal__btn-blue">ユーザー情報を変更する</div>
+              </div>
+            </div>
+            <div class="c-modal-login c-modal-login--default" data-modal="delete-user">
+              <div class="c-modal-login__area">
+                <div class="c-modal-login__area-txt">ユーザーの削除</div>
+                <div class="c-modal-login__close" data-modal-close="delete-user"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal-login__contents-wrapper">
+                <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                  <p>以下のユーザー情報を削除します。本当によろしいですか？<br><span class="u-text-red u-text-bold">削除実行後にこの操作は取り消せません。</span></p>
+                  <div class="c-card c-card--column c-card--padding u-mt40">
+                    <div class="c-card__parts"><span>氏名</span>
+                      <p>田中 太郎</p>
+                    </div>
+                    <div class="c-card__parts"><span>氏名（カナ）</span>
+                      <p>タナカ タロウ</p>
+                    </div>
+                    <div class="c-card__parts"><span>メールアドレス</span>
+                      <p>info@seiko-co.com</p>
+                    </div>
+                    <div class="c-card__parts"><span>権限</span>
+                      <div class="c-unit-check" data-radio="">
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">ユーザー管理</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">購買</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">日付変更</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">請求書ダウンロード</label></div>
+                      </div>
+                    </div>
+                    <div class="c-card__parts"><span>状態</span>
+                      <div class="c-input-radio is-inactive" data-radio="">
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-radio-label="">有効</label></div>
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">無功</label></div>
+                      </div>
+                    </div>
+                    <div class="c-card__parts"><span>会社名</span>
+                      <p>靜甲株式会社</p>
+                    </div>
+                    <div class="c-card__parts"><span>所属</span>
+                      <p>東京営業所 商事事業部</p>
+                    </div>
+                    <div class="c-card__parts"><span>電話番号</span>
+                      <p>0362614395</p>
+                    </div>
+                    <div class="c-card__parts"><span>住所</span>
+                      <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                    </div>
+                  </div>
+                  <div class="c-btn-normal u-mt40 l-lg">ユーザーを削除する</div>
+                  <div class="c-btn-small u-mt32 l-lg" data-modal-close="delete-user">キャンセル</div>
+                </div>
+              </div>
+              <div class="c-modal__btn-area l-sm">
+                <div class="c-modal__btn-white" data-modal-close="delete-user">キャンセル</div>
+                <div class="c-modal__btn-blue">ユーザーを削除する</div>
+              </div>
+            </div>
+            <div class="c-modal-login c-modal-login--default" data-modal="confirm-user">
+              <div class="c-modal-login__area">
+                <div class="c-modal-login__area-txt">ユーザーの追加｜確認</div>
+                <div class="c-modal-login__close" data-modal-close="confirm-user"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal-login__contents-wrapper">
+                <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                  <div class="c-card c-card--column c-card--padding">
+                    <div class="c-card__parts"><span>氏名</span>
+                      <p>田中 太郎</p>
+                    </div>
+                    <div class="c-card__parts"><span>氏名（カナ）</span>
+                      <p>タナカ タロウ</p>
+                    </div>
+                    <div class="c-card__parts"><span>メールアドレス</span>
+                      <p>info@seiko-co.com</p>
+                    </div>
+                    <div class="c-card__parts"><span>権限</span>
+                      <div class="c-unit-check" data-radio="">
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">ユーザー管理</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">購買</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">日付変更</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">請求書ダウンロード</label></div>
+                      </div>
+                    </div>
+                    <div class="c-card__parts"><span>状態</span>
+                      <div class="c-input-radio is-inactive" data-radio="">
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-radio-label="">有効</label></div>
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">無功</label></div>
+                      </div>
+                    </div>
+                    <div class="c-card__parts"><span>会社名</span>
+                      <p>靜甲株式会社</p>
+                    </div>
+                    <div class="c-card__parts"><span>所属</span>
+                      <p>東京営業所 商事事業部</p>
+                    </div>
+                    <div class="c-card__parts"><span>電話番号</span>
+                      <p>0362614395</p>
+                    </div>
+                    <div class="c-card__parts"><span>住所</span>
+                      <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                    </div>
+                  </div>
+                  <div class="c-btn-normal u-mt40 l-lg" data-modal-active="complete-user">ユーザーを追加する</div>
+                  <div class="c-btn-small u-mt32 l-lg" data-modal-active="add-user">入力内容に戻る</div>
+                </div>
+              </div>
+              <div class="c-modal__btn-area l-sm">
+                <div class="c-modal__btn-white" data-modal-active="add-user">入力内容に戻る</div>
+                <div class="c-modal__btn-blue" data-modal-active="complete-user">ユーザーを追加する</div>
+              </div>
+            </div>
+            <div class="c-modal-login c-modal-login--default" data-modal="complete-user">
+              <div class="c-modal-login__area">
+                <div class="c-modal-login__area-txt">ユーザーの追加｜仮登録完了</div>
+                <div class="c-modal-login__close" data-modal-close="complete-user"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal-login__contents-wrapper">
+                <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                  <h2 class="c-ttl-normal">確認メールを送付いたしました。</h2>
+                  <p class="u-fs18 u-text-red u-text-bold u-mt16">まだ登録は完了しておりませんのでご注意ください。</p>
+                  <p class="u-mt16">ご入力いただいたメールアドレス宛に、確認メールを送信いたしました。<br>メール本文に記載されている確認URLをクリックしていただくことで、新規会員の登録依頼を完了します。</p>
+                  <div class="c-card u-mt16"><span>送信先</span>
+                    <p>info@seiko-co.com</p>
+                  </div>
+                  <p class="u-fs14 u-lh15 u-text-indent u-mt16">※数分待っても届かない場合は、迷惑メールフォルダに振り分けられていないかご確認ください。</p>
+                  <p class="u-fs14 u-lh15 u-text-indent u-mt4">※ドメイン指定受信を設定されている場合は、@seiko-co.com からのメールを受信できるよう設定をお願いします。</p>
+                  <div class="c-btn-small u-mt32" data-modal-close="complete-user">閉じる</div>
+                </div>
+              </div>
+            </div>
+            <div class="c-modal-login c-modal-login--default" data-modal="user-info">
+              <div class="c-modal-login__area">
+                <div class="c-modal-login__area-txt">ユーザー情報</div>
+                <div class="c-modal-login__close" data-modal-close="user-info"><span></span> <span></span></div>
+              </div>
+              <div class="c-modal-login__contents-wrapper">
+                <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                  <div class="c-card c-card--column c-card--padding">
+                    <div class="c-card__parts"><span>氏名</span>
+                      <p>田中 太郎</p>
+                    </div>
+                    <div class="c-card__parts"><span>氏名（カナ）</span>
+                      <p>タナカ タロウ</p>
+                    </div>
+                    <div class="c-card__parts"><span>メールアドレス</span>
+                      <p>info@seiko-co.com</p>
+                    </div>
+                    <div class="c-card__parts"><span>権限</span>
+                      <div class="c-unit-check" data-radio="">
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">ユーザー管理</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">購買</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">日付変更</label></div>
+                        <div class="c-input-check is-inactive" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">請求書ダウンロード</label></div>
+                      </div>
+                    </div>
+                    <div class="c-card__parts"><span>状態</span>
+                      <div class="c-input-radio is-inactive" data-radio="">
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-radio-label="">有効</label></div>
+                        <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">無功</label></div>
+                      </div>
+                    </div>
+                    <div class="c-card__parts"><span>会社名</span>
+                      <p>靜甲株式会社</p>
+                    </div>
+                    <div class="c-card__parts"><span>所属</span>
+                      <p>東京営業所 商事事業部</p>
+                    </div>
+                    <div class="c-card__parts"><span>電話番号</span>
+                      <p>0362614395</p>
+                    </div>
+                    <div class="c-card__parts"><span>住所</span>
+                      <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                    </div>
+                  </div>
+                  <div class="u-dp-flex u-jc-center u-al-center u-gap16 u-mt40">
+                    <div class="c-btn-icon-small" data-modal-active="delete-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                    <div class="c-btn-icon-small" data-modal-active="edit-user"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

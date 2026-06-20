@@ -1,0 +1,54 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+
+.u-text-center {
+  display: block;
+  width: fit-content;
+  margin-right:auto;
+  margin-left:auto;
+  @include media(sm) {
+    display: block;
+    text-align: center;
+  }
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+.u-text-left-sm {
+  text-align: left;
+}
+
+.u-text-indent{
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.u-text-nowrap{
+  white-space: nowrap;
+}
+
+.u-text-bold{
+  font-weight: 600;
+}
+
+.u-text-gray{
+  color:#808080
+}
+
+.u-text-gray02{
+  color:#B2B2B2
+}
+
+.u-text-red{
+  color:color(default-red)
+}
+
+.u-text-orange{
+  color:#FF7700
+}

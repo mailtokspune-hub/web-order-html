@@ -1,0 +1,51 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-breadcrumbs {
+  padding:.4rem 1.6rem;
+  &__list{
+    display: flex;
+        overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+    display: none;
+    }
+  }
+
+  &__list-item{
+    position: relative;
+    color:#808180;
+    @include fz(12, true, 18, 400, 0);
+
+    &:not(:last-of-type){
+      padding-right: 1.4rem;
+      margin-right: .8rem;
+      &::after{
+        position: absolute;
+        top: calc(50% + .2rem);
+        right: 0;
+        content:"";
+        width: .5rem;
+        height: 1rem;
+        transform: translateY(-50%);
+        background-image: url(../images/common/arrow-right.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+      }
+    }
+    a{
+      color:#808180;
+      transition: $transition;
+    }
+    a:hover{
+      color:color(theme)
+    }
+  }
+}

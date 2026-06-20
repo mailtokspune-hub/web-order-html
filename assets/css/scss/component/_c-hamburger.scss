@@ -1,0 +1,94 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+// パラメータセット（基本的にはここの数値だけでOK）
+$boxColor: #000;
+$lineColor: #333333;
+$lgBoxWidth: 4rem;     // ボックスサイズ（LG）
+$lgBoxHeight: 4rem;
+$lgLineWidth: 2rem;    // ラインサイズ（LG）
+$lgLlineHeight: .2rem;
+$lgLineTop: 1rem;      // 上下ライン位置（LG）
+$lgLineBottom: 1rem;
+$smBoxWidth: 4rem;   // ボックスサイズ（SM）
+$smBoxHeight: 3.4rem;
+$smLineWidth: 2rem;  // ラインサイズ（SM）
+$smLineHeight: .2rem;
+$smLineTop: 1rem;    // 上下ライン位置（SM）
+$smLineBottom: 1rem;
+
+.c-hamburger {
+  display: none;
+  height: $lgBoxHeight;
+  position: fixed;
+  z-index:1080;
+  width: $lgBoxWidth;
+  span {
+    background-color: $lineColor;
+    display: inline-block;
+    height: $lgLlineHeight;
+    left: calc((#{$lgBoxWidth} - #{$lgLineWidth}) / 2);
+    position: absolute;
+    transform-origin: center;
+    transition: $time $ease;
+    width: $lgLineWidth;
+    &:nth-of-type(1) {
+      top: $lgLineTop;
+    }
+    &:nth-of-type(2) {
+      top: calc((#{$lgBoxHeight} - #{$lgLlineHeight}) / 2);
+    }
+    &:nth-of-type(3) {
+      bottom: $lgLineBottom;
+    }
+    .is-nav-active & {
+      &:nth-of-type(1) {
+        top: calc((100% - #{$lgLlineHeight}) / 2);
+        transform: rotate(-315deg);
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        bottom: calc((100% - #{$lgLlineHeight}) / 2);
+        transform: rotate(315deg);
+      }
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 960px) {
+    top:2rem;
+    right:.2rem;
+    }
+  @media screen and (max-width: 960px) {
+    display: block;
+    height: $smBoxHeight;
+    width: $smBoxWidth;
+    top:1.25rem;
+    right:.2rem;
+    span {
+      height: $smLineHeight;
+      left: calc((#{$smBoxWidth} - #{$smLineWidth}) / 2);
+      width: $smLineWidth;
+      &:nth-of-type(1) {
+        top: $smLineTop;
+      }
+      &:nth-of-type(2) {
+        top: calc((#{$smBoxHeight} - #{$lgLlineHeight}) / 2);
+      }
+      &:nth-of-type(3) {
+        bottom: $smLineBottom;
+      }
+      .is-nav-active & {
+        &:nth-of-type(1) {
+          top: calc((100% - #{$lgLlineHeight}) / 2);
+        }
+        &:nth-of-type(3) {
+          bottom: calc((100% - #{$lgLlineHeight}) / 2);
+        }
+      }
+    }
+  }
+}

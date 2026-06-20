@@ -1,0 +1,53 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-icon{
+  cursor: pointer;
+  width:2rem;
+  min-width: 2rem;
+  path{
+    transition:$transition;
+    fill:#b2b2b2b2;
+  }
+  &:hover{
+    path{
+      fill:color(theme)
+    }
+  }
+}
+
+.c-icon-favorite{
+  position: relative;
+  @include media(sm) {
+    min-width: 2.4rem;
+  }
+  
+  &--01{
+    path{
+    fill:#FF6464;
+    stroke: #FF6464;;
+    }
+  }
+  &--02{
+    path{
+    fill:#00BC77;
+    stroke: #00BC77;
+    }
+  }
+  &--03{
+    path{
+    fill:#8BA6FF;
+    stroke: #8BA6FF;
+    }
+  }
+  &--04{
+    path{
+    fill:#FFC300;
+    stroke: #FFC300;
+    }
+  }
+  
+}

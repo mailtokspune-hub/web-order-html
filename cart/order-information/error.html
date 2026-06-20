@@ -1,0 +1,1442 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>ご購入手続き</title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="ご購入手続き">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header-register">
+      <div class="l-header-register__inner">
+        <div class="l-header-register__area">
+          <h1 class="l-header-register__logo"><a href="/"><img class="l-header-register__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+          <div class="l-header-register__ttl">ご購入手続き</div>
+        </div>
+        <nav class="l-header-register__nav">
+          <ul class="l-header-register__nav-list">
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❶<span class="l-lg">&nbsp;</span><br class="l-sm">カート<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive is-active">❷<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">情報<br class="l-sm">の入力</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❸<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">内容<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❹<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">完了</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--responsive">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="l-cart">
+            <div class="l-inline-wide">
+              <div class="l-cart__structure">
+                <div class="l-cart__contents">
+                  <p>ご購入する製品の納品先、お支払い方法、配送条件などの必要事項をご入力ください。</p>
+                  <p class="c-text-error u-mt24">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度「ご注文内容を確認する」ボタンを押下してください。</p>
+                  <div class="l-card u-mt40">
+                    <ul class="l-card__list l-card__list--responsive">
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">お支払い方法</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="add-card"><img src="/assets/images/common/icon-card.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">カード情報の追加</span></div>
+                        </div>
+                        <h3 class="u-fs16 u-mt16">クレジットカード払い</h3>
+                        <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                        <p class="u-mt16">登録されているクレジットカード情報がありません。「カード情報の追加」からクレジットカード情報を追加を登録してください。</p>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">お支払い方法</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="add-card"><img src="/assets/images/common/icon-card.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">カード情報の追加</span></div>
+                        </div>
+                        <h3 class="u-fs16 u-mt16">クレジットカード払い</h3>
+                        <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※入力内容に誤りがあります。</span></p>
+                        <div class="c-unit-radio u-mt16 l-lg" data-radio-group="card">
+                          <div class="c-unit-radio__item is-error" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-slider02 u-mt16 l-sm" data-radio-group="card02">
+                          <div class="l-slider02__contents">
+                            <div class="l-slider02__item is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">お支払い方法</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="add-card"><img src="/assets/images/common/icon-card.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">カード情報の追加</span></div>
+                        </div>
+                        <h3 class="u-fs16 u-mt16">クレジットカード払い</h3>
+                        <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※入力内容に誤りがあります。</span></p>
+                        <div class="c-unit-radio u-mt16 l-lg" data-radio-group="card03">
+                          <div class="c-unit-radio__item is-error" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                          <div class="c-unit-radio__item is-error" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                          <div class="c-unit-radio__item is-error" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                          <div class="c-unit-radio__item is-error" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                          <div class="c-unit-radio__item is-error" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-slider02 u-mt16 swiper l-sm" data-radio-group="card04">
+                          <div class="l-slider02__contents swiper-wrapper">
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="l-slider02__btn">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">お支払い方法</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                        </div>
+                        <h3 class="u-fs16 u-mt16">請求書払い</h3>
+                        <p class="u-mt16">以下の情報で請求書を発行させていただきます。</p>
+                        <div class="c-card c-card--column u-gap8 u-gap8-sm u-mt16">
+                          <div class="c-card__parts"><span>宛名</span>
+                            <p>靜甲株式会社 東京営業所 商事事業部 御中</p>
+                          </div>
+                          <div class="c-card__parts"><span>住所</span>
+                            <p>〒424-0809　東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                          </div>
+                        </div>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt16">※請求書情報を変更したい場合はご購入手続き完了後に、マイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりお問い合わせください。</p>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive l-card__list-item--responsive--padding">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">納品先</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="location"><img src="/assets/images/common/icon-add-location.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">納品先の追加</span></div>
+                        </div>
+                        <div class="l-slider02 is-inactive u-mt16" data-radio-group="location">
+                          <div class="l-slider02__contents">
+                            <div class="l-slider02__item is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                        <div class="l-card__area-parts">
+                          <div class="c-unit-ttl">
+                            <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                          </div>
+                          <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt4">※納品先が「未確定」の場合は、納品先確定後にマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より納品先情報を更新してください。</p>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive l-card__list-item--responsive--padding">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">納品先</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="location"><img src="/assets/images/common/icon-add-location.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">納品先の追加</span></div>
+                        </div>
+                        <div class="l-slider02 swiper u-mt16" data-radio-group="location">
+                          <div class="l-slider02__contents swiper-wrapper">
+                            <div class="l-slider02__item is-error swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item is-error swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="l-slider02__btn">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                          </div>
+                        </div>
+                        <div class="l-card__area-parts">
+                          <div class="c-unit-ttl">
+                            <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                          </div>
+                          <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt4">※納品先が「未確定」の場合は、納品先確定後にマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より納品先情報を更新してください。</p>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive l-card__list-item--responsive--padding">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">納品先</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="location"><img src="/assets/images/common/icon-add-location.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">納品先の追加</span></div>
+                        </div>
+                        <div class="l-slider02 swiper u-mt16" data-radio-group="location">
+                          <div class="l-slider02__contents swiper-wrapper">
+                            <div class="l-slider02__item is-error swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item is-error swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item is-error swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="l-slider02__btn">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                          </div>
+                        </div>
+                        <div class="l-card__area-parts">
+                          <div class="c-unit-ttl">
+                            <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                          </div>
+                          <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt4">※納品先が「未確定」の場合は、納品先確定後にマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より納品先情報を更新してください。</p>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive l-card__list-item--responsive--padding">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">納品先</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="location"><img src="/assets/images/common/icon-add-location.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">納品先の追加</span></div>
+                        </div>
+                        <div class="l-slider02 u-mt16 swiper" data-radio-group="location">
+                          <div class="l-slider02__contents swiper-wrapper">
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="l-slider02__btn">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                          </div>
+                        </div>
+                        <div class="l-card__area-parts">
+                          <div class="c-unit-ttl">
+                            <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                          </div>
+                          <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt4">※納品先が「未確定」の場合は、納品先確定後にマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より納品先情報を更新してください。</p>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">配送条件</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-fw-wrap u-gap8">
+                            <p class="u-fs14 u-text-indent u-lh15 l-lg">※「配送条件」を入力し、「送料計算」ボタンを押下すると「ご請求額」に反映されます。</p>
+                            <div class="c-btn-icon-small"><img src="/assets/images/common/icon-postage.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">送料計算</span></div>
+                          </div>
+                        </div>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt16 l-sm">※「配送条件」を入力し、「送料計算」ボタンを押下すると「ご請求額」に反映されます。</p>
+                        <div class="c-input u-mt20">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">納品希望日</div>
+                            <div class="c-input__require">必須</div>
+                          </div>
+                          <div class="c-input__description">
+                            <div class="c-input__calnder"><input class="c-input__item is-error" type="text" placeholder="---- / -- / --" data-calendar=""> <img class="c-input__calnder-icon is-error" src="/assets/images/common/icon-calender.svg" alt="" height="24" width="24" decoding="async"></div>
+                            <p class="u-fs14">最短発送日：2025/12/31</p>
+                          </div>
+                        </div>
+                        <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※最短発送日より前日は指定いただけません。</span></p>
+                        <div class="c-input u-mt20">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">納品希望時間</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item c-input__item--width" type="text" placeholder="14:00~17:00">
+                        </div>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt4">※時間指定なしの場合は、AM着希望にて配送先に手配しますが、実際の到着時間は前後する可能性がありますので、予めご了承ください。</p>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt4">※ご記入の納品希望日時は配送手配の目安となります。在庫状況や交通事情、天候等により、予告なく変更となる可能性があることを予めご了承ください。<br>正確な発送日は、確定次第マイページにてお知らせいたします。</p>
+                        <div class="c-unit-ttl u-mt24">
+                          <div class="u-fs14 u-text-bold">納品希望日時は下記で確定していますか？</div>
+                          <div class="c-text-caution">必須</div>
+                        </div>
+                        <div class="c-input-radio u-mt16" data-radio="">
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                        </div>
+                        <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品希望日時が「未確定」の場合は、送料は仮の金額となります。</p>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt4">※納品希望日時が「未確定」の場合は、納品希望日時確定後にマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より納品先情報を更新してください。</p>
+                        <div class="c-unit-ttl u-mt24">
+                          <div class="u-fs14 u-text-bold">貸切区分</div>
+                          <div class="c-text-caution">必須</div>
+                        </div>
+                        <div class="c-input-radio u-mt16" data-radio="">
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車指定</label></div>
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4T平</label></div>
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">8T平</label></div>
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック社</label></div>
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal is-error" type="text">
+                        </div>
+                        <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※「その他」を選択している場合は、ご指定の貸切区分をご入力ください。</span></p>
+                        <div class="c-unit-ttl u-mt24">
+                          <div class="u-fs14 u-text-bold">同送商品</div>
+                          <div class="c-text-caution">必須</div>
+                        </div>
+                        <div class="c-input-radio u-mt16" data-radio="">
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">なし</label></div>
+                          <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" type="radio" data-radio-input="" checked="checked"> <label class="c-input-radio__label" data-radio-label="">あり</label></div><input class="c-input-radio__input-normal is-error" type="text">
+                        </div>
+                        <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※「その他」を選択している場合は、ご指定の貸切区分をご入力ください。</span></p>
+                        <div class="c-input u-mt20">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">送り状記載事項</div>
+                            <div class="c-input__option">任意</div>
+                          </div>
+                          <div class="c-input__textarea-wrapper"><textarea class="c-input__textarea c-input__textarea--height" maxlength="50" data-count=""></textarea> <span class="c-input__textarea-num"><span data-count-num="">0</span>/50</span></div>
+                        </div>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt8">※送り状記載事項欄に記載が必要な情報はこちらにご記入ください。</p>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt4">※送り状記載事項欄が空欄の場合は「ご注文番号_案件名_お客様会社名」が自動入力されます。</p>
+                        <div class="c-input u-mt20">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">その他ご要望</div>
+                            <div class="c-input__option">任意</div>
+                          </div>
+                          <div class="c-input__textarea-wrapper"><textarea class="c-input__textarea" maxlength="1000" data-count=""></textarea> <span class="c-input__textarea-num"><span data-count-num="">0</span>/1000</span></div>
+                        </div>
+                      </li>
+                      <li id="orderInfo" class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">案件情報</h2>
+                            <div class="c-text-option">任意</div>
+                          </div><a href="/mypage/order/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">案件管理</span> <img src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a>
+                        </div>
+                        <p class="u-mt16">お客様にて案件管理に必要な ご注文番号と案件名を設定されたい場合は以下項目を入力してください。<br>未入力の場合は、本システムから自動的にご注文番号と案件名が設定されます。<br>ご注文番号と案件名はご購入手続き完了後にマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より変更が可能です。</p>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">ご注文番号</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item c-input__item--width" type="text">
+                        </div>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">案件名</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item" type="text" placeholder="靜甲株式会社 東京営業所 換気システム導入">
+                        </div>
+                        <div class="c-accordion u-mt32">
+                          <div class="c-accordion__item">
+                            <div class="c-accordion__btn" data-ac-btn="case">既に購入した製品、または進行中の案件と紐づけたい方はこちら</div>
+                            <div class="c-accordion__contents-wrapper" data-ac="case">
+                              <div class="c-accordion__contents">
+                                <p>進行中の案件とまとめて管理したい場合は、対象の案件を選択してください。<br>購入後の納品連絡や帳票類のやり取りを、一つの案件としてマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりまとめて行うことができます。<br>進行中の案件は「案件検索」よりご注文番号または案件名を入力すると表示されます。</p>
+                                <div class="c-input u-mt16">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">案件検索</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="ご注文番号または案件名から検索"> <a class="c-input-search__btn" href="#"><img src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">案件情報</h2>
+                            <div class="c-text-option">任意</div>
+                          </div><a href="/mypage/order/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">案件管理</span> <img src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a>
+                        </div>
+                        <p class="u-mt16">お客様にて案件管理に必要な ご注文番号と案件名を設定されたい場合は以下項目を入力してください。<br>未入力の場合は、本システムから自動的にご注文番号と案件名が設定されます。<br>ご注文番号と案件名はご購入手続き完了後にマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より変更が可能です。</p>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">ご注文番号</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item c-input__item--width" type="search">
+                        </div>
+                        <div class="c-input u-mt20 l-sm">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">案件名</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item c-input__item--width" type="search" placeholder="靜甲株式会社 東京営業所 換気システム導入">
+                        </div>
+                        <div class="c-accordion u-mt32">
+                          <div class="c-accordion__item">
+                            <div class="c-accordion__btn is-active" data-ac-btn="case02">既に購入した製品、または進行中の案件と紐づけたい方はこちら</div>
+                            <div class="c-accordion__contents-wrapper is-active" data-ac="case02">
+                              <div class="c-accordion__contents">
+                                <p>進行中の案件とまとめて管理したい場合は、対象の案件を選択してください。<br>購入後の納品連絡や帳票類のやり取りを、一つの案件としてマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりまとめて行うことができます。<br>進行中の案件は「案件検索」よりご注文番号または案件名を入力すると表示されます。</p>
+                                <div class="c-input u-mt16">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">案件検索</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <div class="c-input-search is-active"><input class="c-input-search__item" type="search" value="1234567890" placeholder="ご注文番号または案件名から検索"> <a class="c-input-search__btn" href="#"><img src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                                </div>
+                                <div class="u-mt16 u-dp-flex u-jc-center"><img class="c-loading" src="/assets/images/common/loading.svg" alt="" height="40" width="40" decoding="async"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">案件情報</h2>
+                            <div class="c-text-option">任意</div>
+                          </div><a href="/mypage/order/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">案件管理</span> <img src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a>
+                        </div>
+                        <p class="u-mt16">お客様にて案件管理に必要な ご注文番号と案件名を設定されたい場合は以下項目を入力してください。<br>未入力の場合は、本システムから自動的にご注文番号と案件名が設定されます。<br>ご注文番号と案件名はご購入手続き完了後にマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より変更が可能です。</p>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">ご注文番号</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item c-input__item--width" type="text">
+                        </div>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">案件名</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item" type="text" placeholder="靜甲株式会社 東京営業所 換気システム導入">
+                        </div>
+                        <div class="c-accordion u-mt32">
+                          <div class="c-accordion__item">
+                            <div class="c-accordion__btn is-active" data-ac-btn="case03">既に購入した製品、または進行中の案件と紐づけたい方はこちら</div>
+                            <div class="c-accordion__contents-wrapper is-active" data-ac="case03">
+                              <div class="c-accordion__contents">
+                                <p>進行中の案件とまとめて管理したい場合は、対象の案件を選択してください。<br>購入後の納品連絡や帳票類のやり取りを、一つの案件としてマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりまとめて行うことができます。<br>進行中の案件は「案件検索」よりご注文番号または案件名を入力すると表示されます。</p>
+                                <div class="c-input u-mt16">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">案件検索</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <div class="c-input-search is-active"><input class="c-input-search__item" type="search" value="1234567890" placeholder="ご注文番号または案件名から検索"> <a class="c-input-search__btn" href="#"><img src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                                </div>
+                                <div class="c-unit-radio u-mt16 l-lg" data-radio-group="case">
+                                  <div class="c-unit-radio__item is-active" data-radio-item="">
+                                    <div class="c-unit-radio__item-area">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" checked="checked" data-radio-input=""></div>
+                                      <div class="c-unit-radio__txt-area">
+                                        <div class="c-unit-radio__txt">1234567890</div>
+                                        <div class="c-unit-radio__txt c-unit-radio__txt--ellipsis">案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります</div>
+                                      </div>
+                                    </div>
+                                    <div class="c-unit-radio__parts"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                  </div>
+                                  <div class="c-unit-radio__item" data-radio-item="">
+                                    <div class="c-unit-radio__item-area">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="c-unit-radio__txt-area">
+                                        <div class="c-unit-radio__txt">1234567890</div>
+                                        <div class="c-unit-radio__txt c-unit-radio__txt--ellipsis">案件名が入ります案件名が入ります案件名が入ります</div>
+                                      </div>
+                                    </div>
+                                    <div class="c-unit-radio__parts"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                  </div>
+                                  <div class="c-unit-radio__item" data-radio-item="">
+                                    <div class="c-unit-radio__item-area">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="c-unit-radio__txt-area">
+                                        <div class="c-unit-radio__txt">1234567890</div>
+                                        <div class="c-unit-radio__txt c-unit-radio__txt--ellipsis">案件名が入ります案件名が入ります案件名が入ります</div>
+                                      </div>
+                                    </div>
+                                    <div class="c-unit-radio__parts"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                  </div>
+                                  <div class="c-unit-radio__item" data-radio-item="">
+                                    <div class="c-unit-radio__item-area">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="c-unit-radio__txt-area">
+                                        <div class="c-unit-radio__txt">1234567890</div>
+                                        <div class="c-unit-radio__txt c-unit-radio__txt--ellipsis">案件名が入ります案件名が入ります案件名が入ります</div>
+                                      </div>
+                                    </div>
+                                    <div class="c-unit-radio__parts"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                  </div>
+                                  <div class="c-unit-radio__item" data-radio-item="">
+                                    <div class="c-unit-radio__item-area">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="c-unit-radio__txt-area">
+                                        <div class="c-unit-radio__txt">1234567890</div>
+                                        <div class="c-unit-radio__txt c-unit-radio__txt--ellipsis">案件名が入ります案件名が入ります案件名が入ります</div>
+                                      </div>
+                                    </div>
+                                    <div class="c-unit-radio__parts"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                  </div>
+                                </div>
+                                <div class="l-slider02 u-mt16 swiper l-sm" data-radio-group="card04">
+                                  <div class="l-slider02__contents swiper-wrapper">
+                                    <div class="l-slider02__item swiper-slide is-active" data-radio-item="">
+                                      <div class="c-input-radio"><input class="c-input-radio__item is-active" type="radio" checked="checked" data-radio-input=""></div>
+                                      <div class="l-slider02__item-area">
+                                        <div class="u-fs16">1234567890</div>
+                                        <p class="l-slider02__txt-height">案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります</p>
+                                        <div class="c-unit-btn c-unit-btn--right u-mt8"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="l-slider02__item swiper-slide" data-radio-item="">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="l-slider02__item-area">
+                                        <div class="u-fs16">1234567890</div>
+                                        <p class="l-slider02__txt-height">案件名が入ります案件名が入ります案件名が入ります</p>
+                                        <div class="c-unit-btn c-unit-btn--right u-mt8"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="l-slider02__item swiper-slide" data-radio-item="">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="l-slider02__item-area">
+                                        <div class="u-fs16">1234567890</div>
+                                        <p class="l-slider02__txt-height">案件名が入ります案件名が入ります案件名が入ります</p>
+                                        <div class="c-unit-btn c-unit-btn--right u-mt8"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="l-slider02__item swiper-slide" data-radio-item="">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="l-slider02__item-area">
+                                        <div class="u-fs16">1234567890</div>
+                                        <p class="l-slider02__txt-height">案件名が入ります案件名が入ります案件名が入ります</p>
+                                        <div class="c-unit-btn c-unit-btn--right u-mt8"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="l-slider02__item swiper-slide" data-radio-item="">
+                                      <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                                      <div class="l-slider02__item-area">
+                                        <div class="u-fs16">1234567890</div>
+                                        <p class="l-slider02__txt-height">案件名が入ります案件名が入ります案件名が入ります</p>
+                                        <div class="c-unit-btn c-unit-btn--right u-mt8"><a href="/mypage/order/XXXXX/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">詳細</span> <img class="c-btn-icon-small__icon" src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="l-slider02__btn">
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">案件情報</h2>
+                            <div class="c-text-option">任意</div>
+                          </div><a href="/mypage/order/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">案件管理</span> <img src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a>
+                        </div>
+                        <p class="u-mt16">お客様にて案件管理に必要な ご注文番号と案件名を設定されたい場合は以下項目を入力してください。<br>未入力の場合は、本システムから自動的にご注文番号と案件名が設定されます。<br>ご注文番号と案件名はご購入手続き完了後にマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より変更が可能です。</p>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">ご注文番号</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item c-input__item--width" type="text">
+                        </div>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">案件名</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item" type="text" placeholder="靜甲株式会社 東京営業所 換気システム導入">
+                        </div>
+                        <div class="c-accordion u-mt32">
+                          <div class="c-accordion__item">
+                            <div class="c-accordion__btn is-active" data-ac-btn="case04">既に購入した製品、または進行中の案件と紐づけたい方はこちら</div>
+                            <div class="c-accordion__contents-wrapper is-active" data-ac="case04">
+                              <div class="c-accordion__contents">
+                                <p>進行中の案件とまとめて管理したい場合は、対象の案件を選択してください。<br>購入後の納品連絡や帳票類のやり取りを、一つの案件としてマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりまとめて行うことができます。<br>進行中の案件は「案件検索」よりご注文番号または案件名を入力すると表示されます。</p>
+                                <div class="c-input u-mt16">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">案件検索</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <div class="c-input-search is-active"><input class="c-input-search__item" type="search" value="1234567890" placeholder="ご注文番号または案件名から検索"> <a class="c-input-search__btn" href="#"><img src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                                </div>
+                                <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※お探しの案件が見つかりませんでした。ご注文番号または案件名をお確かめください。</span></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="l-cart__nav">
+                  <div class="l-cart__nav-contents">
+                    <div class="l-cart__nav-payment">
+                      <div class="l-cart__nav-payment-area">
+                        <div class="l-cart__nav-payment-tr">
+                          <p>小計</p>
+                          <div class="l-cart__nav-payment-price">12,345<span>円</span></div>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>送料</p>
+                          <p class="u-fs14">送料は確認画面で確定します</p>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>消費税（10%対象）</p>
+                          <div class="l-cart__nav-payment-price">123<span>円</span></div>
+                        </div>
+                      </div>
+                      <div class="l-cart__nav-payment-detail">
+                        <p class="u-text-bold">ご請求額</p>
+                        <div class="l-cart__nav-payment-price02">13,579<span>円（税込）</span></div>
+                      </div><a class="c-btn-normal c-btn-normal--orange u-mt32" href="/cart/order-confirm/">ご注文内容を確認する</a>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt32">※送料につきましては、納品先と配送条件の入力内容に基づき計算されるため、最終確認画面での確定となります。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※製品の配送状況の確認や、ご注文情報の追加・変更、各種帳票（設計図、請求書、納品書等）のダウンロードは、すべてマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりスムーズに行えます。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※既に進行中の案件があり、今回のご注文と併せて一括管理したいお客様は、<a class="c-text-link c-text-link--inline u-fs14" href="#orderInfo" data-scroll="">本ページの案件情報</a>より紐付け作業を行ってください。</p><a class="c-btn-small u-mt32" href="/cart/">カートに戻る</a>
+                    </div>
+                    <div class="l-cart__nav-payment u-mt80 u-mt32-sm">
+                      <div class="l-cart__nav-payment-area">
+                        <div class="l-cart__nav-payment-tr">
+                          <p>小計</p>
+                          <div class="l-cart__nav-payment-price">12,345<span>円</span></div>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>送料</p>
+                          <p class="u-fs14"><span class="u-fs18">12,345</span> 円（税込）</p>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>消費税（10%対象）</p>
+                          <div class="l-cart__nav-payment-price">123<span>円</span></div>
+                        </div>
+                      </div>
+                      <div class="l-cart__nav-payment-detail">
+                        <p class="u-text-bold">ご請求額</p>
+                        <div class="l-cart__nav-payment-price02">13,579<span>円（税込）</span></div>
+                      </div><a class="c-btn-normal c-btn-normal--orange u-mt32" href="/cart/order-confirm/">ご注文内容を確認する</a>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt32">※送料につきましては、納品先と配送条件の入力内容に基づき計算されるため、最終確認画面での確定となります。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※製品の配送状況の確認や、ご注文情報の追加・変更、各種帳票（設計図、請求書、納品書等）のダウンロードは、すべてマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりスムーズに行えます。</p>
+                      <p class="u-fs14 u-text-indent u-lh15">※既に進行中の案件があり、今回のご注文と併せて一括管理したいお客様は、次ページの案件情報より紐付け作業を行ってください。</p><a class="c-btn-small u-mt32" href="/cart/">カートに戻る</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="location">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">納品先の追加</div>
+              <div class="c-modal-login__close" data-modal-close="location"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度確認ボタンを押してください。</div>
+                <div class="l-form__table u-mt40">
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="田中" value="田中"> <input class="l-form__input is-error" type="text" placeholder="太郎" value="太郎"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名（カナ）</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="タナカ" value="タナカ"> <input class="l-form__input is-error" type="text" placeholder="タロウ" value="タロウ"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※全角カタカナで入力してください。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">会社名</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area">
+                      <div class="c-select" data-select-check-area="">
+                        <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                          <div class="c-select__modal" data-select="company">
+                            <div class="c-select__modal-area">
+                              <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                            </div>
+                            <div class="c-select__modal-contents">
+                              <ul class="c-select__check-list">
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-select-check-value="">靜甲株式会社</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="c-select__btn-area">
+                              <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                              <div class="c-select__btn-area-parts">
+                                <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                                <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">所属</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部" value="東京営業所 商事事業部"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">電話番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="0362614395" maxlength="10" value="0362614395"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角数字で入力してください。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">郵便番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="1020083" value="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※7桁の半角数字で入力してください。</span> <span class="c-text-attention__item">※該当する郵便番号が見つかりませんでした。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">都道府県</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid">
+                      <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="東京都" value="東京都"></div>
+                    </div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">市区町村</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="千代田区麹町" value="千代田区麹町"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">番地・ビル名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階" value="5丁目3番地3 麹町KSスクエア3階"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                </div>
+                <div class="c-input-check u-mt32" data-check=""><input class="c-input-check__input" type="checkbox" data-check-input=""> <label class="c-input-check__label" data-check-label="">メインの納品先に設定する</label></div>
+                <div class="c-btn-normal u-mt40 l-lg">納品先を追加する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="location">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="location">キャンセル</div>
+              <div class="c-modal__btn-blue">納品先を追加する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="edit-location">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">納品先の変更</div>
+              <div class="c-modal-login__close" data-modal-close="edit-location"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度確認ボタンを押してください。</div>
+                <div class="l-form__table u-mt40">
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="田中" value="田中"> <input class="l-form__input is-error" type="text" placeholder="太郎" value="太郎"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名（カナ）</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="タナカ" value="タナカ"> <input class="l-form__input is-error" type="text" placeholder="タロウ" value="タロウ"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※全角カタカナで入力してください。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">会社名</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area">
+                      <div class="c-select" data-select-check-area="">
+                        <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                          <div class="c-select__modal" data-select="company">
+                            <div class="c-select__modal-area">
+                              <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                            </div>
+                            <div class="c-select__modal-contents">
+                              <ul class="c-select__check-list">
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-select-check-value="">靜甲株式会社</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="c-select__btn-area">
+                              <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                              <div class="c-select__btn-area-parts">
+                                <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                                <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">所属</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部" value="東京営業所 商事事業部"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">電話番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="0362614395" maxlength="10" value="0362614395"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角数字で入力してください。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">郵便番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="1020083" value="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※7桁の半角数字で入力してください。</span> <span class="c-text-attention__item">※該当する郵便番号が見つかりませんでした。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">都道府県</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid">
+                      <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="東京都" value="東京都"></div>
+                    </div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">市区町村</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="千代田区麹町" value="千代田区麹町"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">番地・ビル名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階" value="5丁目3番地3 麹町KSスクエア3階"></div>
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+                  </div>
+                </div>
+                <div class="c-input-check u-mt32" data-check=""><input class="c-input-check__input is-error" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">メインの納品先に設定する</label></div>
+                <div class="c-btn-normal u-mt40 l-lg">納品先を変更する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="edit-location">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="edit-location">キャンセル</div>
+              <div class="c-modal__btn-blue">納品先を変更する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="delete-location">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">納品先の削除</div>
+              <div class="c-modal-login__close" data-modal-close="delete-location"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <p>以下の納品先を削除します。本当によろしいですか？<br><span class="u-text-red u-text-bold">削除実行後にこの操作は取り消せません。</span></p>
+                <div class="c-card c-card--column u-mt40">
+                  <p class="u-text-bold">田中 太郎 様</p>
+                  <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">納品先を削除する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="delete-location">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="delete-location">キャンセル</div>
+              <div class="c-modal__btn-blue">納品先を削除する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="add-card">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">カード情報の追加</div>
+              <div class="c-modal-login__close" data-modal-close="add-card"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度確認ボタンを押してください。</div>
+                <div class="c-modal-login__structure u-mt40">
+                  <div class="c-input">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード番号</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item is-error" type="text" placeholder="1111 2222 3333 4444" value="1111222233334444" maxlength="12">
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※16桁の半角数字で入力してください。</span></p>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード有効期限</div>
+                      <div class="c-input__require">必須</div>
+                    </div>
+                    <div class="c-input__grid">
+                      <div class="c-select">
+                        <div class="c-select__item-wrapper is-error"><select class="c-select__item is-error">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12" selected="selected">12</option>
+                          </select></div>
+                      </div>
+                      <p>月</p><input class="c-input__item is-error" type="text" value="2030" maxlength="4">
+                      <p>年</p>
+                    </div>
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角数字で入力してください。</span></p>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード名義人</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item is-error" type="text" placeholder="TARO TANAKA" value="TARO TANAKA">
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角英字で入力してください。</span></p>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">セキュリティコード</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item is-error" type="password" value="123" maxlength="4">
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角数字で入力してください。</span></p>
+                  <div class="c-input-check u-mt32" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">メインの決済カードに設定する</label></div>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">カード情報を追加する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="add-card">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="add-card">キャンセル</div>
+              <div class="c-modal__btn-blue">カード情報を追加する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="edit-card">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">カード情報の変更</div>
+              <div class="c-modal-login__close" data-modal-close="edit-card"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度確認ボタンを押してください。</div>
+                <div class="c-modal-login__structure u-mt40">
+                  <div class="c-input">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード番号</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item is-error" type="text" placeholder="1111 2222 3333 4444" value="1111222233334444" maxlength="12">
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※16桁の半角数字で入力してください。</span></p>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード有効期限</div>
+                      <div class="c-input__require">必須</div>
+                    </div>
+                    <div class="c-input__grid">
+                      <div class="c-select">
+                        <div class="c-select__item-wrapper is-error"><select class="c-select__item is-error">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12" selected="selected">12</option>
+                          </select></div>
+                      </div>
+                      <p>月</p><input class="c-input__item is-error" type="text" value="2030" maxlength="4">
+                      <p>年</p>
+                    </div>
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角数字で入力してください。</span></p>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード名義人</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item is-error" type="text" placeholder="TARO TANAKA" value="TARO TANAKA">
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角英字で入力してください。</span></p>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">セキュリティコード</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item is-error" type="password" placeholder="123" value="123" maxlength="4">
+                  </div>
+                  <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角数字で入力してください。</span></p>
+                  <div class="c-input-check u-mt32"><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label u-fs16" data-check-label="">メインの決済カードに設定する</label></div>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">カード情報を変更する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="edit-card">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="edit-card">キャンセル</div>
+              <div class="c-modal__btn-blue">カード情報を変更する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="delete-card">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">カード情報の削除</div>
+              <div class="c-modal-login__close" data-modal-close="delete-card"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <p>以下のクレジットカード情報を削除します。本当によろしいですか？<br><span class="u-text-red u-text-bold">削除実行後にこの操作は取り消せません。</span></p>
+                <div class="c-card c-card--column u-gap8 u-mt40">
+                  <div class="c-card__parts"><span>カード番号</span>
+                    <p>****-****-****-1234</p>
+                  </div>
+                  <div class="c-card__parts"><span>カード有効期限</span>
+                    <p>01/2030</p>
+                  </div>
+                  <div class="c-card__parts"><span>カード名義人</span>
+                    <p>TARO TANAKA</p>
+                  </div>
+                  <div class="c-card__parts"><span>セキュリティコード</span>
+                    <p>***</p>
+                  </div>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">カード情報を削除する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="delete-card">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="delete-card">キャンセル</div>
+              <div class="c-modal__btn-blue">カード情報を削除する</div>
+            </div>
+          </div>
+          <div class="l-cart__fixed l-sm">
+            <div class="l-cart__fixed-area">
+              <p class="u-text-bold">3点の製品</p>
+              <div class="u-fs16 u-text-bold"><span class="u-fs24">12,345</span> 円（税込）＋ 送料</div>
+            </div>
+            <div class="l-cart__fixed-btn-area"><a href="/cart/" class="l-cart__fixed-btn-white">カートに戻る</a> <a href="/cart/order-confirm/" class="l-cart__fixed-btn-orange">ご注文内容を確認する</a></div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register l-footer-register--02"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

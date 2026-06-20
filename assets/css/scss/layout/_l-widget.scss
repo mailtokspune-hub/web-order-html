@@ -1,0 +1,93 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-widget {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding:.4rem 1.6rem 0;
+  gap:.4rem;
+  @include media(sm) {
+    padding:.4rem .4rem 0;
+  }
+
+  &--nav{
+    @media screen and (max-width: 960px) {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: color(light-theme);
+      padding:.4rem
+    }
+    .l-widget__item{
+      @media screen and (max-width: 960px) {
+        width:calc(50% - .2rem);
+      }
+      span{
+        &::after{
+          @include media(sm) {
+          right:-2.8rem;
+          }
+        }
+      }
+    }
+  }
+  
+  &__item{
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:4rem;
+    background-color: color(default-white);
+    @include fz(14, true, 20, 400, 0);
+    @include media(sm) {
+      padding:0 1.5rem 0 3.8rem;
+      justify-content: flex-start;
+      @include fz(16, true, 20, 400, 0);
+    }
+    span{
+      position: relative;
+      transition: $transition;
+      &::after{
+        transition: $transition;
+      position: absolute;
+      top: calc(50% - .1rem);
+      right: -1.8rem;
+      width:0;
+      height:0;
+      content:"";
+      border-left: .4rem solid transparent;
+      border-right: .4rem solid transparent;
+      border-top: .5rem solid color(default-gray);
+      @include media(sm) {
+        right:-2.4rem;
+      }
+    }
+    }
+    &.is-active{
+      color:color(theme);
+      span{
+        &::after{
+          transform: rotate(-180deg);
+          border-top: .5rem solid color(theme);
+        }
+      }
+      &::after{
+        position: absolute;
+        left: 0;
+        top:4rem;
+        content:"";
+        width: 100%;
+        height: .4rem;
+        background-color:color(default-white);
+        @include media(sm) {
+          content: none;
+        }
+      }
+    }
+  }
+}

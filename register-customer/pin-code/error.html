@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--padding-none">
+      <div class="l-content">
+        <main class="l-main" style="height:100vh;">
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              document.documentElement.classList.add("is-modal-login-active");
+              const modal = document.querySelector('.c-modal-login');
+              modal?.classList.add("is-active");
+            });
+          </script>
+          <div class="c-modal-login c-modal-login--normal" data-modal="auth">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">認証コード入力</div>
+              <div class="c-modal-login__close" data-modal-close="auth"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents">
+                <h2 class="c-ttl-normal">認証コードを入力してください。</h2>
+                <p class="u-mt24">ご登録のメールアドレス宛に認証コードを送信しました。<br>メールの内容をご確認のうえ、6桁のコードを入力してください。</p>
+                <div class="u-dp-flex u-jc-center u-dp-block-sm">
+                  <div class="c-input u-mt16">
+                    <div class="c-input__txt">認証コード</div><input class="c-input__item c-input__item--width is-error" type="password" maxlength="6">
+                    <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※6桁の半角数字を入力してください。</span></p>
+                  </div>
+                </div><a class="c-btn-normal u-mt40" href="#">認証する</a>
+                <p class="c-text-link u-text-center u-mt32">認証コードを再送する</p>
+                <p class="u-text-center u-mt16">※認証コードが受信できない方は<a class="c-text-link c-text-link--inline" href="/guide/faq/">こちら</a></p>
+                <div class="c-btn-small u-mt40" data-modal-close="auth">キャンセル</div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

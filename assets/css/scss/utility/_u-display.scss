@@ -1,0 +1,74 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+
+.u-dp-flex {
+  display: flex;
+}
+
+.u-fw-wrap{
+  flex-wrap: wrap;
+}
+.u-fd-column{
+  flex-direction: column;
+}
+
+.u-fd-column-sm{
+  @include media(sm) {
+    flex-direction: column;
+  }
+}
+
+.u-fd-column-tl{
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    flex-direction: column;
+  }
+}
+
+.u-fd-column-sm{
+  @include media(sm) {
+    flex-direction: column;
+  }
+}
+
+.u-jc-center{
+  justify-content: center;
+}
+
+.u-jc-end{
+  justify-content: flex-end;
+}
+
+.u-al-center{
+  align-items: center;
+}
+
+.u-al-start-sm{
+  @include media(sm) {
+    align-items: flex-start;
+  }
+}
+
+
+.u-al-end-tl{
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    justify-content: flex-end;
+  }
+}
+
+.u-dp-block{
+  display: block;
+}
+
+.u-dp-block-sm{
+  @include media(sm) {
+    display: block;
+  }
+}
+
+.u-dp-none{
+  display: none;
+}

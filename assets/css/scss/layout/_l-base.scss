@@ -1,0 +1,131 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+// コンテンツ
+body{
+  .is-modal-login-active &{
+    overflow: hidden;
+  }
+  .is-modalcat-active & {
+    @include media(sm) {
+      overflow: hidden;
+    }
+  }
+  .is-modalmnft-active & {
+    @include media(sm) {
+      overflow: hidden;
+    }
+  }
+}
+
+.l-body {
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility $time $ease, opacity $time $ease;
+
+  .is-loaded & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.l-wrapper {
+  padding-top: $lgHeaderHeight;
+
+  @include media(sm) {
+    padding-top: 5.6rem;
+  }
+  &--responsive{
+    @include media(sm) {
+      padding-top: 0;
+    }
+  }
+  &--padding-none{
+      padding-top: 0;
+      @include media(sm) {
+      padding-top: 0;
+    }
+  }
+}
+
+// メニュー展開時等の背景レイヤー
+.l-backlayer {
+  background-color: rgba(#000, .6);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility $time $ease, opacity $time $ease;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1400;
+
+  .is-nav-active & {
+    opacity: 1;
+    visibility: visible;
+    @media screen and (max-width: 960px) {
+      opacity: 0;
+    visibility: hidden;
+    }
+  } 
+
+  .is-modalcat-active & {
+    @media screen and (max-width: 960px) {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .is-modalmnft-active & {
+    @media screen and (max-width: 960px) {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .is-modal-login-active &{
+    opacity: 1;
+    visibility: visible;
+    @media screen and (max-width: 960px) {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+
+// PCのみ表示
+.l-lg {
+  @include media(sm) {
+    display: none !important;
+  }
+}
+
+// スマホのみ表示
+.l-sm {
+  @include media(lg) {
+    display: none !important;
+  }
+}
+
+.l-tl {
+  @media screen and (min-width: 960px) {
+    display: none !important;
+  }
+}
+
+.l-tl02 {
+  @media screen and (min-width: 1280px) {
+    display: none !important;
+  }
+}
+
+.l-tl03 {
+ @media screen and (max-width: 1280px) {
+    display: none !important;
+  }
+}

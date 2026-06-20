@@ -1,0 +1,41 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-ttl-secondary{
+  @include fz(32, true, 48, 600, 0);
+  @include media(sm) {
+    @include fz(24, true, 36, 600, 0);
+  }
+  &--small{
+    @include fz(24, true, 36, 600, 0);
+  }
+}
+
+.c-ttl-default{
+  @include fz(20, true, 30, 600, 0);
+}
+
+.c-ttl-normal{
+  @include fz(24, true, 36, 600, 0);
+  &--responsive{
+    @include media(sm) {
+      @include fz(16, true, 24, 600, 0);
+    }
+  }
+  &--responsive-small{
+    @include media(sm) {
+      @include fz(18, true, 24, 600, 0);
+    }
+  }
+}
+
+.c-unit-ttl{
+  display: flex;
+  gap:.8rem;
+  &__item{
+    @include fz(24, true, 36, 600, 0);
+  }
+}

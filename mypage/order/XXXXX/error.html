@@ -1,0 +1,1796 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>案件管理</title>
+  <meta name="description" content="サンプルテキストです">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/mypage/order/XXXXX/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="案件管理">
+  <meta property="og:description" content="サンプルテキストです">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/mypage/order/XXXXX/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          if (img.hasAttribute('data-no-inline')) continue;
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header">
+      <div class="l-header__inner">
+        <div class="l-header__area">
+          <h1 class="l-header__logo"><a href="/"><img class="l-header__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+        </div>
+        <nav class="l-header__nav">
+          <div class="l-header__list">
+            <div class="l-header__list-area">
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/./"><img class="l-header__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/products/"><img class="l-header__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/guide/"><img class="l-header__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/guide/faq/"><img class="l-header__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></div>
+            </div>
+            <div class="l-header__list-area">
+              <div class="l-header__list-item"><a class="l-header__list-link" href="/news/"><img class="l-header__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-header__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-header__list-icon l-header__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+              <div class="l-header__list-item"><a class="l-header__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-header__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-header__list-icon l-header__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+            </div>
+          </div>
+          <div class="l-header__btn-area"><a class="c-btn-icon c-btn-icon--responsive" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span class="c-btn-icon__txt c-btn-icon__txt--responsive">お問い合わせ</span> </a><a class="c-btn-icon c-btn-icon--responsive" href="/cart/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-cart.svg" alt="" height="24" width="24" decoding="async"> <span class="c-btn-icon__txt c-btn-icon__txt--responsive">カート</span> <span class="c-btn-icon__num">1</span></a>
+            <div class="l-header__list-menu" data-item-btn="header"><img class="l-header__list-menu-icon" src="/assets/images/common/icon-ellipse.png" alt="" height="48" width="48" decoding="async" loading="lazy"> <span class="c-btn-icon__num">1</span>
+              <div class="c-modal-small c-modal-small--header" data-item="header">
+                <ul class="c-modal-small__list">
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/mypage/"><img src="/assets/images/common/icon-accout.svg" alt="" height="24" width="24" decoding="async"> <span>マイページ</span></a></li>
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/mypage/order/"><img src="/assets/images/common/icon-message.svg" alt="" height="24" width="24" decoding="async"> <span>メッセージ</span> <span class="c-text-num">1</span></a></li>
+                  <li class="c-modal-small__list-item--link"><a class="c-modal-small__list-link" href="/./logout.html"><img src="/assets/images/common/icon-logout.svg" alt="" height="24" width="24" decoding="async"> <span>ログアウト</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="c-hamburger"><span></span> <span></span> <span></span></div>
+    <div class="l-nav-mega">
+      <nav class="l-nav-mega__navigation">
+        <div class="l-nav-mega__area"><a class="c-btn-icon" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>お問い合わせ</span></a></div>
+        <div class="l-widget l-widget--nav">
+          <div class="l-widget__item" data-sort-btn="cat"><span>カテゴリ検索</span></div>
+          <div class="l-widget__item" data-sort-btn="mnft"><span>メーカー検索</span></div>
+          <div class="c-input-search"><input class="c-input-search__item c-input-search__item--white" type="search" placeholder="キーワード検索"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+        </div>
+        <ul class="l-nav-mega__list">
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/./"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/products/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/guide/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/guide/faq/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="/news/"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-nav-mega__list-icon l-nav-mega__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+          <li class="l-nav-mega__list-item"><a class="l-nav-mega__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-nav-mega__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-nav-mega__list-icon l-nav-mega__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+        </ul>
+      </nav>
+      <div class="l-nav-mega__info"><a class="l-nav-mega__info-item" href="/legal/terms/">ご利用規約</a> <a class="l-nav-mega__info-item" href="/legal/privacy/">プライバシーポリシー</a> <a class="l-nav-mega__info-item" href="/legal/tokushoho/">特定商取引法に基づく表記</a></div>
+    </div>
+    <div class="l-wrapper">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="l-lowpage02 l-lowpage02--responsive">
+            <div class="l-tl02">
+              <div class="c-select c-select--fixed">
+                <div class="c-select__item c-select__item--02" data-nav-sm-btn=""><img class="c-select__icon" src="/assets/images/common/icon-task.svg" alt="" height="24" width="24" decoding="async"> <span class="c-select__txt">案件管理</span></div>
+              </div>
+              <div class="l-nav-mega02" data-nav-sm="">
+                <div class="l-lowpage02__nav">
+                  <ul class="l-lowpage02__nav-list">
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-dashbord.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> ダッシュボード</a></li>
+                    <li class="l-lowpage02__nav-list-item is-active"><a href="/mypage/order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-task.svg" alt="" height="24" width="24" decoding="async"> 案件管理</a>
+                      <div class="l-lowpage02__nav-list-num">
+                        <div class="c-text-num">1</div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-estimate/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 見積依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 注文依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/favorite/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-favorite.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> お気に入り製品</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/invoice/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-request.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 請求書</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/user/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-accout-user.svg" data-no-inline="" alt="" height="24" width="24" decoding="async"> 会員情報</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/address/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-location.svg" data-no-inline="" alt="" height="24" width="24" decoding="async">納品先</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/members/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-user.svg" data-no-inline="" alt="" height="24" width="24" decoding="async">ユーザー管理</a></li>
+                    <li class="l-lowpage02__nav-list-item l-lowpage02__nav-list-item--accordion"><a href="#" data-ac-btn="nav-toc"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-useful.svg" alt="" height="24" width="24" decoding="async">もっと活用！</a>
+                      <ul class="l-lowpage02__accordion-list" data-ac="nav-toc">
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/">タイトルが入りますタイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="l-lg">
+              <div class="l-widget l-widget--nav">
+                <div class="l-widget__item" data-sort-btn="cat"><span>カテゴリ検索</span></div>
+                <div class="l-widget__item" data-sort-btn="mnft"><span>メーカー検索</span></div>
+                <div class="c-input-search"><input class="c-input-search__item c-input-search__item--white" type="search" placeholder="キーワード検索"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+              </div>
+            </div>
+            <div class="l-breadcrumbs">
+              <ul class="l-breadcrumbs__list">
+                <li class="l-breadcrumbs__list-item"><a href="/./">ホーム</a></li>
+                <li class="l-breadcrumbs__list-item"><a href="/mypage/">マイページ</a></li>
+                <li class="l-breadcrumbs__list-item"><a href="/mypage/order/">案件管理</a></li>
+                <li class="l-breadcrumbs__list-item">案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります</li>
+              </ul>
+            </div>
+            <div class="l-inline-wide">
+              <div class="l-lowpage02__structure l-lowpage02__structure--three-column">
+                <div class="l-lowpage02__nav l-tl03" data-sticky="">
+                  <ul class="l-lowpage02__nav-list">
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-dashbord.svg" alt="" height="24" width="24" decoding="async"> ダッシュボード</a></li>
+                    <li class="l-lowpage02__nav-list-item is-active"><a href="/mypage/order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-task.svg" alt="" height="24" width="24" decoding="async"> 案件管理</a>
+                      <div class="l-lowpage02__nav-list-num">
+                        <div class="c-text-num">1</div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-estimate/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 見積依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/easy-order/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-order.svg" alt="" height="24" width="24" decoding="async"> 注文依頼</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/favorite/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-favorite.svg" alt="" height="24" width="24" decoding="async"> お気に入り製品</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/invoice/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-request.svg" alt="" height="24" width="24" decoding="async"> 請求書</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/user/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-accout-user.svg" alt="" height="24" width="24" decoding="async"> 会員情報</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/address/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-location.svg" alt="" height="24" width="24" decoding="async">納品先</a></li>
+                    <li class="l-lowpage02__nav-list-item"><a href="/mypage/members/"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-user.svg" alt="" height="24" width="24" decoding="async">ユーザー管理</a></li>
+                    <li class="l-lowpage02__nav-list-item l-lowpage02__nav-list-item--accordion"><a href="#" class="" data-ac-btn="nav-toc-lg"><img class="l-lowpage02__nav-list-icon" src="/assets/images/common/icon-useful.svg" alt="" height="24" width="24" decoding="async">もっと活用！</a>
+                      <ul class="l-lowpage02__accordion-list" data-ac="nav-toc-lg">
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/">タイトルが入りますタイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                        <li class="l-lowpage02__accordion-list-item"><a href="/mypage/more/XXXXX/">タイトルが入ります</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="l-lowpage02__contents">
+                  <div class="l-lowpage02__contents-area l-lowpage02__contents-area--padding03">
+                    <div class="l-inline-narrow u-mt16">
+                      <div class="c-card02__area c-card02__area--row">
+                        <div class="u-dp-flex u-al-center u-fw-wrap u-gap8">
+                          <div class="c-text-status c-text-status--gray">受付中</div>
+                          <p class="u-fs14">担当者からのご連絡をお待ちください</p>
+                        </div>
+                        <div class="c-unit-btn c-unit-btn--row"><img class="c-unit-btn__icon c-unit-btn__icon--favorite01" src="/assets/images/common/icon-favorite01.svg" data-click="" alt="" height="20" width="20" decoding="async"> <img class="c-unit-btn__icon c-unit-btn__icon--favorite02" src="/assets/images/common/icon-favorite02.svg" data-click="" alt="" height="20" width="20" decoding="async"> <img class="c-unit-btn__icon c-unit-btn__icon--favorite03" src="/assets/images/common/icon-favorite03.svg" data-click="" alt="" height="20" width="20" decoding="async"> <img class="c-unit-btn__icon c-unit-btn__icon--favorite04" src="/assets/images/common/icon-favorite04.svg" data-click="" alt="" height="20" width="20" decoding="async"></div>
+                      </div>
+                      <div class="l-info__item u-mt8">
+                        <div class="u-dp-flex u-al-center u-fd-column-sm u-al-start-sm u-gap8-sm u-gap24">
+                          <p class="u-text-bold">ご注文番号：1234567890</p>
+                          <div class="u-fs12">靜甲管理番号：1234567890</div>
+                        </div>
+                        <div class="l-info__parts">
+                          <div class="l-info__icon" data-modal-active="order-name"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                        </div>
+                      </div>
+                      <div class="c-ttl-default u-mt8">案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります</div>
+                    </div>
+                    <div class="u-hr-color u-mt16"></div>
+                    <div class="l-inline-narrow u-mt16 l-lg">
+                      <div class="l-payment">
+                        <div class="l-payment__item">
+                          <div class="u-fs12">数量：<span class="u-fs16">1</span> 点</div>
+                          <div class="u-fs12">小計：<span class="u-fs16">12,3456</span> 円</div>
+                          <div class="u-fs12">消費税：<span class="u-fs16">12,3456</span> 円</div>
+                          <div class="u-fs12">送料：<span class="u-fs16">12,3456</span> 円</div>
+                        </div>
+                        <div class="l-payment__item">
+                          <div class="u-fs14 u-text-bold u-text-nowrap">ご請求額：<span class="u-fs18">123,456,789 </span>円（税込）</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="u-hr-color u-mt16 l-lg"></div>
+                    <div class="l-inline-narrow u-mt16">
+                      <div class="c-btn-file c-btn-file--responsive">
+                        <div class="c-btn-file__item l-tl02" data-modal-active="chat"><img class="c-btn-file__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>メッセージを確認</span>
+                          <div class="c-text-num c-text-num--margin">1</div>
+                        </div>
+                        <div class="c-btn-file__item" data-file=""><img class="c-btn-file__icon" src="/assets/images/common/icon-file-upload.svg" alt="" height="20" width="20" decoding="async"> <span>ファイルをアップロード</span> <input class="u-dp-none" type="file" data-file-input=""></div>
+                        <div class="c-btn-file__item" data-item-btn="download"><img class="c-btn-file__icon" src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票を一括ダウンロード</span>
+                          <div class="c-modal-small" data-item="download">
+                            <div class="c-modal-small__list"><a href="/./" download="" class="c-modal-small__list-item c-modal-small__list-item--02"><span>全ての帳票（zip）</span> <img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> </a><a href="/./" download="" class="c-modal-small__list-item c-modal-small__list-item--02"><span>全ての見積書（zip）</span> <img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> </a><a href="/./" download="" class="c-modal-small__list-item c-modal-small__list-item--02"><span>選択肢（zip）</span> <img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> </a><a href="/./" download="" class="c-modal-small__list-item c-modal-small__list-item--02"><span>選択肢（zip）</span> <img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> </a><a href="/./" download="" class="c-modal-small__list-item c-modal-small__list-item--02"><span>選択肢（zip）</span> <img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"></a></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="c-accordion02 u-mt16">
+                      <div class="c-accordion02__item">
+                        <div class="c-accordion02__btn c-accordion02__btn--border c-accordion02__btn--padding" data-ac-btn="message">
+                          <p class="u-fs14 u-text-bold">案件情報</p>
+                          <div class="c-text-num">1</div>
+                        </div>
+                        <div class="c-accordion02__contents-wrapper" data-ac="message">
+                          <div class="c-accordion02__contents c-accordion02__contents--padding02">
+                            <div class="l-info">
+                              <div class="l-info__contents">
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">ご注文日</div>
+                                    <p>2025/01/01 01:00</p>
+                                  </div>
+                                </div>
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">お支払い方法</div>
+                                    <div class="l-info__item-parts">
+                                      <p>クレジットカード払い</p>
+                                      <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">カード番号 ：</span>
+                                        <p>****-****-****-1234</p>
+                                      </div>
+                                      <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">有効期限 ：</span>
+                                        <p>01/2030</p>
+                                      </div>
+                                      <p></p>
+                                    </div>
+                                  </div>
+                                  <div class="l-info__parts"></div>
+                                </div>
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">お支払い方法</div>
+                                    <div class="l-info__item-parts">
+                                      <p>請求書払い</p>
+                                      <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">宛名 ：</span>
+                                        <p>靜甲株式会社 東京営業所 商事事業部 御中</p>
+                                      </div>
+                                      <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">住所 ：</span>
+                                        <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                                      </div>
+                                      <p></p>
+                                    </div>
+                                  </div>
+                                  <div class="l-info__parts"></div>
+                                </div>
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">納品先</div>
+                                    <p>田中 太郎 様<br>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：03626143950</p>
+                                  </div>
+                                  <div class="l-info__parts">
+                                    <div class="c-text-caution">未確定</div>
+                                    <div class="l-info__icon" data-modal-active="location"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                  </div>
+                                </div>
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">納品希望日時</div>
+                                    <p>2026/01/01 午前中</p>
+                                  </div>
+                                  <div class="l-info__parts">
+                                    <div class="c-text-confirm">確定</div>
+                                    <div class="l-info__icon" data-modal-active="location-date"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                  </div>
+                                </div>
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">貸切区分</div>
+                                    <p>その他（入力内容が入ります）</p>
+                                  </div>
+                                  <div class="l-info__parts">
+                                    <div class="l-info__icon" data-modal-active="lend"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                  </div>
+                                </div>
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">納品書備考</div>
+                                    <p>1234567890_靜甲株式会社 東京営業所 換気システム導入_靜甲株式会社</p>
+                                  </div>
+                                  <div class="l-info__parts">
+                                    <div class="l-info__icon" data-modal-active="order-remarks"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                  </div>
+                                </div>
+                                <div class="l-info__item">
+                                  <div class="l-info__item-area">
+                                    <div class="l-info__item-txt">その他ご要望</div>
+                                    <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+                                  </div>
+                                  <div class="l-info__parts">
+                                    <div class="l-info__icon" data-modal-active="other"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="u-dp-flex u-jc-center u-mt24">
+                              <div class="c-btn-smallest c-btn-smallest--responsive c-btn-smallest--gray" data-ac-btn="message">案件情報を閉じる</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="c-accordion02__item">
+                        <div class="c-accordion02__btn c-accordion02__btn--border c-accordion02__btn--padding" data-ac-btn="file">
+                          <p class="u-fs14 u-text-bold">アップロードファイル（12）</p>
+                        </div>
+                        <div class="c-accordion02__contents-wrapper" data-ac="file">
+                          <div class="c-accordion02__contents c-accordion02__contents--padding02">
+                            <div class="l-info">
+                              <div class="l-info__contents">
+                                <div class="l-info__item l-info__item--responsive-column">
+                                  <div class="l-info__item-column">
+                                    <div class="l-info__item-area l-info__item-area--adjust"><a class="c-text-link u-fs14" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入りますファイル名が入ります.jpg</a>
+                                      <div class="l-info__item-area-parts"><span class="u-text-gray">（123KB）2025/01/01 01:01</span>
+                                        <div class="l-info__icon" data-modal-active="file"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                      </div>
+                                    </div>
+                                    <div class="l-info__item-area l-info__item-area--adjust u-mt16"><a class="c-text-link u-fs14" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入ります.jpg</a>
+                                      <div class="l-info__item-area-parts"><span class="u-text-gray">（123KB）2025/01/01 01:01</span>
+                                        <div class="l-info__icon" data-modal-active="file"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                      </div>
+                                    </div>
+                                    <div class="l-info__item-area l-info__item-area--adjust u-mt16"><a class="c-text-link u-fs14" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入ります.jpg</a>
+                                      <div class="l-info__item-area-parts"><span class="u-text-gray">（123KB）2025/01/01 01:01</span>
+                                        <div class="l-info__icon" data-modal-active="file"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="l-info__parts l-info__parts--responsive u-mt16-sm">
+                                    <div class="c-btn-icon-small l-lg" data-file=""><img class="c-btn-icon-small__icon" src="/assets/images/common/icon-file-upload.svg" alt="" height="20" width="20" decoding="async"> <span>ファイルをアップロード</span> <input class="u-dp-none" type="file" data-file-input=""></div>
+                                    <div class="l-sm">
+                                      <div class="c-btn-file">
+                                        <div class="c-btn-file__item c-btn-file__item--width" data-file=""><img class="c-btn-file__icon" src="/assets/images/common/icon-file-upload.svg" alt="" height="20" width="20" decoding="async"> <span>ファイルをアップロード</span> <input class="u-dp-none" type="file" data-file-input=""></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="u-fs14 u-text-indent u-mt24">※アップロードできるファイルは25MBまでです。</p>
+                            <div class="u-dp-flex u-jc-center u-mt24">
+                              <div class="c-btn-smallest c-btn-smallest--responsive c-btn-smallest--gray" data-ac-btn="file">アップロードファイルを閉じる</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="c-accordion02__item">
+                        <div class="c-accordion02__btn c-accordion02__btn--border02 c-accordion02__btn--padding" data-ac-btn="order-info">
+                          <p class="u-fs14 u-text-bold">ご注文情報</p>
+                          <div class="c-text-num">1</div>
+                        </div>
+                        <div class="c-accordion02__contents-wrapper" data-ac="order-info">
+                          <div class="c-accordion02__contents c-accordion02__contents--padding02">
+                            <div class="c-accordion03">
+                              <div class="c-accordion03__item">
+                                <div class="c-accordion03__btn" data-ac-btn="order-number">
+                                  <div class="c-accordion03__area-parts">
+                                    <div class="c-accordion03__item-ttl"><span>注文番号：</span>1234567890</div>
+                                    <div class="u-dp-flex u-al-center u-fw-wrap u-fd-column-sm u-al-start-sm u-gap8 u-mt8">
+                                      <div class="c-text-status c-text-status--gray">受付中</div>
+                                      <p class="u-fs14">注文情報確定待ち</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="c-accordion03__contents-wrapper" data-ac="order-number">
+                                  <div class="c-accordion03__contents">
+                                    <div class="c-accordion03__contents-area">
+                                      <div class="l-info">
+                                        <div class="l-info__contents"><a href="test.pdf" download="" class="c-btn-icon-small c-btn-icon-small--width l-sm"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">ご注文日</div>
+                                              <p>2025/01/01 01:00</p>
+                                            </div>
+                                            <div class="l-info__parts l-lg"><a href="test.pdf" download="" class="c-btn-icon-small"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>クレジットカード払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">カード番号 ：</span>
+                                                  <p>****-****-****-1234</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">有効期限 ：</span>
+                                                  <p>01/2030</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>請求書払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">宛名 ：</span>
+                                                  <p>靜甲株式会社 東京営業所 商事事業部 御中</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">住所 ：</span>
+                                                  <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品先</div>
+                                              <div class="l-info__area-parts">
+                                                <div class="u-dp-flex u-al-center u-gap8">
+                                                  <p>田中 太郎 様</p>
+                                                  <div class="c-text-caution">未確定</div>
+                                                </div>
+                                                <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：03626143950</p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品希望日時</div>
+                                              <div class="u-dp-flex u-al-center u-gap8">
+                                                <p>2026/01/01 午前中</p>
+                                                <div class="c-text-confirm">確定</div>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location-date"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">貸切区分</div>
+                                              <p>その他（入力内容が入ります）</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="lend"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品書備考</div>
+                                              <p>1234567890_靜甲株式会社 東京営業所 換気システム導入_靜甲株式会社</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="order-remarks"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">その他ご要望</div>
+                                              <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="other"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="c-card02__grid c-card02__grid--column c-card02__grid--hover"><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>2</em></span> <span><em>500,000</em> 円（<em>250,000</em> 円 / <em>1</em> 点）</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a></div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="l-payment">
+                                        <div class="l-payment__item">
+                                          <div class="u-fs12">数量：<span class="u-fs16">1</span> 点</div>
+                                          <div class="u-fs12">小計：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">消費税：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">送料：<span class="u-fs16">12,3456</span> 円</div>
+                                        </div>
+                                        <div class="l-payment__item">
+                                          <div class="u-fs14 u-text-bold u-text-nowrap">ご請求額：<span class="u-fs18">123,456,789 </span>円（税込）</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="c-accordion03__item u-mt16">
+                                <div class="c-accordion03__btn" data-ac-btn="order-number02">
+                                  <div class="c-accordion03__area-parts">
+                                    <div class="c-accordion03__item-ttl"><span>注文番号：</span>1234567890</div>
+                                    <div class="u-dp-flex u-al-center u-fw-wrap u-fd-column-sm u-al-start-sm u-gap8 u-mt8">
+                                      <div class="c-text-status c-text-status--orange">注文情報確定待ち</div>
+                                      <p class="u-fs14 u-text-orange">注文情報をご指定ください</p>
+                                    </div>
+                                  </div>
+                                  <div class="c-text-num">1</div>
+                                </div>
+                                <div class="c-accordion03__contents-wrapper" data-ac="order-number02">
+                                  <div class="c-accordion03__contents">
+                                    <div class="c-accordion03__contents-area">
+                                      <div class="l-info">
+                                        <div class="l-info__contents"><a href="test.pdf" download="" class="c-btn-icon-small c-btn-icon-small--width l-sm"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">ご注文日</div>
+                                              <p>2025/01/01 01:00</p>
+                                            </div>
+                                            <div class="l-info__parts l-lg"><a href="test.pdf" download="" class="c-btn-icon-small"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>クレジットカード払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">カード番号 ：</span>
+                                                  <p>****-****-****-1234</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">有効期限 ：</span>
+                                                  <p>01/2030</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>請求書払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">宛名 ：</span>
+                                                  <p>靜甲株式会社 東京営業所 商事事業部 御中</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">住所 ：</span>
+                                                  <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品先</div>
+                                              <div class="l-info__area-parts">
+                                                <div class="u-dp-flex u-al-center u-gap8">
+                                                  <p>田中 太郎 様</p>
+                                                  <div class="c-text-caution">未確定</div>
+                                                </div>
+                                                <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：03626143950</p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品希望日時</div>
+                                              <div class="u-dp-flex u-al-center u-gap8">
+                                                <p>2026/01/01 午前中</p>
+                                                <div class="c-text-confirm">確定</div>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location-date"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">貸切区分</div>
+                                              <p>その他（入力内容が入ります）</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="lend"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品書備考</div>
+                                              <p>1234567890_靜甲株式会社 東京営業所 換気システム導入_靜甲株式会社</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="order-remarks"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">その他ご要望</div>
+                                              <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="other"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="c-card02__grid c-card02__grid--column c-card02__grid--hover"><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>2</em></span> <span><em>500,000</em> 円（<em>250,000</em> 円 / <em>1</em> 点）</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a></div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="l-payment">
+                                        <div class="l-payment__item">
+                                          <div class="u-fs12">数量：<span class="u-fs16">1</span> 点</div>
+                                          <div class="u-fs12">小計：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">消費税：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">送料：<span class="u-fs16">12,3456</span> 円</div>
+                                        </div>
+                                        <div class="l-payment__item">
+                                          <div class="u-fs14 u-text-bold u-text-nowrap">ご請求額：<span class="u-fs18">123,456,789 </span>円（税込）</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="c-accordion03__item u-mt16">
+                                <div class="c-accordion03__btn" data-ac-btn="order-number03">
+                                  <div class="c-accordion03__area-parts">
+                                    <div class="c-accordion03__item-ttl"><span>注文番号：</span>1234567890</div>
+                                    <div class="u-dp-flex u-al-center u-fw-wrap u-fd-column-sm u-al-start-sm u-gap8 u-mt8">
+                                      <div class="c-text-status c-text-status--gray">受付中</div>
+                                      <p class="u-fs14">注文情報確定待ち</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="c-accordion03__contents-wrapper" data-ac="order-number03">
+                                  <div class="c-accordion03__contents">
+                                    <div class="c-accordion03__contents-area">
+                                      <div class="l-info">
+                                        <div class="l-info__contents"><a href="test.pdf" download="" class="c-btn-icon-small c-btn-icon-small--width l-sm"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">ご注文日</div>
+                                              <p>2025/01/01 01:00</p>
+                                            </div>
+                                            <div class="l-info__parts l-lg"><a href="test.pdf" download="" class="c-btn-icon-small"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>クレジットカード払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">カード番号 ：</span>
+                                                  <p>****-****-****-1234</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">有効期限 ：</span>
+                                                  <p>01/2030</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>請求書払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">宛名 ：</span>
+                                                  <p>靜甲株式会社 東京営業所 商事事業部 御中</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">住所 ：</span>
+                                                  <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品先</div>
+                                              <div class="l-info__area-parts">
+                                                <div class="u-dp-flex u-al-center u-gap8">
+                                                  <p>田中 太郎 様</p>
+                                                  <div class="c-text-caution">未確定</div>
+                                                </div>
+                                                <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：03626143950</p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品希望日時</div>
+                                              <div class="u-dp-flex u-al-center u-gap8">
+                                                <p>2026/01/01 午前中</p>
+                                                <div class="c-text-confirm">確定</div>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location-date"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">貸切区分</div>
+                                              <p>その他（入力内容が入ります）</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="lend"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品書備考</div>
+                                              <p>1234567890_靜甲株式会社 東京営業所 換気システム導入_靜甲株式会社</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="order-remarks"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">その他ご要望</div>
+                                              <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="other"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="c-card02__grid c-card02__grid--column c-card02__grid--hover"><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>2</em></span> <span><em>500,000</em> 円（<em>250,000</em> 円 / <em>1</em> 点）</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a></div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="l-payment">
+                                        <div class="l-payment__item">
+                                          <div class="u-fs12">数量：<span class="u-fs16">1</span> 点</div>
+                                          <div class="u-fs12">小計：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">消費税：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">送料：<span class="u-fs16">12,3456</span> 円</div>
+                                        </div>
+                                        <div class="l-payment__item">
+                                          <div class="u-fs14 u-text-bold u-text-nowrap">ご請求額：<span class="u-fs18">123,456,789 </span>円（税込）</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="c-accordion03__item u-mt16">
+                                <div class="c-accordion03__btn" data-ac-btn="order-number04">
+                                  <div class="c-accordion03__area-parts">
+                                    <div class="c-accordion03__item-ttl"><span>注文番号：</span>1234567890</div>
+                                    <div class="u-dp-flex u-al-center u-fw-wrap u-fd-column-sm u-al-start-sm u-gap8 u-mt8">
+                                      <div class="c-text-status c-text-status--orange">注文情報確定待ち</div>
+                                      <p class="u-fs14 u-text-orange">注文情報をご指定ください</p>
+                                    </div>
+                                  </div>
+                                  <div class="c-text-num">1</div>
+                                </div>
+                                <div class="c-accordion03__contents-wrapper" data-ac="order-number04">
+                                  <div class="c-accordion03__contents">
+                                    <div class="c-accordion03__contents-area">
+                                      <div class="l-info">
+                                        <div class="l-info__contents"><a href="test.pdf" download="" class="c-btn-icon-small c-btn-icon-small--width l-sm"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">ご注文日</div>
+                                              <p>2025/01/01 01:00</p>
+                                            </div>
+                                            <div class="l-info__parts l-lg"><a href="test.pdf" download="" class="c-btn-icon-small"><img src="/assets/images/common/icon-download.svg" alt="" height="20" width="20" decoding="async"> <span>帳票をダウンロード</span></a></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>クレジットカード払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">カード番号 ：</span>
+                                                  <p>****-****-****-1234</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">有効期限 ：</span>
+                                                  <p>01/2030</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">お支払い方法</div>
+                                              <div class="l-info__item-parts">
+                                                <p>請求書払い</p>
+                                                <div class="u-dp-flex u-mt8"><span class="u-fs12 u-lh20 u-text-nowrap">宛名 ：</span>
+                                                  <p>靜甲株式会社 東京営業所 商事事業部 御中</p>
+                                                </div>
+                                                <div class="u-dp-flex"><span class="u-fs12 u-lh20 u-text-nowrap">住所 ：</span>
+                                                  <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                                                </div>
+                                                <p></p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts"></div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品先</div>
+                                              <div class="l-info__area-parts">
+                                                <div class="u-dp-flex u-al-center u-gap8">
+                                                  <p>田中 太郎 様</p>
+                                                  <div class="c-text-caution">未確定</div>
+                                                </div>
+                                                <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：03626143950</p>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品希望日時</div>
+                                              <div class="u-dp-flex u-al-center u-gap8">
+                                                <p>2026/01/01 午前中</p>
+                                                <div class="c-text-confirm">確定</div>
+                                              </div>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="location-date"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">貸切区分</div>
+                                              <p>その他（入力内容が入ります）</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="lend"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">納品書備考</div>
+                                              <p>1234567890_靜甲株式会社 東京営業所 換気システム導入_靜甲株式会社</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="order-remarks"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                          <div class="l-info__item">
+                                            <div class="l-info__item-area">
+                                              <div class="l-info__item-txt">その他ご要望</div>
+                                              <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
+                                            </div>
+                                            <div class="l-info__parts">
+                                              <div class="l-info__icon" data-modal-active="other"><img class="c-icon" src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="c-card02__grid c-card02__grid--column c-card02__grid--hover"><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>2</em></span> <span><em>500,000</em> 円（<em>250,000</em> 円 / <em>1</em> 点）</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名製品名製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a><a href="/products/xxxxx/" class="c-card02__grid-item"><img class="c-card02__grid-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy">
+                                          <div class="c-card02__grid-area">
+                                            <p class="c-card02__grid-txt">製品名</p>
+                                            <div class="c-card02__grid-parts"><span>数量：<em>1</em></span> <span><em>500,000</em> 円</span></div>
+                                          </div>
+                                        </a></div>
+                                    </div>
+                                    <div class="c-accordion03__area">
+                                      <div class="l-payment">
+                                        <div class="l-payment__item">
+                                          <div class="u-fs12">数量：<span class="u-fs16">1</span> 点</div>
+                                          <div class="u-fs12">小計：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">消費税：<span class="u-fs16">12,3456</span> 円</div>
+                                          <div class="u-fs12">送料：<span class="u-fs16">12,3456</span> 円</div>
+                                        </div>
+                                        <div class="l-payment__item">
+                                          <div class="u-fs14 u-text-bold u-text-nowrap">ご請求額：<span class="u-fs18">123,456,789 </span>円（税込）</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="u-dp-flex u-jc-center u-mt24">
+                                <div class="c-btn-smallest c-btn-smallest--responsive c-btn-smallest--gray" data-ac-btn="order-info">ご注文情報を閉じる</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+                  <footer class="l-footer l-footer--column l-footer--padding">
+                    <div class="l-footer__contents l-footer__contents">
+                      <div class="l-footer__detail"><a class="l-footer__logo" href="/./"><img src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a>
+                        <ul class="l-footer__list">
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/./"><img class="l-footer__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/products/"><img class="l-footer__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/"><img class="l-footer__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/faq/"><img class="l-footer__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></li>
+                        </ul>
+                        <ul class="l-footer__list">
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="/news/"><img class="l-footer__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+                          <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+                        </ul>
+                        <div class="l-footer__parts"><a class="l-footer__parts-txt" href="/legal/terms/">ご利用規約</a> <a class="l-footer__parts-txt" href="/legal/tokushoho/">特定商取引法に基づく表記</a> <a class="l-footer__parts-txt" href="/legal/privacy/">プライバシーポリシー</a></div>
+                        <div class="l-footer__area"><a class="c-btn-icon" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>お問い合わせ</span></a>
+                          <div class="l-footer__info">月〜金｜10:00 ~ 17:00<br>土日祝｜定休日</div>
+                        </div>
+                      </div>
+                      <div class="l-footer__detail">
+                        <div class="l-footer__calender">
+                          <div class="l-footer__calender-month"><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-left.svg" alt="" height="11" width="7" decoding="async">
+                            <p class="l-footer__calender-month-txt">2025年12月の営業日</p><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-right.svg" alt="" height="11" width="7" decoding="async">
+                          </div>
+                          <div class="l-footer__calender-table">
+                            <div class="l-footer__calender-tr l-footer__calender-tr--week">
+                              <div class="l-footer__calender-td"><span>月</span></div>
+                              <div class="l-footer__calender-td"><span>火</span></div>
+                              <div class="l-footer__calender-td"><span>水</span></div>
+                              <div class="l-footer__calender-td"><span>木</span></div>
+                              <div class="l-footer__calender-td"><span>金</span></div>
+                              <div class="l-footer__calender-td"><span>土</span></div>
+                              <div class="l-footer__calender-td"><span>日</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">1</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">2</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">3</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">4</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">5</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">6</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">7</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">8</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">9</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">10</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">11</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">12</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">13</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">14</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">15</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">16</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">17</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">18</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">19</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">20</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">21</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">22</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">23</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">24</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">25</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">26</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">27</span> <span class="l-footer__calender-mark">✕</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">28</span> <span class="l-footer__calender-mark">✕</span></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">29</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">30</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">31</span> <span class="l-footer__calender-mark">〇</span></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                            </div>
+                            <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                              <div class="l-footer__calender-td"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><small>© 空調部材プロ by 靜甲</small>
+                  </footer>
+                </div>
+                <div class="l-chat l-tl03" data-sticky="">
+                  <div class="l-chat__contents">
+                    <div class="l-chat__ttl-area">
+                      <h2 class="l-chat__ttl">メッセージ</h2>
+                      <div class="c-text-num">1</div>
+                    </div>
+                    <div class="l-chat__area">
+                      <div class="l-chat__card is-active">
+                        <div class="l-chat__card-area">
+                          <div class="l-chat__card-area-parts"><img class="l-chat__card-icon" src="/assets/images/chat/company.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                            <div class="l-chat__card-parts"><span>靜甲株式会社<br>東京営業所 商事事業部</span>
+                              <p>山田 太郎 様</p>
+                            </div>
+                          </div>
+                          <div class="l-chat__card-date">2025/12/25 01:23</div>
+                        </div>
+                        <div class="l-chat__input-area u-mt16">
+                          <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p>
+                        </div>
+                        <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                        <div class="l-chat__btn">
+                          <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-turn.svg" alt="" height="20" width="20" decoding="async"> <span>未読に戻す</span></div>
+                        </div>
+                      </div>
+                      <div class="l-chat__card">
+                        <div class="l-chat__input-area">
+                          <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p><a class="c-text-link u-fs14 u-mt16" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入りますファイル名が入ります.jpg</a> <a class="c-text-link u-fs14" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入ります.jpg</a> <a class="c-text-link u-fs14" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入ります.jpg</a>
+                        </div>
+                        <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                        <div class="l-chat__btn">
+                          <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-turn.svg" alt="" height="20" width="20" decoding="async"> <span>未読に戻す</span></div>
+                        </div>
+                      </div>
+                      <div class="l-chat__card is-inactive">
+                        <div class="l-chat__card-area">
+                          <div class="l-chat__card-area-parts"><img class="l-chat__card-icon" src="/assets/images/common/ellipse.png" alt="" height="160" width="160" decoding="async" loading="lazy">
+                            <div class="l-chat__card-parts"><span>靜甲株式会社<br>東京営業所 商事事業部</span>
+                              <p>山田 太郎 様</p>
+                            </div>
+                          </div>
+                          <div class="l-chat__card-date">2025/12/25 01:23</div>
+                        </div>
+                        <div class="l-chat__input-area u-mt16">
+                          <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p>
+                        </div>
+                        <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                        <div class="l-chat__btn"><span class="u-text-gray u-fs12 u-cursor-pointer">既読</span>
+                          <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span>変更</span></div>
+                        </div>
+                      </div>
+                      <div class="l-chat__card">
+                        <div class="l-chat__card-area">
+                          <div class="l-chat__card-area-parts"><img class="l-chat__card-icon" src="/assets/images/common/ellipse.png" alt="" height="160" width="160" decoding="async" loading="lazy">
+                            <div class="l-chat__card-parts"><span>靜甲株式会社<br>東京営業所 商事事業部</span>
+                              <p>山田 太郎 様</p>
+                            </div>
+                          </div>
+                          <div class="l-chat__card-date">2025/12/25 01:23</div>
+                        </div>
+                        <div class="l-chat__input-area u-mt16">
+                          <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p>
+                        </div><img class="l-caht__image u-mt16" src="/assets/images/common/test.jpg" alt="" height="499" width="720" decoding="async" loading="lazy">
+                        <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                        <div class="l-chat__btn">
+                          <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-turn.svg" alt="" height="20" width="20" decoding="async"> <span>未読に戻す</span></div>
+                        </div>
+                      </div>
+                      <div class="l-chat__card">
+                        <div class="l-chat__card-area">
+                          <div class="l-chat__card-area-parts"><img class="l-chat__card-icon" src="/assets/images/common/ellipse.png" alt="" height="160" width="160" decoding="async" loading="lazy">
+                            <div class="l-chat__card-parts"><span>靜甲株式会社<br>東京営業所 商事事業部</span>
+                              <p>山田 太郎 様</p>
+                            </div>
+                          </div>
+                          <div class="l-chat__card-date">2025/12/25 01:23</div>
+                        </div>
+                        <div class="l-chat__input-area u-mt16">
+                          <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p>
+                        </div>
+                        <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                        <div class="l-chat__btn">
+                          <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-turn.svg" alt="" height="20" width="20" decoding="async"> <span>未読に戻す</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="l-chat__textarea">
+                    <div class="l-chat__textarea-contents"><textarea class="l-chat__textarea-item" data-textarea=""></textarea>
+                      <div class="l-chat__textarea-parts"><img class="l-chat__textarea-icon" src="/assets/images/common/icon-attach.svg" alt="" height="24" width="24" decoding="async"> <img class="l-chat__textarea-icon" src="/assets/images/common/icon-send.svg" alt="" height="24" width="24" decoding="async"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="c-modal c-modal--cat c-modal--adjust" data-sort-modal="cat">
+        <div class="c-modal__area l-tl">
+          <div class="c-modal__area-txt">カテゴリ検索</div>
+          <div class="c-modal__close"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal__contents">
+          <ul class="c-modal__list">
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">高置架台</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">防振架台</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image03.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">防振部材</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image04.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">木台</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image05.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">ドレンパン</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image06.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">ドレンポンプ</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image07.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">ワイドパネル</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image08.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">ワイドスペーサー</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/cat-image09.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">スペーサー</p>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="c-modal c-modal--mnft c-modal--adjust" data-sort-modal="mnft">
+        <div class="c-modal__area l-tl">
+          <div class="c-modal__area-txt">メーカー検索</div>
+          <div class="c-modal__close"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal__contents">
+          <ul class="c-modal__list">
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">倉敷化工株式会社</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">株式会社エヌ・エス・シー</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image03.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">株式会社シモヤマ</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image04.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">日晴金属株式会社</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image05.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">株式会社ダイアン・サービス</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image06.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">株式会社潮</p>
+              </a></li>
+            <li class="c-modal__list-item"><a href="/products/"><img class="c-modal__list-image" src="/assets/images/products/manufacturer-image08.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                <p class="c-modal__list-txt">東亜電気工業株式会社</p>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="order-name">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">ご注文番号・案件名の変更</div>
+          <div class="c-modal-login__close" data-modal-close="order-name"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <p class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度「ご注文番号・案件名を変更する」ボタンを押下してください。</p>
+            <div class="c-input u-mt40">
+              <div class="c-input__area">
+                <div class="c-input__txt">ご注文番号</div>
+                <div class="c-input__require">必須</div>
+              </div><input class="c-input__item is-error c-input__item--width" type="text" placeholder="" value="1234567890">
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+            <div class="c-input u-mt20">
+              <div class="c-input__area">
+                <div class="c-input__txt">案件名</div>
+                <div class="c-input__require">必須</div>
+              </div><textarea class="c-input__textarea02 is-error" data-textarea="">案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります</textarea>
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※入力内容に誤りがあります。</span></p>
+            <div class="c-btn-normal u-mt40 l-lg">ご注文番号・案件名を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="order-name">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="order-name">キャンセル</div>
+          <div class="c-modal__btn-blue">ご注文番号・案件名を変更する</div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="location">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">納品先の変更</div>
+          <div class="c-modal-login__close" data-modal-close="location"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <p class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度「納品先を変更する」ボタンを押下してください。</p>
+            <div class="l-form__table u-mt40">
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">氏名</div>
+                  <div class="l-form__require">必須</div>
+                </div>
+                <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="田中" value="田中"> <input class="l-form__input is-error" type="text" placeholder="太郎" value="太郎"></div>
+                <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">氏名（カナ）</div>
+                  <div class="l-form__require">必須</div>
+                </div>
+                <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="タナカ" value="タナカ"> <input class="l-form__input is-error" type="text" placeholder="タロウ" value="タロウ"></div>
+                <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※全角カタカナで入力してください。</span></p>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">会社名</div>
+                  <div class="l-form__option">任意</div>
+                </div>
+                <div class="l-form__input-area">
+                  <div class="c-select" data-select-check-area="">
+                    <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                      <div class="c-select__modal" data-select="company">
+                        <div class="c-select__modal-area">
+                          <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                        </div>
+                        <div class="c-select__modal-contents">
+                          <ul class="c-select__check-list">
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-select-check-value="">靜甲株式会社</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                            <li class="c-select__check-list-item" data-select-check="">
+                              <div class="c-input-radio c-input-radio--ellipsis">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="c-select__btn-area">
+                          <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                          <div class="c-select__btn-area-parts">
+                            <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                            <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">所属</div>
+                  <div class="l-form__option">任意</div>
+                </div>
+                <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部" value="東京営業所 商事事業部"></div>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">電話番号</div>
+                  <div class="l-form__require">必須</div>
+                </div>
+                <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="0362614395" maxlength="10" value="0362614395"></div>
+                <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※半角数字で入力してください。</span></p>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">郵便番号</div>
+                  <div class="l-form__require">必須</div>
+                </div>
+                <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input is-error" type="text" placeholder="1020083" value="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※7桁の半角数字で入力してください。</span> <span class="c-text-attention__item">※該当する郵便番号が見つかりませんでした。</span></p>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">都道府県</div>
+                  <div class="l-form__require">必須</div>
+                </div>
+                <div class="l-form__input-area l-form__input-area--grid">
+                  <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="東京都" value="東京都"></div>
+                </div>
+                <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">市区町村</div>
+                  <div class="l-form__require">必須</div>
+                </div>
+                <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="千代田区麹町" value="千代田区麹町"></div>
+                <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+              </div>
+              <div class="l-form__tr">
+                <div class="l-form__parts">
+                  <div class="l-form__txt">番地・ビル名</div>
+                  <div class="l-form__require">必須</div>
+                </div>
+                <div class="l-form__input-area"><input class="l-form__input is-error" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階" value="5丁目3番地3 麹町KSスクエア3階"></div>
+                <p class="c-text-attention"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+              </div>
+            </div>
+            <div class="c-unit-ttl u-mt16">
+              <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+              <div class="c-text-caution">必須</div>
+            </div>
+            <div class="c-input-radio u-mt16" data-radio="">
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+            <p class="u-fs14 u-text-indent u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+            <div class="u-dp-flex u-jc-center u-mt32">
+              <div class="c-input-check" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox"> <label class="c-input-check__label" data-check-label="">納品先リストに追加する</label></div>
+            </div>
+            <p class="c-text-link u-text-center u-mt32" data-modal-active="location-list">納品先リストから選択する</p>
+            <div class="c-btn-normal u-mt40 l-lg">納品先を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="location">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="location">キャンセル</div>
+          <div class="c-modal__btn-blue">納品先を変更する</div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="location-date">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">納品希望日時の変更</div>
+          <div class="c-modal-login__close" data-modal-close="location-date"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <p class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度「納品希望日時を変更する」ボタンを押下してください。</p>
+            <div class="c-input u-mt40">
+              <div class="c-input__area">
+                <div class="c-input__txt">納品希望日</div>
+                <div class="c-input__require">必須</div>
+              </div>
+              <div class="c-input__description">
+                <div class="c-input__calnder"><input class="c-input__item is-error" type="text" placeholder="---- / -- / --" data-calendar="" value="2025/01/01"> <img class="c-input__calnder-icon is-error" src="/assets/images/common/icon-calender.svg" alt="" height="24" width="24" decoding="async"></div>
+                <p class="u-fs14">最短発送日：2025/12/31</p>
+              </div>
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※最短発送日より前日は指定いただけません。</span></p>
+            <div class="c-input c-input--width u-mt20">
+              <div class="c-input__area">
+                <div class="c-input__txt">納品希望時間</div>
+                <div class="c-input__option">任意</div>
+              </div><input class="c-input__item is-error" type="text" placeholder="14:00~17:00" value="午前中">
+            </div>
+            <p class="u-fs14 u-text-indent u-lh15 u-mt4">※時間指定なしの場合は、AM着希望にて配送先に手配しますが、実際の到着時間は前後する可能性がありますので、予めご了承ください。</p>
+            <p class="u-fs14 u-text-indent u-lh15 u-mt4">※ご記入の納品希望日時は配送手配の目安となります。在庫状況や交通事情、天候等により、予告なく変更となる可能性があることを予めご了承ください。<br>正確な発送日は、確定次第マイページにてお知らせいたします。</p>
+            <div class="c-unit-ttl u-mt16">
+              <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+              <div class="c-text-caution">必須</div>
+            </div>
+            <div class="c-input-radio u-mt16" data-radio="">
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+            <p class="u-fs14 u-text-indent u-mt16">※納品希望日時が「未確定」の場合は、送料は仮の金額となります。</p>
+            <div class="c-btn-normal u-mt40 l-lg">納品希望日時を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="location-date">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="location-date">キャンセル</div>
+          <div class="c-modal__btn-blue">納品希望日時を変更する</div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="lend">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">貸切区分の変更</div>
+          <div class="c-modal-login__close" data-modal-close="lend"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <p class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度「貸切区分を変更する」ボタンを押下してください。</p>
+            <div class="c-unit-ttl u-mt40">
+              <div class="u-fs14 u-text-bold">貸切区分</div>
+              <div class="c-text-caution">必須</div>
+            </div>
+            <div class="c-input-radio c-input-radio--column u-mt16" data-radio="">
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車指定</label></div>
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4T平</label></div>
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">8T平</label></div>
+              <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック社</label></div>
+              <div class="c-input-radio__parts c-input-radio__parts--width"><input class="c-input-radio__item is-error" data-radio-input="" type="radio" checked="checked"> <label class="c-input-radio__label" data-radio-label="">その他</label> <input class="c-input-radio__input-normal c-input-radio__input-normal--margin is-error" type="text" value="入力内容が入ります"></div>
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+            <p class="u-fs14 u-text-indent u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+            <div class="c-btn-normal u-mt40 l-lg">貸切区分を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="lend">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="lend">キャンセル</div>
+          <div class="c-modal__btn-blue">貸切区分を変更する</div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="order-remarks">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">納品書備考の変更</div>
+          <div class="c-modal-login__close" data-modal-close="order-remarks"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <div class="c-input">
+              <div class="c-input__area">
+                <div class="c-input__txt">納品書備考</div>
+                <div class="c-input__option">任意</div>
+              </div>
+              <div class="c-input__textarea-wrapper"><textarea class="c-input__textarea c-input__textarea--height" type="text">1234567890_靜甲株式会社 東京営業所 換気システム導入_靜甲株式会社</textarea> <span class="c-input__textarea-num">0/50</span></div>
+            </div>
+            <p class="u-fs14 u-text-indent">※納品書備考欄に記載が必要な情報はこちらにご記入ください。</p>
+            <p class="u-fs14 u-text-indent u-mt4">※納品書備考欄が空欄の場合は「ご注文番号_案件名_お客様会社名」が自動入力されます。</p>
+            <div class="c-btn-normal u-mt40 l-lg">納品書備考を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="order-remarks">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="order-remarks">キャンセル</div>
+          <div class="c-modal__btn-blue">納品書備考を変更する</div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="other">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">その他ご要望の変更</div>
+          <div class="c-modal-login__close" data-modal-close="other"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <div class="c-input">
+              <div class="c-input__area">
+                <div class="c-input__txt">その他ご要望</div>
+                <div class="c-input__option">任意</div>
+              </div>
+              <div class="c-input__textarea-wrapper"><textarea class="c-input__textarea" type="text"></textarea> <span class="c-input__textarea-num">0/100</span></div>
+            </div>
+            <div class="c-btn-normal u-mt40 l-lg">その他ご要望を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="other">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="other">キャンセル</div>
+          <div class="c-modal__btn-blue">その他ご要望を変更する</div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="file">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">ファイル名の変更</div>
+          <div class="c-modal-login__close" data-modal-close="file"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <p class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度「ファイル名を変更する」ボタンを押下してください。</p>
+            <div class="c-input u-mt40">
+              <div class="c-input__area">
+                <div class="c-input__txt">ファイル名</div>
+                <div class="c-input__require">任意</div>
+              </div><input class="c-input__item is-error" type="text" value="ファイル名が入りますファイル名が入りますファイル名が入ります">
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+            <div class="c-btn-normal u-mt40 l-lg">ファイル名を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="file">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="file">キャンセル</div>
+          <div class="c-modal__btn-blue">ファイル名を変更する</div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--default" data-modal="chat">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">メッセージ</div>
+          <div class="c-modal-login__close" data-modal-close="chat"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--padding">
+            <div class="l-chat">
+              <div class="l-chat__contents">
+                <div class="l-chat__area">
+                  <div class="l-chat__card is-active">
+                    <div class="l-chat__card-area">
+                      <div class="l-chat__card-area-parts"><img class="l-chat__card-icon" src="/assets/images/chat/company.png" alt="" height="80" width="80" decoding="async" loading="lazy">
+                        <div class="l-chat__card-parts"><span>靜甲株式会社<br>東京営業所 商事事業部</span>
+                          <p>山田 太郎 様</p>
+                        </div>
+                      </div>
+                      <div class="l-chat__card-date">2025/12/25 01:23</div>
+                    </div>
+                    <div class="l-chat__input-area u-mt16">
+                      <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p>
+                    </div>
+                    <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                    <div class="l-chat__btn">
+                      <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-turn.svg" alt="" height="20" width="20" decoding="async"> <span>未読に戻す</span></div>
+                    </div>
+                  </div>
+                  <div class="l-chat__card">
+                    <div class="l-chat__input-area">
+                      <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p><a class="c-text-link c-text-link--underline u-fs14 u-mt16" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入りますファイル名が入ります.jpg</a> <a class="c-text-link c-text-link--underline u-fs14" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入ります.jpg</a> <a class="c-text-link c-text-link--underline u-fs14" href="/assets/images/common/test02.png" target="_blank" rel="noopener noreferrer">ファイル名が入ります.jpg</a>
+                    </div>
+                    <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                    <div class="l-chat__btn">
+                      <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-turn.svg" alt="" height="20" width="20" decoding="async"> <span>未読に戻す</span></div>
+                    </div>
+                  </div>
+                  <div class="l-chat__card is-inactive">
+                    <div class="l-chat__card-area">
+                      <div class="l-chat__card-area-parts"><img class="l-chat__card-icon" src="/assets/images/common/ellipse.png" alt="" height="160" width="160" decoding="async" loading="lazy">
+                        <div class="l-chat__card-parts"><span>靜甲株式会社<br>東京営業所 商事事業部</span>
+                          <p>山田 太郎 様</p>
+                        </div>
+                      </div>
+                      <div class="l-chat__card-date">2025/12/25 01:23</div>
+                    </div>
+                    <div class="l-chat__input-area u-mt16">
+                      <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p>
+                    </div>
+                    <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                    <div class="l-chat__btn"><span class="u-text-gray u-fs12 u-cursor-pointer">既読</span>
+                      <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span>変更</span></div>
+                    </div>
+                  </div>
+                  <div class="l-chat__card">
+                    <div class="l-chat__card-area">
+                      <div class="l-chat__card-area-parts"><img class="l-chat__card-icon" src="/assets/images/common/ellipse.png" alt="" height="160" width="160" decoding="async" loading="lazy">
+                        <div class="l-chat__card-parts"><span>靜甲株式会社<br>東京営業所 商事事業部</span>
+                          <p>山田 太郎 様</p>
+                        </div>
+                      </div>
+                      <div class="l-chat__card-date">2025/12/25 01:23</div>
+                    </div>
+                    <div class="l-chat__input-area u-mt16">
+                      <p>メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。メッセージが入ります。</p>
+                    </div>
+                    <div class="l-chat__card-reaction-area"><img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img01.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img02.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img03.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img04.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img05.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img06.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img07.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img08.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img09.png" alt="" height="32" width="32" decoding="async" loading="lazy"> <img class="l-chat__card-reaction" src="/assets/images/chat/reaction-img10.png" alt="" height="32" width="32" decoding="async" loading="lazy"></div>
+                    <div class="l-chat__btn">
+                      <div class="c-btn-icon-small c-btn-icon-small--font-small"><img src="/assets/images/common/icon-turn.svg" alt="" height="20" width="20" decoding="async"> <span>未読に戻す</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="l-chat__textarea">
+                <div class="l-chat__textarea-contents"><textarea class="l-chat__textarea-item" data-textarea=""></textarea>
+                  <div class="l-chat__textarea-parts"><img class="l-chat__textarea-icon" src="/assets/images/common/icon-attach.svg" alt="" height="24" width="24" decoding="async"> <img class="l-chat__textarea-icon" src="/assets/images/common/icon-send.svg" alt="" height="24" width="24" decoding="async"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-modal-login c-modal-login--wide" data-modal="location-list">
+        <div class="c-modal-login__area">
+          <div class="c-modal-login__area-txt">納品先の変更</div>
+          <div class="c-modal-login__close" data-modal-close="location-list"><span></span> <span></span></div>
+        </div>
+        <div class="c-modal-login__contents-wrapper">
+          <div class="c-modal-login__contents c-modal-login__contents--max-height">
+            <p class="c-text-error">エラーが発生しました。お手数おかけいたしますが入力内容をご確認、修正の上、再度「納品先を変更する」ボタンを押下してください。</p>
+            <div class="l-slider02 u-mt16 swiper" data-radio-group="location">
+              <div class="l-slider02__contents swiper-wrapper">
+                <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                  <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" checked="checked" data-radio-input=""></div>
+                  <div class="l-slider02__item-area">
+                    <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                    <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                  </div>
+                </div>
+                <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                  <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                  <div class="l-slider02__item-area">
+                    <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                    <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                  </div>
+                </div>
+                <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                  <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                  <div class="l-slider02__item-area">
+                    <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                    <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                  </div>
+                </div>
+                <div class="l-slider02__item swiper-slide is-error" data-radio-item="">
+                  <div class="c-input-radio"><input class="c-input-radio__item is-error" type="radio" data-radio-input=""></div>
+                  <div class="l-slider02__item-area">
+                    <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                    <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                  </div>
+                </div>
+              </div>
+              <div class="l-slider02__btn">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
+            <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+            <div class="u-dp-flex u-fd-column u-al-center u-mt32">
+              <div class="c-unit-ttl">
+                <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+                <div class="c-text-caution">必須</div>
+              </div>
+              <div class="c-input-radio u-mt16" data-radio="">
+                <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                <div class="c-input-radio__parts"><input class="c-input-radio__item is-error" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+              </div>
+              <p class="c-text-attention u-mt16"><span class="c-text-attention__item">※入力必須項目です。</span></p>
+              <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+              <p class="c-text-link u-mt32" data-modal-active="location">現在の入力内容を編集する</p>
+            </div>
+            <div class="c-btn-normal u-mt40 l-lg">納品先を変更する</div>
+            <div class="c-btn-small u-mt40 l-lg" data-modal-close="location-list">キャンセル</div>
+          </div>
+        </div>
+        <div class="c-modal__btn-area l-sm">
+          <div class="c-modal__btn-white" data-modal-close="location-list">キャンセル</div>
+          <div class="c-modal__btn-blue">納品先を変更する</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

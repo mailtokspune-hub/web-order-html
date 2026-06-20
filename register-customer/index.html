@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>新規会員登録</title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="新規会員登録">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header-register">
+      <div class="l-header-register__inner">
+        <div class="l-header-register__area">
+          <h1 class="l-header-register__logo"><a href="/"><img class="l-header-register__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+          <div class="l-header-register__ttl">新規会員登録</div>
+        </div>
+        <nav class="l-header-register__nav">
+          <ul class="l-header-register__nav-list">
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive is-active">❶<span class="l-lg">&nbsp;</span><br class="l-sm">会員情報<br class="l-sm">を入力</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❷<span class="l-lg">&nbsp;</span><br class="l-sm">入力内容<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❸<span class="l-lg">&nbsp;</span><br class="l-sm">メール<br class="l-sm">アドレス<br class="l-sm">確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❹<span class="l-lg">&nbsp;</span><br class="l-sm">登録受付<br class="l-sm">完了</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--responsive">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="p-register">
+            <div class="l-inline-responsive-none">
+              <div class="p-register__contents">
+                <p>以下のフォームに必要事項をご入力ください。<br>ご登録いただいた個人情報は、プライバシーポリシーに基づき、適切に保護されます。</p>
+                <div class="p-register__form">
+                  <form action="/register-customer/confirm/">
+                    <div class="l-form__contents">
+                      <div class="l-form__table">
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">氏名</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="田中"> <input class="l-form__input" type="text" placeholder="太郎"></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">氏名（カナ）</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="タナカ"> <input class="l-form__input" type="text" placeholder="タロウ"></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">アイコン</div>
+                            <div class="l-form__option">任意</div>
+                          </div>
+                          <div class="l-form__input-upload">
+                            <div class="c-input-upload"><label class="c-input-upload__label">
+                                <div class="c-input-upload__default" data-image-upload-btn=""><img src="/assets/images/common/icon-image.svg" alt="" height="20" width="20" decoding="async"> <span>画像をアップロード</span></div><input class="c-input-upload__item" type="file" accept="image/*" multiple="multiple" data-image-upload="">
+                              </label>
+                              <div class="c-input-upload__txt">選択されていません</div>
+                              <div class="c-input-upload__files"></div>
+                              <p class="u-fs14 u-text-indent u-lh15 u-mt4">※アップロードできるファイルは5MBまでです。（PNG / JPG）</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">会社名</div>
+                            <div class="l-form__option">任意</div>
+                          </div>
+                          <div class="l-form__input-area">
+                            <div class="c-select" data-select-check-area="">
+                              <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                                <div class="c-select__modal" data-select="company">
+                                  <div class="c-select__modal-area">
+                                    <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                                  </div>
+                                  <div class="c-select__modal-contents">
+                                    <ul class="c-select__check-list">
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                      <li class="c-select__check-list-item" data-select-check="">
+                                        <div class="c-input-radio c-input-radio--ellipsis">
+                                          <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div class="c-select__btn-area">
+                                    <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                                    <div class="c-select__btn-area-parts">
+                                      <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                                      <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">所属</div>
+                            <div class="l-form__option">任意</div>
+                          </div>
+                          <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部"></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">電話番号</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="0362614395" maxlength="10"></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">郵便番号</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">都道府県</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area l-form__input-area--grid">
+                            <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京都"></div>
+                          </div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">市区町村</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="千代田区麹町"></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">番地・ビル名</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階"></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">メールアドレス</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="info@seiko-co.com"></div>
+                        </div>
+                        <div class="l-form__tr">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">メールアドレス（確認用）</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="info@seiko-co.com"></div>
+                        </div>
+                        <div class="l-form__tr l-form__tr--width">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">パスワード</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area l-form__input-area--width"><input class="l-form__input" type="password"></div>
+                          <p class="u-text-indent u-fs14 u-lh15">※英大文字・小文字・数字・記号をすべて含む、8文字以上のパスワードを入力してください。<br class="l-sm"><a href="/guide/" target="_blank" class="c-text-link c-text-link--inline u-fs14" rel="noopener noreferrer">使用できる記号はこちら<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></p>
+                        </div>
+                        <div class="l-form__tr l-form__tr--width">
+                          <div class="l-form__parts">
+                            <div class="l-form__txt">パスワード（確認用）</div>
+                            <div class="l-form__require">必須</div>
+                          </div>
+                          <div class="l-form__input-area l-form__input-area--width"><input class="l-form__input" type="password"></div>
+                        </div>
+                      </div>
+                      <div class="l-form__policy">
+                        <div class="c-input-check c-input-check--top-responsive"><input id="check" class="c-input-check__input" type="checkbox"></div>
+                        <div class="l-form__check-txt"><a class="c-text-link" href="/legal/terms/" target="_blank" rel="noopener noreferrer"><span>ご利用規約</span> <img class="c-text-link__icon c-text-link__icon--top02" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"> </a><span>と</span> <a class="c-text-link" href="/legal/privacy/" target="_blank" rel="noopener noreferrer"><span>プライバシーポリシー</span> <img class="c-text-link__icon c-text-link__icon--top02" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"> </a><label for="check">に同意する</label></div>
+                      </div><button class="c-btn-normal u-mt32" type="submit">入力内容を確認する</button>
+                      <div class="c-text-link u-mt20 u-fs14 u-text-center" data-modal-active="login">既に会員登録がお済みの方はこちら</div><a class="c-btn-small u-mt32" href="/./">ホームへ戻る</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--large" data-modal="login">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">ログイン・新規会員登録</div>
+              <div class="c-modal-login__close" data-modal-close="login"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents">
+                <div class="c-modal-login__area-parts">
+                  <div class="c-modal-login__parts">
+                    <h2 class="c-ttl-normal u-text-center">ログイン</h2>
+                    <p class="c-modal-login__txt01">既に会員登録されている方はこちら</p>
+                    <div class="c-input u-mt20">
+                      <div class="c-input__area">
+                        <div class="c-input__txt">メールアドレス</div>
+                      </div><input class="c-input__item" type="text" placeholder="info@seiko-co.com">
+                    </div>
+                    <div class="c-input u-mt16">
+                      <div class="c-input__area">
+                        <div class="c-input__txt">パスワード</div>
+                      </div><input class="c-input__item" type="password">
+                    </div><a class="c-btn-normal u-mt44 u-mt40-sm" href="/mypage/">ログイン</a>
+                    <p class="c-text-link u-text-center u-mt24 u-fs14" data-modal-active="password">パスワードを忘れた方はこちら</p>
+                  </div>
+                  <div class="c-modal-login__parts">
+                    <h2 class="c-ttl-normal u-text-center">新規会員登録</h2>
+                    <p class="c-modal-login__txt01">まだ会員登録されていない方はこちら</p>
+                    <p class="c-modal-login__txt02 u-mt16">会員登録（無料）をしていただくと、以下の便利な機能をご利用いただけます。</p>
+                    <p class="c-modal-login__txt02"><span>現場ごとの案件管理</span><br>現場単位での発注・進捗管理・相談がサイト内で完結</p>
+                    <p class="c-modal-login__txt02"><span>書類発行・一括管理</span><br>設計書や見積書などの重要書類はマイページで管理</p>
+                    <p class="c-modal-login__txt02"><span>柔軟な発注対応</span><br>多数のメーカー取扱い、追加発注や同梱にも柔軟に対応</p><a class="c-btn-normal u-mt24" href="/register-customer/">新規会員登録</a>
+                  </div>
+                </div>
+                <div class="c-btn-small u-mt40" data-modal-close="login">キャンセル</div>
+              </div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--normal" data-modal="password">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">パスワード再発行</div>
+              <div class="c-modal-login__close" data-modal-close="password"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents">
+                <p>ご登録済みのメールアドレスを入力してください。<br>パスワード再設定用のURLを記載したメールをお送りします。</p>
+                <div class="c-input u-mt24">
+                  <div class="c-input__area">
+                    <div class="c-input__txt">メールアドレス</div>
+                  </div><input class="c-input__item" type="text" placeholder="info@seiko-co.com" value="">
+                </div><a class="c-btn-normal u-mt40" href="#" data-modal-active="mail-sent">送信する</a>
+                <div id="modal-login-cancel" class="c-btn-small u-mt40" data-modal-close="password">キャンセル</div>
+              </div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--normal" data-modal="mail-sent">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">パスワード再発行</div>
+              <div class="c-modal-login__close" data-modal-close="mail-sent"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents">
+                <h2 class="c-ttl-normal">メールを送信しました。</h2>
+                <p class="u-mt20">ご入力いただいたメールアドレス宛に、パスワード再設定のご案内を送信いたしました。<br>メール本文に記載されている「パスワード再設定URL」をクリックしてお手続きを進めてください。</p>
+                <div class="c-card u-mt20"><span>送信先</span>
+                  <p>info@seiko-co.com</p>
+                </div>
+                <p class="u-text-indent u-fs14 u-lh15 u-mt20">※数分待っても届かない場合は、迷惑メールフォルダに振り分けられていないかご確認ください。</p>
+                <p class="u-text-indent u-fs14 u-lh15 u-mt4">※ドメイン指定受信を設定されている場合は、@seiko-co.com からのメールを受信できるよう設定をお願いします。</p><a href="/./" class="c-btn-small u-mt40">ホームへ戻る</a>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

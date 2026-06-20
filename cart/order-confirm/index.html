@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>ご購入手続き</title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="ご購入手続き">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header-register">
+      <div class="l-header-register__inner">
+        <div class="l-header-register__area">
+          <h1 class="l-header-register__logo"><a href="/"><img class="l-header-register__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+          <div class="l-header-register__ttl">ご購入手続き</div>
+        </div>
+        <nav class="l-header-register__nav">
+          <ul class="l-header-register__nav-list">
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❶<span class="l-lg">&nbsp;</span><br class="l-sm">カート<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❷<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">情報<br class="l-sm">の入力</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive is-active">❸<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">内容<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❹<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">完了</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--responsive">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="l-cart">
+            <div class="l-inline-wide">
+              <div class="l-cart__structure">
+                <div class="l-cart__contents l-cart__contents--padding-responsive">
+                  <div class="l-lg">
+                    <p class="c-text-error u-text-bold">ご注文はまだ完了していません。</p>
+                    <p class="u-mt32">納品先、お支払い方法、ご注文内容に間違いがないかご確認ください。<br>修正が必要な場合は、「入力画面に戻る」ボタンよりご注文情報入力画面にて修正いただけます。<br>内容に問題がなければ、「ご注文を確定する」ボタンを押してください。</p>
+                  </div>
+                  <div class="c-text-caution u-mt32">
+                    <p class="u-text-bold">ご注文品の中に通常ルートでの配送が困難な大型商品が含まれています。配送方法につきましては、靜甲の担当者よりご連絡させていただきます。</p>
+                  </div>
+                  <div class="c-card02 c-card02--default u-mt32 u-mt16-sm">
+                    <div class="c-ttl-default">案件情報</div>
+                    <div class="u-text-gray u-mt20">ご注文番号</div>
+                    <p class="u-mt4">1234567890</p>
+                    <div class="u-text-gray u-mt20">案件名</div>
+                    <p class="u-mt4">靜甲株式会社 東京営業所 換気システム導入</p>
+                    <div class="u-text-gray u-mt20">紐付ける案件</div>
+                    <p class="u-mt4">1234567890<br>案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります案件名が入ります</p>
+                  </div>
+                  <ul class="l-lowpage__list l-lowpage__list--cart02 u-mt40 u-mt0-sm">
+                    <li class="l-lowpage__list-item l-lowpage__list-item--border-none l-lowpage__list-item--responsive">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">高置架台</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">倉敷化工株式会社</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="l-lowpage__stock-wrap" style="margin-top:6px;"><img class="l-lowpage__stock" src="/assets/images/common/stock.svg" alt="" height="22" width="51" decoding="async">
+                            <p class="u-text-indent u-fs14 u-lh15">※在庫数が注文数量より少ないため、出荷日が遅れる可能性があります。</p>
+                          </div>
+                          <p class="u-mt16">数量：1</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item l-lowpage__list-item--responsive">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">製品名製品名製品名製品名製品名製品名製品名製品名</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">防振架台</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社エヌ・エス・シー</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <p class="u-mt16">数量：1</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item l-lowpage__list-item--responsive">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">製品名製品名製品名製品名製品名製品名製品名製品名</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">防振部材</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社シモヤマ</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <p class="u-mt16">数量：1</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="l-cart__calculation">
+                    <div class="l-cart__calculation-txt">小計</div>
+                    <div class="l-cart__calculation-area u-mt16-sm">
+                      <p class="u-text-bold">3点の製品</p>
+                      <div class="c-text-price u-mt8 u-mt0-sm">
+                        <div class="c-text-price__item01 u-lh10-sm u-fs32-sm">12,345<span class="c-text-price__small u-fs16-sm">円（税込）<br class="l-sm">＋ 送料：12,345 円（税込）</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c-card02 c-card02--default u-mt32 u-mt16-sm">
+                    <div class="c-ttl-default">納期</div>
+                    <div class="u-text-gray u-mt20">納品希望日</div>
+                    <p class="u-mt4">2026/01/01</p>
+                    <div class="u-text-gray u-mt20">納品希望時間</div>
+                    <p class="u-mt4">午前中</p>
+                    <div class="c-ttl-default u-mt32">納品先</div>
+                    <p class="u-mt20">田中 太郎 様</p>
+                    <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                    <div class="c-ttl-default u-mt32">配送条件</div>
+                    <div class="u-text-gray u-mt20">配送条件は下記で確定していますか？</div>
+                    <p class="u-mt4">確定</p>
+                    <div class="u-text-gray u-mt20">配送区分</div>
+                    <div style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                      <p class="u-mt4">通常便</p>
+                    </div>
+                    <div class="u-text-gray u-mt20">貸切区分</div>
+                    <div style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:4px;">
+                      <div class="u-text-gray u-mt8">車両サイズ</div>
+                      <p class="u-mt4">指定なし</p>
+                      <div class="u-text-gray u-mt8">車種</div>
+                      <p class="u-mt4">指定なし</p>
+                    </div>
+                    <div class="u-text-gray u-mt20">送り状記載事項</div>
+                    <p class="u-mt4">1234567890_靜甲株式会社 東京営業所 換気システム導入_靜甲株式会社</p>
+                    <div class="u-text-gray u-mt20">その他ご要望</div>
+                    <p class="u-mt4">テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+                  </div>
+                  <div class="c-card02 c-card02--default u-mt32 u-mt16-sm">
+                    <div class="c-ttl-default">お支払い方法</div>
+                    <p class="u-mt20">クレジットカード払い</p>
+                    <p class="u-mt4">カード番号：****-****-****-1234</p>
+                    <p class="u-mt4">有効期限　：01/20304</p>
+                    <div class="c-ttl-default u-mt32">お支払い方法</div>
+                    <p class="u-mt20">請求書払い</p>
+                    <p>宛名：靜甲株式会社 東京営業所 商事事業部 御中</p>
+                    <p>住所：〒424-0809　東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                  </div>
+                </div>
+                <div class="l-cart__nav">
+                  <div class="l-cart__nav-contents">
+                    <div class="l-sm">
+                      <p class="c-text-error u-text-bold u-fs20-sm">ご注文はまだ完了していません。</p>
+                      <p class="u-mt32">納品先、お支払い方法、ご注文内容に間違いがないかご確認ください。<br>修正が必要な場合は、「入力画面に戻る」ボタンよりご注文情報入力画面にて修正いただけます。<br>内容に問題がなければ、「ご注文を確定する」ボタンを押してください。</p>
+                    </div>
+                    <div class="l-cart__nav-payment u-mt32-sm">
+                      <div class="l-cart__nav-payment-area">
+                        <div class="l-cart__nav-payment-tr">
+                          <p>小計</p>
+                          <div class="l-cart__nav-payment-price">12,345<span>円</span></div>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>送料</p>
+                          <p class="u-fs14"><span class="u-fs18">12,345</span> 円（税込）</p>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>消費税（10%対象）</p>
+                          <div class="l-cart__nav-payment-price">123<span>円</span></div>
+                        </div>
+                      </div>
+                      <div class="l-cart__nav-payment-detail">
+                        <p class="u-text-bold">ご請求額</p>
+                        <div class="l-cart__nav-payment-price02">13,579<span>円（税込）</span></div>
+                      </div><a class="c-btn-normal c-btn-normal--orange u-mt32" href="/cart/order-complete/">ご注文を確定する</a>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt32">※送料につきましては、納品先と配送条件の入力内容に基づき計算されるため、最終確認画面での確定となります。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※製品の配送状況の確認や、ご注文情報の追加・変更、各種帳票（設計図、請求書、納品書等）のダウンロードは、すべてマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりスムーズに行えます。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※既に進行中の案件があり、今回のご注文と併せて一括管理したいお客様は、次ページの案件情報より紐付け作業を行ってください。</p><a class="c-btn-small u-mt32" href="/cart/order/">入力画面に戻る</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="l-cart__fixed l-sm">
+            <div class="l-cart__fixed-area">
+              <p class="u-text-bold">ご請求額</p>
+              <div class="u-fs16 u-text-bold u-text-red"><span class="u-fs24">13,579</span> 円（税込）</div>
+            </div>
+            <div class="l-cart__fixed-btn-area"><a href="/cart/order/" class="l-cart__fixed-btn-white">入力画面に戻る</a> <a href="/cart/order-complete/" class="l-cart__fixed-btn-orange">ご注文を確定する</a></div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register l-footer-register--02"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

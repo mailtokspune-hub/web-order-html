@@ -1,0 +1,19 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.p-products {
+  padding-bottom: 4rem;
+  background-color: color(light-theme);
+  @include media(sm) {
+    padding-bottom: 0;
+  }
+  &--detail{
+    @include media(sm) {
+      padding-bottom: 2.4rem;
+    }
+    
+  }
+}

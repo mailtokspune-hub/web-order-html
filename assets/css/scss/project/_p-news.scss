@@ -1,0 +1,42 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.p-news {
+  &__list{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap:1.6rem;
+  }
+
+  &__detail{
+    border-radius: 4px;
+    border:1px solid color(border);
+    padding:2.4rem;
+    @include media(sm) {
+      padding:2.4rem 0 0;
+      border: none;
+    }
+  }
+
+  &__detail-date{
+    color:#808080;
+    @include fz(14, true, 22, 400, 0);
+  }
+
+  &__detail-ttl{
+    margin-top: 2.4rem;
+    @include fz(24, true, 22, 600, 0);
+  }
+
+  &__detail-contents{
+    margin-top: 2.4rem;
+    a{
+      color:color(theme);
+      text-decoration: underline;
+    }
+  }
+}

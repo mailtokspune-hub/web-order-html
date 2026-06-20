@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>パスワード再発行(入力ページ)</title>
+  <meta name="description" content="サンプルテキストです">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/register-customer/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="パスワード再発行(入力ページ)">
+  <meta property="og:description" content="サンプルテキストです">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/register-customer/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--padding-none">
+      <div class="l-content">
+        <main class="l-main" style="height:100vh;">
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              document.documentElement.classList.add("is-modal-login-active");
+              const modal = document.querySelector('.c-modal-login');
+              modal?.classList.add("is-active");
+            });
+          </script>
+          <div class="c-modal-login c-modal-login--normal" data-modal="password">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">パスワード再発行</div>
+              <div class="c-modal-login__close" data-modal-close="password"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents">
+                <p>ご登録済みのメールアドレスを入力してください。<br>パスワード再設定用のURLを記載したメールをお送りします。</p>
+                <div class="c-input u-mt24">
+                  <div class="c-input__area">
+                    <div class="c-input__txt">メールアドレス</div>
+                  </div><input class="c-input__item is-error" type="text" placeholder="info@seiko-co.com" value="info@seiko-co.com">
+                </div>
+                <p class="c-text-attention u-mt8"><span class="c-text-attention__item">※入力必須項目です。</span> <span class="c-text-attention__item">※入力されたメールアドレスは、現在会員登録されていません。 入力内容に誤りがないかご確認いただくか、 別のメールアドレスでお試しください。</span></p><a class="c-btn-normal u-mt40" href="#" data-modal-active="mail-sent">送信する</a>
+                <div id="modal-login-cancel" class="c-btn-small u-mt40" data-modal-close="password">キャンセル</div>
+              </div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--normal" data-modal="mail-sent">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">パスワード再発行</div>
+              <div class="c-modal-login__close" data-modal-close="mail-sent"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents">
+                <h2 class="c-ttl-normal">メールを送信しました。</h2>
+                <p class="u-mt20">ご入力いただいたメールアドレス宛に、パスワード再設定のご案内を送信いたしました。<br>メール本文に記載されている「パスワード再設定URL」をクリックしてお手続きを進めてください。</p>
+                <div class="c-card u-mt20"><span>送信先</span>
+                  <p>info@seiko-co.com</p>
+                </div>
+                <p class="u-text-indent u-fs14 u-lh15 u-mt20">※数分待っても届かない場合は、迷惑メールフォルダに振り分けられていないかご確認ください。</p>
+                <p class="u-text-indent u-fs14 u-lh15 u-mt4">※ドメイン指定受信を設定されている場合は、@seiko-co.com からのメールを受信できるよう設定をお願いします。</p><a href="/./" class="c-btn-small u-mt40">ホームへ戻る</a>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer">
+        <div class="l-footer__contents">
+          <div class="l-footer__detail"><a class="l-footer__logo" href="/./"><img src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a>
+            <ul class="l-footer__list">
+              <li class="l-footer__list-item"><a class="l-footer__list-link" href="/./"><img class="l-footer__list-icon" src="/assets/images/common/icon-home.svg" alt="" height="20" width="20" decoding="async"> <span>ホーム</span></a></li>
+              <li class="l-footer__list-item"><a class="l-footer__list-link" href="/products/"><img class="l-footer__list-icon" src="/assets/images/common/icon-product.svg" alt="" height="20" width="20" decoding="async"> <span>製品一覧</span></a></li>
+              <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/"><img class="l-footer__list-icon" src="/assets/images/common/icon-guide.svg" alt="" height="20" width="20" decoding="async"> <span>ご利用ガイド</span></a></li>
+              <li class="l-footer__list-item"><a class="l-footer__list-link" href="/guide/faq/"><img class="l-footer__list-icon" src="/assets/images/common/icon-question.svg" alt="" height="20" width="20" decoding="async"> <span>よくあるご質問</span></a></li>
+              <li class="l-footer__list-item"><a class="l-footer__list-link" href="/news/"><img class="l-footer__list-icon" src="/assets/images/common/icon-news.svg" alt="" height="20" width="20" decoding="async"> <span>お知らせ</span></a></li>
+              <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.youtube.com/c/seikostyle" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-contents.svg" alt="" height="20" width="20" decoding="async"> <span>お楽しみコンテンツ</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+              <li class="l-footer__list-item"><a class="l-footer__list-link" href="https://www.seiko-co.com/" target="_blank" rel="noopener noreferrer"><img class="l-footer__list-icon" src="/assets/images/common/icon-company.svg" alt="" height="20" width="20" decoding="async"> <span>運営会社</span> <img class="l-footer__list-icon l-footer__list-icon--external" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></li>
+            </ul>
+            <div class="l-footer__parts"><a class="l-footer__parts-txt" href="/legal/terms/">ご利用規約</a> <a class="l-footer__parts-txt" href="/legal/tokushoho/">特定商取引法に基づく表記</a> <a class="l-footer__parts-txt" href="/legal/privacy/">プライバシーポリシー</a></div>
+            <div class="l-footer__area"><a class="c-btn-icon" href="/contact/"><img class="c-btn-icon__icon" src="/assets/images/common/icon-mail.svg" alt="" height="24" width="24" decoding="async"> <span>お問い合わせ</span></a>
+              <div class="l-footer__info">月〜金｜10:00 ~ 17:00<br>土日祝｜定休日</div>
+            </div>
+          </div>
+          <div class="l-footer__detail">
+            <div class="l-footer__calender">
+              <div class="l-footer__calender-month"><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-left.svg" alt="" height="11" width="7" decoding="async">
+                <p class="l-footer__calender-month-txt">2025年12月の営業日</p><img class="l-footer__calender-arrow" src="/assets/images/common/arrow-right.svg" alt="" height="11" width="7" decoding="async">
+              </div>
+              <div class="l-footer__calender-table">
+                <div class="l-footer__calender-tr l-footer__calender-tr--week">
+                  <div class="l-footer__calender-td"><span>月</span></div>
+                  <div class="l-footer__calender-td"><span>火</span></div>
+                  <div class="l-footer__calender-td"><span>水</span></div>
+                  <div class="l-footer__calender-td"><span>木</span></div>
+                  <div class="l-footer__calender-td"><span>金</span></div>
+                  <div class="l-footer__calender-td"><span>土</span></div>
+                  <div class="l-footer__calender-td"><span>日</span></div>
+                </div>
+                <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">1</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">2</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">3</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">4</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">5</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">6</span> <span class="l-footer__calender-mark">✕</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">7</span> <span class="l-footer__calender-mark">✕</span></div>
+                </div>
+                <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">8</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">9</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">10</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">11</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">12</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">13</span> <span class="l-footer__calender-mark">✕</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">14</span> <span class="l-footer__calender-mark">✕</span></div>
+                </div>
+                <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">15</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">16</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">17</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">18</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">19</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">20</span> <span class="l-footer__calender-mark">✕</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">21</span> <span class="l-footer__calender-mark">✕</span></div>
+                </div>
+                <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">22</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">23</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">24</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">25</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">26</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">27</span> <span class="l-footer__calender-mark">✕</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--grey"><span class="l-footer__calender-num">28</span> <span class="l-footer__calender-mark">✕</span></div>
+                </div>
+                <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">29</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">30</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td l-footer__calender-td--blue"><span class="l-footer__calender-num">31</span> <span class="l-footer__calender-mark">〇</span></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                </div>
+                <div class="l-footer__calender-tr l-footer__calender-tr--day">
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                  <div class="l-footer__calender-td"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><small>© 空調部材プロ by 靜甲</small>
+      </footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

@@ -1,0 +1,532 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-btn-normal {
+  cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:.8rem;
+    border-radius: 6px;
+    width:32rem;
+    margin:0 auto;
+    transition:$transition;
+    padding:1.6rem 2.8rem;
+    color:color(default-white);
+    background-color: color(theme);
+    @include fz(18, true, 28, 600, 0);
+    @include media(sm) {
+      width:100%;
+      @include fz(16, true, 24, 600, 0);
+    }
+
+    &:hover{
+      background-color: #0064C1;
+    }
+    &--white{
+      color:#808080;
+      font-weight: 400;
+      border:1px solid #B2B2B2;
+      background-color: color(default-white);
+      &:hover{
+        color:color(default-white);
+      background-color: #B2B2B2;
+      }
+    }
+    &--orange{
+      color:color(default-white);
+      background-color: #FF7700;
+      &:hover{
+        background-color: #FF5500;
+      }
+    }
+    &--right{
+      margin:0 0 0 auto;
+      @include media(sm) {
+        width:100%;
+        margin-left: 0;
+      }
+    }
+    &--left{
+      margin: initial;
+    }
+    &--height{
+      width:20rem;
+      height:3.8rem;
+      border-radius: 4px;
+    }
+  &__icon{
+    &--white{
+      path{
+        fill: color(default-white);
+      }
+    }
+  }
+}
+
+.c-btn-small {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:12rem;
+  transition:$transition;
+  height:3.3rem;
+  border-radius: 4px;
+  margin:0 auto;
+  color:#808080;
+  border:1px solid color(border);
+  @include fz(14, true, 24, 400, 0);
+
+  &--width{
+    width:15.8rem;
+  }
+  &--left{
+    margin:initial;
+  }
+
+  &:hover{
+    color:color(default-black);
+    border: 1px solid #808080;
+    background-color: #F7F7F7;
+    svg{
+      path{
+        fill:color(default-black)
+      }
+    }
+  }
+}
+
+.c-btn-icon{
+  position: relative;
+  border-radius: 5px;
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap:.4rem;
+  padding:1rem 1.4rem;
+  transition: $transition;
+  border:1px solid color(border);
+  @include fz(16, true, 20, 600, 0);
+
+  path{
+    transition: $transition;
+  }
+
+  &:hover{
+    color:color(theme);
+    border:1px solid color(theme);
+    background-color: color(hover-theme);
+    .c-btn-icon__icon{
+      path{
+        fill:color(theme)
+      }
+    }
+  }
+
+  &--blue{
+    color:color(default-white);
+    border:1px solid transparent;
+    background-color: color(theme);
+
+    &:hover{
+      color:color(default-white);
+      background-color: #0064C1;
+      .c-btn-icon__icon{
+        path{
+        fill: color(default-white);
+      }
+    }
+    }
+
+    .c-btn-icon__icon{
+      path{
+        fill: color(default-white);
+      }
+    }
+  }
+
+  &__txt{
+    &--responsive{
+      @media screen and (min-width: 768px) and (max-width: 1540px) {
+        display: none;
+      }
+      @include media(sm) {
+        display: none;
+      }
+    }
+  }
+
+  &--responsive{
+    @include media(sm) {
+      border:1px solid #ffffff;
+      padding:.2rem;
+      background-color: #ffffff;
+      
+      .c-btn-icon__icon{
+        path{
+        fill: color(default-black);
+      }
+    }
+  }
+  &:hover{
+    @include media(sm) {
+      border:1px solid #ffffff;
+        background-color: #ffffff;
+    }
+        
+ }
+}
+
+&--grey{
+  padding:.5rem 0;
+  width:14.4rem;
+  gap:.4rem;
+    color:color(light-gray);
+    @include fz(14, true, 20, 400, 0);
+    @include media(sm) {
+      width:100%
+    }
+    .c-btn-icon__icon{
+      path{
+        fill:color(light-gray)
+      }
+    }
+  }
+
+  &__icon{
+    width:2rem;
+    @include media(sm) {
+      width:2.4rem
+    }
+    &--width{
+      @include media(sm) {
+        min-width: 2.4rem;
+        max-width: 2.4rem;
+      }
+    }
+  }
+
+  &__num{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width:2rem;
+    min-height:2rem;
+    border-radius: 50%;
+    color:color(default-white);
+    background-color: color(default-red);
+    @include fz(10, true, 10, 600, 0);
+    @include media(sm) {
+      position: absolute;
+      right:-.8rem;;
+      top:-.8rem;
+      min-width:1.8rem;
+      min-height:1.8rem;
+    }
+  }
+}
+
+.c-btn-count{
+  display: flex;
+  align-items: center;
+  gap:.8rem;
+  @include media(sm) {
+      width:100%;
+    }
+
+  &__txt{
+    white-space: nowrap;
+    @include fz(16, true, 24, 400, 0);
+  }
+  &__item{
+    cursor: pointer;
+    width:12rem;
+    height:4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border:1px solid color(border);
+    border-radius: 4px;
+    @include media(sm) {
+      padding:0 1rem;
+      width:100%;
+      justify-content: space-between;
+    }
+  }
+  &__num-area{
+    position: relative;
+  }
+  &__num{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  &__icon{
+    transition: $transition;
+    path{
+      transition: $transition;
+    }
+    &:hover{
+      path{
+        fill:color(theme)
+      }
+    }
+    &--minus{
+      cursor: initial;
+      &:hover{
+      path{
+        fill:#E5E5E5;
+      }
+    }
+      &.is-active{
+        cursor: pointer;
+        path{
+          fill:color(default-gray)
+        }
+        &:hover{
+      path{
+        fill:color(theme)
+      }
+    }
+      }
+    }
+  }
+}
+
+.c-btn-icon-normal{
+  position: relative;
+  cursor: pointer;
+  z-index:2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:.4rem;
+  width: fit-content;
+  padding:.5rem 1.8rem .5rem 1.6rem;
+  border-radius: 4px;
+  transition:$transition;
+  white-space: nowrap;
+  color:#808080;
+  background-color: color(default-white);
+  border: 1px solid color(border);
+  @include fz(20, true, 30, 400, 0);
+  @include media(sm) {
+    gap:.8rem;
+    @include fz(14, true, 20, 400, 0);
+  }
+  &:hover{
+    color:color(default-black);
+    border: 1px solid #808080;
+    background-color: #F7F7F7;
+    svg{
+      path{
+        transition:$transition;
+        fill:color(default-black)
+      }
+    }
+  }
+  &--responsive-width{
+    @include media(sm) {
+      width:100%;
+    }
+  }
+  &--blue{
+    border:1px solid color(theme);
+    background-color: color(theme);
+    @include fz(20, true, 30, 600, 0);
+    @include media(sm) {
+      height:4rem;
+      @include fz(16, true, 20, 600, 0);
+    }
+    .c-btn-icon-normal__txt{
+      color:color(default-white);
+    }
+    .c-btn-icon-normal__icon{
+      path{
+        fill:color(default-white)
+      }
+    }
+    &:hover{
+      border:1px solid #0064c1;
+      background-color: #0064c1;
+      svg{
+      path{
+        fill:color(default-white)
+      }
+    }
+    }
+  }
+  &--width{
+    width:22rem;
+    @include media(sm) {
+      width:16.4rem;
+    }
+  }
+  &__icon{
+    min-width:2.6rem;
+    @include media(sm) {
+      width:2rem;
+      min-width:2rem;
+    }
+    path{
+      fill:#808080
+    }
+  }
+
+  
+}
+
+.c-btn-icon-small{
+  cursor: pointer;
+  position: relative;
+  z-index:2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:.4rem;
+  width: fit-content;
+  padding:.5rem .8rem .5rem .7rem;
+  border-radius: 4px;
+  transition: $transition;
+  white-space: nowrap;
+  color:#808080;
+  background-color: color(default-white);
+  border: 1px solid color(border);
+@include fz(14, true, 20, 400, 0);
+  &--right{
+    margin-left:auto;
+  }
+  &--font-small{
+    @include fz(12, true, 18, 400, 0);
+  }
+  &--width{
+    @include media(sm) {
+      width:100%
+    }
+  }
+  &--flex{
+    @include media(sm) {
+      flex: 1;
+    }
+  }
+  svg{
+    min-width:2rem;
+    path{
+      transition: $transition;
+      fill:#808080
+    }
+  }
+  &__icon{
+    min-width:2rem;
+    path{
+      fill:#808080
+    }
+  }
+  &:hover{
+    color:color(default-black);
+    border: 1px solid #808080;
+    background-color: #F7F7F7;
+    svg{
+      path{
+        fill:color(default-black)
+      }
+    }
+  }
+}
+
+.c-btn-smallest{
+  display: block;
+  transition: $transition;
+  color:color(theme);
+  width: fit-content;
+  height:fit-content;
+  border-radius: 2px;
+  border: 1px solid #80C5EB;
+  background-color: #F2F9FD;
+  padding:0 .3rem .1rem;
+  @include fz(12, true, 18, 400, 0);
+
+  &--gray{
+    border: 1px solid #B2B2B2;
+    color:#808080;
+    background-color: initial;
+    &:hover{
+      color:color(default-black);
+    border: 1px solid #808080;
+    background-color: #F7F7F7;
+    }
+  }
+
+  &--responsive{
+    cursor: pointer;
+    width:20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:.2rem .3rem .3rem
+  }
+}
+
+.c-btn-file{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:.8rem;
+  @include media(sm){
+  grid-template-columns: 1fr;
+  }
+  &--responsive{
+    @media screen and (min-width: 768px) and (max-width: 1280px) {
+    grid-template-columns: repeat(3,1fr);
+    }
+  }
+  &__item{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color:#808080;
+    transition:$transition;
+    gap:.4rem;
+    padding:.8rem;
+    border:1px solid #B2B2B2;
+    background-color: color(default-white);
+    &:hover{
+    color:color(default-black);
+    border: 1px solid #808080;
+    background-color: #F7F7F7;
+    svg{
+      path{
+        fill:color(default-black)
+      }
+    }
+    }
+    &.is-active{
+      color:color(default-black);
+    border: 1px solid #808080;
+    background-color: #F7F7F7;
+    svg{
+      path{
+        fill:color(default-black)
+      }
+    }
+    }
+  }
+  &__icon{
+    min-width: 2rem;
+    width:2rem;
+    transition:$transition;
+    
+    path{
+      fill:#808080;
+    }
+  }
+}

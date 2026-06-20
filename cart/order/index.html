@@ -1,0 +1,2621 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>ご購入手続き</title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="ご購入手続き">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    .split-location-mode .l-slider02__item {
+      background: #fff !important;
+    }
+    .split-location-mode .l-slider02__item.is-active {
+      background: #eaf4fb !important;
+    }
+    [data-location-manual-form].location-form-locked {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    #orderInfo.shared-section-locked > :not(.shared-lock-notice-inner),
+    #paymentInfo.shared-section-locked > :not(.shared-lock-notice-inner) {
+      opacity: 0.5;
+      pointer-events: none;
+      user-select: none;
+    }
+    /* 製品振り分けモーダル */
+    #pm-modal { align-items: center; justify-content: center; }
+    .pm-grid-wrap { display: grid; min-width: max-content; }
+    .pm-name-hdr { height: 48px; position: sticky; left: 0; top: 0; background: #fff; z-index: 4; border-bottom: 2px solid #c9dff0; }
+    .pm-header-cell { height: 48px; min-width: 130px; position: sticky; top: 0; background: #f0f6fb; z-index: 3; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.4rem; color: #008CD6; border-bottom: 2px solid #c9dff0; border-left: 1px solid #e5e5e5; }
+    .pm-name-cell { min-height: 70px; padding: 8px 12px; position: sticky; left: 0; background: #fff; z-index: 2; display: flex; align-items: center; font-size: 1.2rem; line-height: 1.4; border-bottom: 1px solid #f0f0f0; border-right: 2px solid #c9dff0; }
+    .pm-cell { min-height: 70px; min-width: 130px; border-left: 1px solid #e5e5e5; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; position: relative; }
+    .pm-cell-over { background: #e3f2fd !important; }
+    .pm-btn { background: #008CD6; color: #fff; border-radius: 6px; padding: 8px 10px; cursor: ew-resize; text-align: center; user-select: none; font-size: 1.1rem; line-height: 1.4; min-width: 90px; box-shadow: 0 2px 6px rgba(0,140,214,.35); transition: background .15s; }
+    .pm-btn:hover { background: #0077b6; }
+    .pm-float { position: fixed; z-index: 9999; pointer-events: none; cursor: ew-resize !important; opacity: .9; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .pm-ghost { width: 90px; height: 44px; border: 2px dashed #90caf9; border-radius: 6px; background: rgba(0,140,214,.06); }
+    .pm-header-new { background: #f5f5f5 !important; color: #999 !important; border-left: 1px dashed #ccc !important; border-bottom: 2px dashed #ccc !important; }
+    .pm-cell-new { background: #fafafa; border-left: 1px dashed #ccc !important; }
+  </style>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header-register">
+      <div class="l-header-register__inner">
+        <div class="l-header-register__area">
+          <h1 class="l-header-register__logo"><a href="/"><img class="l-header-register__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+          <div class="l-header-register__ttl">ご購入手続き</div>
+        </div>
+        <nav class="l-header-register__nav">
+          <ul class="l-header-register__nav-list">
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❶<span class="l-lg">&nbsp;</span><br class="l-sm">カート<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive is-active">❷<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">情報<br class="l-sm">の入力</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❸<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">内容<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❹<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">完了</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--responsive">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="l-cart">
+            <div class="l-inline-wide">
+              <div class="l-cart__structure">
+                <div class="l-cart__contents">
+                  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+                    <p style="flex:1;min-width:0;">ご購入する製品の納品先、お支払い方法、配送条件などの必要事項をご入力ください。</p>
+                    <div id="shipping-mode-switch" style="display:inline-flex;align-items:center;background:#e0e7ef;border-radius:999px;padding:3px;gap:2px;flex-shrink:0;user-select:none;">
+                      <div class="shipping-mode-opt" data-mode="single" style="padding:7px 18px;border-radius:999px;font-size:13px;font-weight:bold;cursor:pointer;white-space:nowrap;background:#008CD6;color:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18);transition:background .18s,color .18s,box-shadow .18s;">まとめて発送</div>
+                      <div class="shipping-mode-opt" data-mode="multi" style="padding:7px 18px;border-radius:999px;font-size:13px;font-weight:normal;cursor:pointer;white-space:nowrap;background:transparent;color:#555;transition:background .18s,color .18s,box-shadow .18s;">分割して発送</div>
+                    </div>
+                  </div>
+                  <div id="normal-view">
+                  <div class="l-card u-mt40">
+                    <ul class="l-card__list l-card__list--responsive">
+                      <li id="orderInfo" class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">案件情報</h2>
+                            <div class="c-text-option">任意</div>
+                          </div><a href="/mypage/order/" target="_blank" class="c-btn-icon-small" rel="noopener noreferrer"><span class="c-btn-icon-small__txt">案件管理</span> <img src="/assets/images/common/icon-external02.svg" alt="" height="20" width="20" decoding="async"></a>
+                        </div>
+                        <p class="u-mt16">お客様にて案件管理に必要な ご注文番号と案件名を設定されたい場合は以下項目を入力してください。<br>未入力の場合は、本システムから自動的にご注文番号と案件名が設定されます。<br>ご注文番号と案件名はご購入手続き完了後にマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より変更が可能です。</p>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">ご注文番号</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item c-input__item--width" type="text">
+                        </div>
+                        <div class="c-input u-mt16">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">案件名</div>
+                            <div class="c-input__option">任意</div>
+                          </div><input class="c-input__item" type="text" placeholder="靜甲株式会社 東京営業所 換気システム導入">
+                        </div>
+                        <div class="c-accordion u-mt32">
+                          <div class="c-accordion__item">
+                            <div class="c-accordion__btn" data-ac-btn="case">既に購入した製品、または進行中の案件と紐づけたい方はこちら</div>
+                            <div class="c-accordion__contents-wrapper" data-ac="case">
+                              <div class="c-accordion__contents">
+                                <p>進行中の案件とまとめて管理したい場合は、対象の案件を選択してください。<br>購入後の納品連絡や帳票類のやり取りを、一つの案件としてマイページの<a class="c-text-link c-text-link--inline" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりまとめて行うことができます。<br>進行中の案件は「案件検索」よりご注文番号または案件名を入力すると表示されます。</p>
+                                <div class="c-input u-mt16 l-lg">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">案件検索</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="ご注文番号または案件名から検索"> <a class="c-input-search__btn" href="#"><img src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                                </div>
+                                <div class="c-input u-mt20 l-sm">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">ご注文番号</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div><input class="c-input__item c-input__item--width" type="search">
+                                </div>
+                                <div class="c-input u-mt20 l-sm">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">案件名</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div><input class="c-input__item c-input__item--width" type="search" placeholder="靜甲株式会社 東京営業所 換気システム導入">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div id="split-products-bar" style="display:none;align-items:center;justify-content:space-between;gap:8px;margin-top:16px;">
+                    <span style="font-size:1.4rem;font-weight:bold;color:#333;">カート内の製品</span>
+                    <button id="pm-open-btn" onclick="pmOpen()" type="button" style="display:none;flex-shrink:0;padding:5px 14px;background:#008CD6;color:#fff;border:none;border-radius:4px;font-size:1.2rem;font-weight:bold;cursor:pointer;white-space:nowrap;">⇄ 製品の移動</button>
+                  </div>
+                  <div id="split-done-summaries"></div>
+                  <div id="split-product-heading" style="display:none;margin-top:32px;">
+                    <div id="split-current-title" style="font-size:1.6rem;font-weight:bold;color:#008CD6;border-left:4px solid #008CD6;padding-left:10px;">第1便</div>
+                    <p id="split-current-desc" style="font-size:1.6rem;color:#555;margin-top:8px;">第1便（1回目の配送）で送付する製品を指定してください。</p>
+                  </div>
+                  <ul class="l-lowpage__list l-lowpage__list--cart02 u-mt40 u-mt0-sm">
+                    <li class="l-lowpage__list-item l-lowpage__list-item--border-none l-lowpage__list-item--responsive" data-split-product="">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">高置架台</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">倉敷化工株式会社</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="l-lowpage__stock-wrap" style="margin-top:6px;"><img class="l-lowpage__stock" src="/assets/images/common/stock.svg" alt="" height="22" width="51" decoding="async">
+                            <p class="u-text-indent u-fs14 u-lh15">※在庫数が注文数量より少ないため、出荷日が遅れる可能性があります。</p>
+                          </div>
+                          <p class="u-mt16">数量：1</p>
+                          <div class="js-shipping-cond" data-haisou-scope="" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #e5e5e5;">
+                            <div class="c-unit-ttl">
+                              <div class="u-fs14 u-text-bold">配送区分</div>
+                              <div class="c-text-caution">必須</div>
+                            </div>
+                            <div data-haisou-sub-wrapper="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-input-radio" data-radio="" data-haisou-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">通常便</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">チャーター便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">共配便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">引取</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">靜甲手配チャーター便</label></div>
+                              </div>
+                              <div data-mashin-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">マシンNo/ハイバネット手配番号</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="マシンNo.またはハイバネット手配番号" data-mashin-input="">
+                                </div>
+                              </div>
+                              <div data-souko-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">同送/引取希望 倉庫</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="倉庫名を入力" data-souko-input="">
+                                </div>
+                                <p class="u-fs14 u-text-indent u-lh15 u-mt8">※冷熱品倉庫以外からの同送はできかねますのでご了承願います。</p>
+                              </div>
+                            </div>
+                            <div class="u-fs14 u-text-bold u-mt16" data-kashire-label="">貸切区分</div>
+                            <div data-kashire-border="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-unit-ttl">
+                                <div class="u-fs14 u-text-bold">車両サイズ</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">2t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">10t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                              <div class="c-unit-ttl u-mt16">
+                                <div class="u-fs14 u-text-bold">車種</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">パワーゲート車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item l-lowpage__list-item--responsive" data-split-product="">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">製品名製品名製品名製品名製品名製品名製品名製品名</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">防振架台</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社エヌ・エス・シー</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <p class="u-mt16">数量：1</p>
+                          <div class="js-shipping-cond" data-haisou-scope="" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #e5e5e5;">
+                            <div class="c-unit-ttl">
+                              <div class="u-fs14 u-text-bold">配送区分</div>
+                              <div class="c-text-caution">必須</div>
+                            </div>
+                            <div data-haisou-sub-wrapper="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-input-radio" data-radio="" data-haisou-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">通常便</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">チャーター便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">共配便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">引取</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">靜甲手配チャーター便</label></div>
+                              </div>
+                              <div data-mashin-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">マシンNo/ハイバネット手配番号</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="マシンNo.またはハイバネット手配番号" data-mashin-input="">
+                                </div>
+                              </div>
+                              <div data-souko-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">同送/引取希望 倉庫</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="倉庫名を入力" data-souko-input="">
+                                </div>
+                                <p class="u-fs14 u-text-indent u-lh15 u-mt8">※冷熱品倉庫以外からの同送はできかねますのでご了承願います。</p>
+                              </div>
+                            </div>
+                            <div class="u-fs14 u-text-bold u-mt16" data-kashire-label="">貸切区分</div>
+                            <div data-kashire-border="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-unit-ttl">
+                                <div class="u-fs14 u-text-bold">車両サイズ</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">2t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">10t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                              <div class="c-unit-ttl u-mt16">
+                                <div class="u-fs14 u-text-bold">車種</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">パワーゲート車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item l-lowpage__list-item--responsive" data-split-product="">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">製品名製品名製品名製品名製品名製品名製品名製品名</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">防振部材</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社シモヤマ</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <p class="u-mt16">数量：1</p>
+                          <div class="js-shipping-cond" data-haisou-scope="" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #e5e5e5;">
+                            <div class="c-unit-ttl">
+                              <div class="u-fs14 u-text-bold">配送区分</div>
+                              <div class="c-text-caution">必須</div>
+                            </div>
+                            <div data-haisou-sub-wrapper="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-input-radio" data-radio="" data-haisou-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">通常便</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">チャーター便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">共配便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">引取</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">靜甲手配チャーター便</label></div>
+                              </div>
+                              <div data-mashin-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">マシンNo/ハイバネット手配番号</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="マシンNo.またはハイバネット手配番号" data-mashin-input="">
+                                </div>
+                              </div>
+                              <div data-souko-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">同送/引取希望 倉庫</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="倉庫名を入力" data-souko-input="">
+                                </div>
+                                <p class="u-fs14 u-text-indent u-lh15 u-mt8">※冷熱品倉庫以外からの同送はできかねますのでご了承願います。</p>
+                              </div>
+                            </div>
+                            <div class="u-fs14 u-text-bold u-mt16" data-kashire-label="">貸切区分</div>
+                            <div data-kashire-border="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-unit-ttl">
+                                <div class="u-fs14 u-text-bold">車両サイズ</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">2t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">10t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                              <div class="c-unit-ttl u-mt16">
+                                <div class="u-fs14 u-text-bold">車種</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">パワーゲート車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item l-lowpage__list-item--responsive" data-split-product="">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">製品名製品名製品名製品名製品名製品名製品名製品名</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">防振架台</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社エヌ・エス・シー</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <p class="u-mt16">数量：3</p>
+                          <div class="js-shipping-cond" data-haisou-scope="" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #e5e5e5;">
+                            <div class="c-unit-ttl">
+                              <div class="u-fs14 u-text-bold">配送区分</div>
+                              <div class="c-text-caution">必須</div>
+                            </div>
+                            <div data-haisou-sub-wrapper="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-input-radio" data-radio="" data-haisou-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">通常便</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">チャーター便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">共配便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">引取</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">靜甲手配チャーター便</label></div>
+                              </div>
+                              <div data-mashin-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">マシンNo/ハイバネット手配番号</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="マシンNo.またはハイバネット手配番号" data-mashin-input="">
+                                </div>
+                              </div>
+                              <div data-souko-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">同送/引取希望 倉庫</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="倉庫名を入力" data-souko-input="">
+                                </div>
+                                <p class="u-fs14 u-text-indent u-lh15 u-mt8">※冷熱品倉庫以外からの同送はできかねますのでご了承願います。</p>
+                              </div>
+                            </div>
+                            <div class="u-fs14 u-text-bold u-mt16" data-kashire-label="">貸切区分</div>
+                            <div data-kashire-border="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-unit-ttl">
+                                <div class="u-fs14 u-text-bold">車両サイズ</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">2t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">10t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                              <div class="c-unit-ttl u-mt16">
+                                <div class="u-fs14 u-text-bold">車種</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">パワーゲート車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item l-lowpage__list-item--responsive" data-split-product="">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">防振ゴム防振ゴム防振ゴム防振ゴム防振ゴム防振ゴム防振ゴム防振ゴム</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">防振部材</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社シモヤマ</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">8,800<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：8,800円（税込）</div>
+                          </div>
+                          <p class="u-mt16">数量：2</p>
+                          <div class="js-shipping-cond" data-haisou-scope="" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #e5e5e5;">
+                            <div class="c-unit-ttl">
+                              <div class="u-fs14 u-text-bold">配送区分</div>
+                              <div class="c-text-caution">必須</div>
+                            </div>
+                            <div data-haisou-sub-wrapper="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-input-radio" data-radio="" data-haisou-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">通常便</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">チャーター便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">共配便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">引取</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">靜甲手配チャーター便</label></div>
+                              </div>
+                              <div data-mashin-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">マシンNo/ハイバネット手配番号</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="マシンNo.またはハイバネット手配番号" data-mashin-input="">
+                                </div>
+                              </div>
+                              <div data-souko-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">同送/引取希望 倉庫</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="倉庫名を入力" data-souko-input="">
+                                </div>
+                                <p class="u-fs14 u-text-indent u-lh15 u-mt8">※冷熱品倉庫以外からの同送はできかねますのでご了承願います。</p>
+                              </div>
+                            </div>
+                            <div class="u-fs14 u-text-bold u-mt16" data-kashire-label="">貸切区分</div>
+                            <div data-kashire-border="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-unit-ttl">
+                                <div class="u-fs14 u-text-bold">車両サイズ</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">2t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">10t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                              <div class="c-unit-ttl u-mt16">
+                                <div class="u-fs14 u-text-bold">車種</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">パワーゲート車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item l-lowpage__list-item--responsive" data-split-product="">
+                      <div class="l-lowpage__list-wrapper" style="padding:10px 16px;gap:12px;"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="80" width="80" decoding="async" loading="lazy" style="width:80px;min-width:80px;height:80px;">
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl" style="font-size:1.4rem;-webkit-line-clamp:1;">アンカーボルトアンカーボルトアンカーボルトアンカーボルト</h3>
+                          <div class="l-lowpage__list-parts" style="margin-top:6px;gap:8px;">
+                            <div class="c-category c-category--no-link">
+                              <div class="c-category__item">高置架台</div>
+                            </div>
+                            <div class="c-text-company c-text-company--no-link"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">倉敷化工株式会社</span></div>
+                          </div>
+                          <div class="c-text-price u-mt8">
+                            <div class="c-text-price__item01">3,520<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：3,520円（税込）</div>
+                          </div>
+                          <p class="u-mt16">数量：1</p>
+                          <div class="js-shipping-cond" data-haisou-scope="" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #e5e5e5;">
+                            <div class="c-unit-ttl">
+                              <div class="u-fs14 u-text-bold">配送区分</div>
+                              <div class="c-text-caution">必須</div>
+                            </div>
+                            <div data-haisou-sub-wrapper="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-input-radio" data-radio="" data-haisou-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">通常便</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">チャーター便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">共配便同送</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">引取</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">靜甲手配チャーター便</label></div>
+                              </div>
+                              <div data-mashin-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">マシンNo/ハイバネット手配番号</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="マシンNo.またはハイバネット手配番号" data-mashin-input="">
+                                </div>
+                              </div>
+                              <div data-souko-wrapper="" style="display:none;margin-top:16px;">
+                                <div class="c-input">
+                                  <div class="c-input__area">
+                                    <div class="c-input__txt">同送/引取希望 倉庫</div>
+                                    <div class="c-input__option">任意</div>
+                                  </div>
+                                  <input class="c-input-radio__input-normal" type="text" placeholder="倉庫名を入力" data-souko-input="">
+                                </div>
+                                <p class="u-fs14 u-text-indent u-lh15 u-mt8">※冷熱品倉庫以外からの同送はできかねますのでご了承願います。</p>
+                              </div>
+                            </div>
+                            <div class="u-fs14 u-text-bold u-mt16" data-kashire-label="">貸切区分</div>
+                            <div data-kashire-border="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                              <div class="c-unit-ttl">
+                                <div class="u-fs14 u-text-bold">車両サイズ</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">2t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">10t車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                              <div class="c-unit-ttl u-mt16">
+                                <div class="u-fs14 u-text-bold">車種</div>
+                                <div class="c-text-caution">必須</div>
+                              </div>
+                              <div class="c-input-radio u-mt8" data-radio="">
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">パワーゲート車</label></div>
+                                <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div id="split-delivery-heading" style="display:none;margin-top:24px;">
+                    <p id="split-delivery-desc" style="font-size:1.6rem;color:#555;">第1便（1回目の配送）の 納期・納品先・配送条件を指定してください。</p>
+                  </div>
+                  <div id="delivery-card" class="l-card u-mt40">
+                    <ul class="l-card__list l-card__list--responsive">
+                        <li class="l-card__list-item l-card__list-item--responsive" data-delivery-cond="">
+                          <div class="l-card__list-area">
+                            <div class="c-unit-ttl">
+                              <h2 class="c-unit-ttl__item">納期</h2>
+                              <div class="c-text-caution">必須</div>
+                            </div>
+                          </div>
+                        <div data-user-hide="btoc-noki-confirm">
+                          <div class="c-unit-ttl u-mt24">
+                            <div class="u-fs14 u-text-bold">納品希望日時は下記で確定していますか？</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                          </div>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品希望日時が「未確定」の場合は、送料は仮の金額となります。</p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt4">※納品希望日時が「未確定」の場合は、納品希望日時確定後にマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より納品先情報を更新してください。</p>
+                          <div class="c-input u-mt20">
+                            <div class="c-input__area">
+                              <div class="c-input__txt">納品希望日</div>
+                              <div class="c-input__require">必須</div>
+                            </div>
+                            <div class="c-input__description">
+                              <div class="c-input__calnder"><input class="c-input__item" type="text" placeholder="---- / -- / --" data-calendar=""> <img class="c-input__calnder-icon" src="/assets/images/common/icon-calender.svg" alt="" height="24" width="24" decoding="async"></div>
+                              <p class="u-fs14">最短発送日：2025/12/31</p>
+                            </div>
+                          </div>
+                          <div class="c-input u-mt20">
+                            <div class="c-input__area">
+                              <div class="c-input__txt">納品希望時間</div>
+                              <div class="c-input__option">任意</div>
+                            </div><input class="c-input__item c-input__item--width" type="text" placeholder="14:00~17:00">
+                          </div>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt4">※時間指定なしの場合は、AM着希望にて配送先に手配しますが、実際の到着時間は前後する可能性がありますので、予めご了承ください。</p>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt4">※ご記入の納品希望日時は配送手配の目安となります。在庫状況や交通事情、天候等により、予告なく変更となる可能性があることを予めご了承ください。<br>正確な発送日は、確定次第マイページにてお知らせいたします。</p>
+                        </div>
+                        </li>
+                      <li class="l-card__list-item l-card__list-item--responsive l-card__list-item--responsive--padding" data-delivery-cond="">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">納品先</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                        </div>
+                        <div class="l-card__area-parts" data-user-hide="btoc-nohinsaki-confirm">
+                          <div class="c-unit-ttl">
+                            <div class="u-fs14 u-text-bold">納品先は下記で確定していますか？</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" type="radio" data-radio-input=""> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                          </div>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt16">※納品先が「未確定」の場合は、送料は仮の金額となります。</p>
+                          <p class="u-fs14 u-text-indent u-lh15">※納品先が「未確定」の場合は、納品先確定後にマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>より納品先情報を更新してください。</p>
+                        </div>
+                        <div class="l-form__contents u-mt16" data-location-manual-form="">
+                          <div class="l-form__table" style="gap:8px">
+                            <div class="l-form__tr">
+                              <div class="l-form__parts">
+                                <div class="l-form__txt">郵便番号</div>
+                                <div class="l-form__require">必須</div>
+                              </div>
+                              <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                            </div>
+                            <div class="l-form__tr">
+                              <div class="l-form__parts">
+                                <div class="l-form__txt">都道府県</div>
+                                <div class="l-form__require">必須</div>
+                              </div>
+                              <div class="l-form__input-area l-form__input-area--grid">
+                                <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京都"></div>
+                              </div>
+                            </div>
+                            <div class="l-form__tr">
+                              <div class="l-form__parts">
+                                <div class="l-form__txt">市区町村</div>
+                                <div class="l-form__require">必須</div>
+                              </div>
+                              <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="千代田区麹町"></div>
+                            </div>
+                            <div class="l-form__tr">
+                              <div class="l-form__parts">
+                                <div class="l-form__txt">番地・ビル名</div>
+                                <div class="l-form__require">必須</div>
+                              </div>
+                              <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階"></div>
+                            </div>
+                            <div class="l-form__tr">
+                              <div class="l-form__parts">
+                                <div class="l-form__txt">氏名</div>
+                                <div class="l-form__option">任意</div>
+                              </div>
+                              <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="田中 太郎"></div>
+                            </div>
+                            <div class="l-form__tr" style="flex-direction:row;align-items:flex-start;gap:16px;">
+                              <div style="display:flex;flex-direction:column;gap:.8rem;">
+                                <div class="l-form__parts">
+                                  <div class="l-form__txt">電話番号</div>
+                                  <div class="l-form__option">任意</div>
+                                </div>
+                                <div class="l-form__input-area l-form__input-area--width"><input class="l-form__input" type="text" placeholder="0362614395" maxlength="11"></div>
+                              </div>
+                              <div style="flex-shrink:0;display:flex;flex-direction:column;gap:.8rem;">
+                                <div class="l-form__parts">
+                                  <div class="l-form__txt">着前TEL</div>
+                                  <div class="l-form__option">任意</div>
+                                </div>
+                                <div class="c-input-check" data-check=""><input class="c-input-check__input" type="checkbox" data-chakuzen-check=""> <label class="c-input-check__label" data-chakuzen-label="">不要</label></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-card__list-area u-mt24">
+                          <div class="u-fs16 u-text-bold">お届け先候補</div>
+                          <div style="display:flex;align-items:center;gap:8px;">
+                            <div class="c-btn-icon-small" id="location-clear-btn" style="display:none;"><span class="c-btn-icon-small__txt">候補の選択をリセット</span></div>
+                            <div class="c-btn-icon-small" data-modal-active="location"><img src="/assets/images/common/icon-add-location.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">納品先の追加</span></div>
+                          </div>
+                        </div>
+                        <p class="u-fs14 u-mt8">マイページに保存されているお届け先より選択する場合は、下記よりご選択ください。</p>
+                        <div class="l-slider02 u-mt8 swiper" data-radio-group="location">
+                          <div class="l-slider02__contents swiper-wrapper">
+                            <div class="l-slider02__item swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16 u-text-bold">田中 太郎 様</div>
+                                <p class="u-fs14 u-mt8">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-location"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-location"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="l-slider02__btn">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="l-card__list-item l-card__list-item--responsive" data-haisou-scope="" data-delivery-cond="">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">配送条件</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-fw-wrap u-gap8">
+                            <p class="u-fs14 u-text-indent u-lh15 l-lg">※「配送条件」を入力し、「送料計算」ボタンを押下すると「ご請求額」に反映されます。</p>
+                            <div class="c-btn-icon-small"><img src="/assets/images/common/icon-postage.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">送料計算</span></div>
+                          </div>
+                        </div>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt16 l-sm">※「配送条件」を入力し、「送料計算」ボタンを押下すると「ご請求額」に反映されます。</p>
+                        <div data-user-hide="btoc-haisoucond-confirm">
+                          <div class="c-unit-ttl u-mt24">
+                            <div class="u-fs14 u-text-bold">配送条件は下記で確定していますか？</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">確定</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">未確定</label></div>
+                          </div>
+                          <p class="u-fs14 u-text-indent u-lh15 u-mt16">※配送条件が「未確定」の場合は、送料は仮の金額となります。</p>
+                        </div>
+                        <div class="c-unit-ttl u-mt24">
+                          <div class="u-fs14 u-text-bold">配送区分</div>
+                          <div class="c-text-caution">必須</div>
+                        </div>
+                        <div data-haisou-sub-wrapper="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                          <div class="c-input-radio" data-radio="" data-haisou-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">通常便</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">チャーター便同送</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">共配便同送</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">引取</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">靜甲手配チャーター便</label></div>
+                          </div>
+                          <div data-mashin-wrapper="" style="display:none;margin-top:16px;">
+                            <div class="c-input">
+                              <div class="c-input__area">
+                                <div class="c-input__txt">マシンNo/ハイバネット手配番号</div>
+                                <div class="c-input__option">任意</div>
+                              </div>
+                              <input class="c-input-radio__input-normal" type="text" placeholder="マシンNo.またはハイバネット手配番号" data-mashin-input="">
+                            </div>
+                          </div>
+                          <div data-souko-wrapper="" style="display:none;margin-top:16px;">
+                            <div class="c-input">
+                              <div class="c-input__area">
+                                <div class="c-input__txt">同送/引取希望 倉庫</div>
+                                <div class="c-input__option">任意</div>
+                              </div>
+                              <input class="c-input-radio__input-normal" type="text" placeholder="倉庫名を入力" data-souko-input="">
+                            </div>
+                            <p class="u-fs14 u-text-indent u-lh15 u-mt8">※冷熱品倉庫以外からの同送はできかねますのでご了承願います。</p>
+                          </div>
+                        </div>
+                        <div class="u-fs14 u-text-bold u-mt24" data-kashire-label="">貸切区分</div>
+                        <div data-kashire-border="" style="border-left:3px solid #c9dff0;padding-left:12px;margin-top:8px;">
+                          <div class="c-unit-ttl">
+                            <div class="u-fs14 u-text-bold">車両サイズ</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">2t車</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">4t車</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">10t車</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                          </div>
+                          <div class="c-unit-ttl u-mt16">
+                            <div class="u-fs14 u-text-bold">車種</div>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-input-radio u-mt16" data-radio="">
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">指定なし</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">平車</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">ユニック車</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">パワーゲート車</label></div>
+                            <div class="c-input-radio__parts"><input class="c-input-radio__item" data-radio-input="" type="radio"> <label class="c-input-radio__label" data-radio-label="">その他</label></div><input class="c-input-radio__input-normal" type="text">
+                          </div>
+                        </div>
+                        <div class="c-input u-mt20">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">送り状記載事項</div>
+                            <div class="c-input__option">任意</div>
+                          </div>
+                          <div class="c-input__textarea-wrapper"><textarea class="c-input__textarea c-input__textarea--height" maxlength="50" data-count=""></textarea> <span class="c-input__textarea-num"><span data-count-num="">0</span>/50</span></div>
+                        </div>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt8">※送り状記載事項欄に記載が必要な情報はこちらにご記入ください。</p>
+                        <p class="u-fs14 u-text-indent u-lh15 u-mt4">※送り状記載事項欄が空欄の場合は「ご注文番号_案件名_お客様会社名」が自動入力されます。</p>
+                        <div class="c-input u-mt20">
+                          <div class="c-input__area">
+                            <div class="c-input__txt">その他ご要望</div>
+                            <div class="c-input__option">任意</div>
+                          </div>
+                          <div class="c-input__textarea-wrapper"><textarea class="c-input__textarea" maxlength="1000" data-count=""></textarea> <span class="c-input__textarea-num"><span data-count-num="">0</span>/1000</span></div>
+                        </div>
+                      </li>
+                      <li id="paymentInfo" class="l-card__list-item l-card__list-item--responsive">
+                        <div class="l-card__list-area">
+                          <div class="c-unit-ttl">
+                            <h2 class="c-unit-ttl__item">お支払い方法</h2>
+                            <div class="c-text-caution">必須</div>
+                          </div>
+                          <div class="c-btn-icon-small" data-modal-active="add-card"><img src="/assets/images/common/icon-card.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">カード情報の追加</span></div>
+                        </div>
+                        <h3 class="u-fs16 u-mt16">クレジットカード払い</h3>
+                        <div class="c-unit-radio u-mt16 l-lg" data-radio-group="card">
+                          <div class="c-unit-radio__item is-active" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" name="card" checked="checked" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                          <div class="c-unit-radio__item" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" name="card" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                          <div class="c-unit-radio__item" data-radio-item="">
+                            <div class="c-unit-radio__item-area">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" name="card" data-radio-input=""></div>
+                              <div class="c-unit-radio__txt-area">
+                                <div class="c-unit-radio__txt">****-****-****-1234</div>
+                                <div class="c-unit-radio__txt">01/2030</div>
+                              </div>
+                            </div>
+                            <div class="c-unit-radio__parts">
+                              <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="l-slider02 u-mt16 swiper l-sm" data-radio-group="card02">
+                          <div class="l-slider02__contents swiper-wrapper">
+                            <div class="l-slider02__item swiper-slide is-active" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item is-active" type="radio" checked="checked" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="l-slider02__item swiper-slide" data-radio-item="">
+                              <div class="c-input-radio"><input class="c-input-radio__item" type="radio" data-radio-input=""></div>
+                              <div class="l-slider02__item-area">
+                                <div class="u-fs16">****-****-****-1234</div>
+                                <p class="u-fs14 u-mt8">01/2030</p>
+                                <div class="c-unit-btn c-unit-btn--right u-mt8">
+                                  <div class="c-btn-icon-small" data-modal-active="delete-card"><img src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                                  <div class="c-btn-icon-small" data-modal-active="edit-card"><img src="/assets/images/common/icon-edit.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">変更</span></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="l-slider02__btn">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  </div><!-- /normal-view -->
+                </div>
+                <div class="l-cart__nav">
+                  <div class="l-cart__nav-contents">
+                    <div class="l-cart__nav-payment">
+                      <div class="l-cart__nav-payment-area">
+                        <div class="l-cart__nav-payment-tr">
+                          <p>小計</p>
+                          <div class="l-cart__nav-payment-price">12,345<span>円</span></div>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>送料</p>
+                          <p class="u-fs14">送料は確認画面で確定します</p>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>消費税（10%対象）</p>
+                          <div class="l-cart__nav-payment-price">123<span>円</span></div>
+                        </div>
+                      </div>
+                      <div class="l-cart__nav-payment-detail">
+                        <p class="u-text-bold">ご請求額</p>
+                        <div class="l-cart__nav-payment-price02">13,579<span>円（税込）</span></div>
+                      </div>
+                      <div id="split-set-btn-area" style="display:none;margin-top:24px;padding:14px 16px;background:#f0f4f8;border-radius:8px;border:1px solid #c9dff0;">
+                        <div id="split-status" style="font-size:13px;color:#555;margin-bottom:10px;display:flex;justify-content:center;"></div>
+                        <p id="split-error" style="display:none;padding:8px 12px;background:#fff3f3;border:1px solid #f5a0a0;border-radius:4px;font-size:13px;color:#c0392b;margin-bottom:10px;">必須項目がすべて入力されていません</p>
+                        <div id="split-set-btn" style="padding:10px 16px;background:#e0e7ef;color:#aaa;font-weight:bold;font-size:14px;border-radius:4px;cursor:not-allowed;text-align:center;">第1便の条件を指定する</div>
+                      </div><a id="proceed-btn" class="c-btn-normal c-btn-normal--orange u-mt32" href="/cart/order-confirm/">ご注文内容を確認する</a>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt32">※送料につきましては、納品先と配送条件の入力内容に基づき計算されるため、最終確認画面での確定となります。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※製品の配送状況の確認や、ご注文情報の追加・変更、各種帳票（設計図、請求書、納品書等）のダウンロードは、すべてマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりスムーズに行えます。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※既に進行中の案件があり、今回のご注文と併せて一括管理したいお客様は、<a class="c-text-link c-text-link--inline u-fs14" href="#orderInfo" data-scroll="">本ページの案件情報</a>より紐付け作業を行ってください。</p><a class="c-btn-small u-mt32" href="/cart/">カートに戻る</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="location">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">納品先の追加</div>
+              <div class="c-modal-login__close" data-modal-close="location"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="l-form__table">
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="田中"> <input class="l-form__input" type="text" placeholder="太郎"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名（カナ）</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="タナカ"> <input class="l-form__input" type="text" placeholder="タロウ"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">会社名</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area">
+                      <div class="c-select" data-select-check-area="">
+                        <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                          <div class="c-select__modal" data-select="company">
+                            <div class="c-select__modal-area">
+                              <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                            </div>
+                            <div class="c-select__modal-contents">
+                              <ul class="c-select__check-list">
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">靜甲株式会社</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="c-select__btn-area">
+                              <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                              <div class="c-select__btn-area-parts">
+                                <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                                <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">所属</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">電話番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="0362614395" maxlength="10"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">郵便番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="1020083" maxlength="7"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">都道府県</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid">
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京都"></div>
+                    </div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">市区町村</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="千代田区麹町"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">番地・ビル名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階"></div>
+                  </div>
+                </div>
+                <div class="c-input-check u-mt32" data-check=""><input class="c-input-check__input" type="checkbox" data-check-input=""> <label class="c-input-check__label" data-check-label="">メインの納品先に設定する</label></div>
+                <div class="c-btn-normal u-mt40 l-lg">納品先を追加する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="location">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="location">キャンセル</div>
+              <div class="c-modal__btn-blue">納品先を追加する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="edit-location">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">納品先の変更</div>
+              <div class="c-modal-login__close" data-modal-close="edit-location"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="l-form__table">
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="田中" value="田中"> <input class="l-form__input" type="text" placeholder="太郎" value="太郎"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">氏名（カナ）</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="タナカ" value="タナカ"> <input class="l-form__input" type="text" placeholder="タロウ" value="タロウ"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">会社名</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area">
+                      <div class="c-select" data-select-check-area="">
+                        <div class="c-select__item c-select__item--adjust" data-select-btn="company" data-select-check-txtarea=""><span class="c-select__txt-default c-select__txt--default" data-select-check-default="">靜甲株式会社</span>
+                          <div class="c-select__modal" data-select="company">
+                            <div class="c-select__modal-area">
+                              <div class="c-input-search"><input class="c-input-search__item" type="search" placeholder="会社名を選択"> <a class="c-input-search__btn" href="#"><img class="c-input-search__icon" src="/assets/images/common/icon-search.svg" alt="" height="24" width="24" decoding="async"></a></div>
+                            </div>
+                            <div class="c-select__modal-contents">
+                              <ul class="c-select__check-list">
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" checked="checked" type="radio"> <label class="c-input-radio__label" data-select-check-value="">靜甲株式会社</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                                <li class="c-select__check-list-item" data-select-check="">
+                                  <div class="c-input-radio c-input-radio--ellipsis">
+                                    <div class="c-input-radio__parts"><input class="c-input-radio__item" data-select-check-input="" type="radio"> <label class="c-input-radio__label" data-select-check-value="">株式会社サンプル</label></div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="c-select__btn-area">
+                              <div class="c-select__btn-txt" data-select-close="company">閉じる</div>
+                              <div class="c-select__btn-area-parts">
+                                <div class="c-select__btn-white" data-select-check-cancel="">クリア</div>
+                                <div class="c-select__btn-blue" data-select-close="company">会社名を選択</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">所属</div>
+                      <div class="l-form__option">任意</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京営業所 商事事業部" value="東京営業所 商事事業部"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">電話番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="0362614395" maxlength="10" value="0362614395"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">郵便番号</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid"><input class="l-form__input" type="text" placeholder="1020083" maxlength="7" value="1020083"> <a class="c-text-link u-fs14" href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer"><span>郵便番号を調べる</span> <img class="c-text-link__icon" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">都道府県</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area l-form__input-area--grid">
+                      <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="東京都" value="東京都"></div>
+                    </div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">市区町村</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="千代田区麹町" value="千代田区麹町"></div>
+                  </div>
+                  <div class="l-form__tr">
+                    <div class="l-form__parts">
+                      <div class="l-form__txt">番地・ビル名</div>
+                      <div class="l-form__require">必須</div>
+                    </div>
+                    <div class="l-form__input-area"><input class="l-form__input" type="text" placeholder="5丁目3番地3 麹町KSスクエア3階" value="5丁目3番地3 麹町KSスクエア3階"></div>
+                  </div>
+                </div>
+                <div class="c-input-check u-mt32" data-check=""><input class="c-input-check__input" data-check-input="" type="checkbox" checked="checked"> <label class="c-input-check__label" data-check-label="">メインの納品先に設定する</label></div>
+                <div class="c-btn-normal u-mt40 l-lg">納品先を変更する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="edit-location">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="edit-location">キャンセル</div>
+              <div class="c-modal__btn-blue">納品先を変更する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="delete-location">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">納品先の削除</div>
+              <div class="c-modal-login__close" data-modal-close="delete-location"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <p>以下の納品先を削除します。本当によろしいですか？<br><span class="u-text-red u-text-bold">削除実行後にこの操作は取り消せません。</span></p>
+                <div class="c-card c-card--column u-mt40">
+                  <p class="u-text-bold">田中 太郎 様</p>
+                  <p>〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階<br>靜甲株式会社<br>東京営業所 商事事業部<br>TEL：0362614395</p>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">納品先を削除する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="delete-location">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="delete-location">キャンセル</div>
+              <div class="c-modal__btn-blue">納品先を削除する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="add-card">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">カード情報の追加</div>
+              <div class="c-modal-login__close" data-modal-close="add-card"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="c-modal-login__structure">
+                  <div class="c-input">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード番号</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item" type="text" placeholder="1111 2222 3333 4444" maxlength="12">
+                  </div>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード有効期限</div>
+                      <div class="c-input__require">必須</div>
+                    </div>
+                    <div class="c-input__grid">
+                      <div class="c-select">
+                        <div class="c-select__item-wrapper"><select class="c-select__item" data-select-init="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12" selected="selected">12</option>
+                          </select></div>
+                      </div>
+                      <p>月</p><input class="c-input__item" type="text" maxlength="4">
+                      <p>年</p>
+                    </div>
+                  </div>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード名義人</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item" type="text" placeholder="TARO TANAKA">
+                  </div>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">セキュリティコード</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item" type="password" maxlength="4">
+                  </div>
+                  <div class="c-input-check u-mt32" data-check=""><input class="c-input-check__input" type="checkbox" data-check-input=""> <label class="c-input-check__label" data-check-label="">メインの決済カードに設定する</label></div>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">カード情報を追加する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="add-card">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="add-card">キャンセル</div>
+              <div class="c-modal__btn-blue">カード情報を追加する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="edit-card">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">カード情報の変更</div>
+              <div class="c-modal-login__close" data-modal-close="edit-card"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <div class="c-modal-login__structure">
+                  <div class="c-input">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード番号</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item" type="text" value="1111222233334444" placeholder="1111 2222 3333 4444" maxlength="12">
+                  </div>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード有効期限</div>
+                      <div class="c-input__require">必須</div>
+                    </div>
+                    <div class="c-input__grid">
+                      <div class="c-select">
+                        <div class="c-select__item-wrapper"><select class="c-select__item">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12" selected="selected">12</option>
+                          </select></div>
+                      </div>
+                      <p>月</p><input class="c-input__item" type="text" value="2030" maxlength="4">
+                      <p>年</p>
+                    </div>
+                  </div>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">カード名義人</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item" type="text" value="TARO TANAKA" placeholder="TARO TANAKA">
+                  </div>
+                  <div class="c-input u-mt20">
+                    <div class="c-input__area">
+                      <div class="c-input__txt">セキュリティコード</div>
+                      <div class="c-input__require">必須</div>
+                    </div><input class="c-input__item" type="password" value="123" placeholder="123" maxlength="4">
+                  </div>
+                  <div class="c-input-check u-mt32" data-check=""><input class="c-input-check__input" type="checkbox" data-check-input=""> <label class="c-input-check__label" data-check-label="">メインの決済カードに設定する</label></div>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">カード情報を変更する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="edit-card">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="edit-card">キャンセル</div>
+              <div class="c-modal__btn-blue">カード情報を変更する</div>
+            </div>
+          </div>
+          <div class="c-modal-login c-modal-login--default" data-modal="delete-card">
+            <div class="c-modal-login__area">
+              <div class="c-modal-login__area-txt">カード情報の削除</div>
+              <div class="c-modal-login__close" data-modal-close="delete-card"><span></span> <span></span></div>
+            </div>
+            <div class="c-modal-login__contents-wrapper">
+              <div class="c-modal-login__contents c-modal-login__contents--max-height">
+                <p>以下のクレジットカード情報を削除します。本当によろしいですか？<br><span class="u-text-red u-text-bold">削除実行後にこの操作は取り消せません。</span></p>
+                <div class="c-card c-card--column u-gap8 u-mt40">
+                  <div class="c-card__parts"><span>カード番号</span>
+                    <p>****-****-****-1234</p>
+                  </div>
+                  <div class="c-card__parts"><span>カード有効期限</span>
+                    <p>01/2030</p>
+                  </div>
+                  <div class="c-card__parts"><span>カード名義人</span>
+                    <p>TARO TANAKA</p>
+                  </div>
+                  <div class="c-card__parts"><span>セキュリティコード</span>
+                    <p>***</p>
+                  </div>
+                </div>
+                <div class="c-btn-normal u-mt40 l-lg">カード情報を削除する</div>
+                <div class="c-btn-small u-mt40 l-lg" data-modal-close="delete-card">キャンセル</div>
+              </div>
+            </div>
+            <div class="c-modal__btn-area l-sm">
+              <div class="c-modal__btn-white" data-modal-close="delete-card">キャンセル</div>
+              <div class="c-modal__btn-blue">カード情報を削除する</div>
+            </div>
+          </div>
+          <div class="l-cart__fixed l-sm">
+            <div class="l-cart__fixed-area">
+              <p class="u-text-bold">3点の製品</p>
+              <div class="u-fs16 u-text-bold"><span class="u-fs24">12,345</span> 円（税込）＋ 送料</div>
+            </div>
+            <div class="l-cart__fixed-btn-area"><a href="/cart/" class="l-cart__fixed-btn-white">カートに戻る</a> <a href="/cart/order-confirm/" class="l-cart__fixed-btn-orange">ご注文内容を確認する</a></div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register l-footer-register--02"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+  <script defer>
+    // ユーザー種別: '客先_三菱系' | '客先_メーカー' | '客先_BtoC'
+    var USER_TYPE = '客先_三菱系';
+
+    function applyUserTypeDisplay() {
+      // メーカー・BtoC: 配送区分を「通常便」「靜甲手配チャーター便」のみ表示
+      if (USER_TYPE === '客先_メーカー' || USER_TYPE === '客先_BtoC') {
+        var ALLOWED = ['通常便', '靜甲手配チャーター便'];
+        document.querySelectorAll('[data-haisou-radio]').forEach(function(radio) {
+          radio.querySelectorAll('.c-input-radio__parts').forEach(function(part) {
+            var lbl = part.querySelector('[data-radio-label]');
+            if (lbl && ALLOWED.indexOf(lbl.textContent.trim()) === -1) {
+              part.style.display = 'none';
+            }
+          });
+        });
+      }
+      // BtoC のみ: 確定確認ブロックを非表示
+      if (USER_TYPE === '客先_BtoC') {
+        ['btoc-noki-confirm', 'btoc-nohinsaki-confirm', 'btoc-haisoucond-confirm'].forEach(function(key) {
+          var el = document.querySelector('[data-user-hide="' + key + '"]');
+          if (el) el.style.display = 'none';
+        });
+      }
+    }
+
+    // 案件情報・お支払い方法 セクションロック（第2便以降）
+    function lockSharedSections() {
+      ['orderInfo', 'paymentInfo'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        // アコーディオンをクローズ（l-card__list-area とnotice以外を折りたたむ）
+        Array.from(el.children).forEach(function(child) {
+          if (!child.classList.contains('shared-lock-notice-inner') && !child.classList.contains('l-card__list-area')) {
+            child.style.display = 'none';
+            child.dataset.splitHidden = '1';
+          }
+        });
+        if (!el.querySelector('.shared-lock-notice-inner')) {
+          var notice = document.createElement('div');
+          notice.className = 'shared-lock-notice-inner';
+          notice.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px;background:#eaf4fb;border:1px solid #90caf9;border-radius:4px;font-size:1.3rem;color:#1565c0;margin-bottom:12px;';
+          var msg = document.createElement('span');
+          msg.innerHTML = '<strong style="font-size:1.6rem;">入力済み：</strong>第1便の情報が自動入力されました。(便ごとに変更することはできません。変更したい場合は第1便の情報を編集してください。)';
+          var toggleBtn = document.createElement('button');
+          toggleBtn.type = 'button';
+          toggleBtn.textContent = '▼ 確認する';
+          toggleBtn.style.cssText = 'flex-shrink:0;padding:3px 10px;background:#fff;border:1px solid #90caf9;border-radius:4px;font-size:1.2rem;color:#1565c0;cursor:pointer;white-space:nowrap;';
+          toggleBtn.addEventListener('click', function() {
+            var open = toggleBtn.dataset.open === '1';
+            Array.from(el.children).forEach(function(child) {
+              if (child.dataset.splitHidden) {
+                child.style.display = open ? 'none' : '';
+              }
+            });
+            toggleBtn.dataset.open = open ? '0' : '1';
+            toggleBtn.textContent = open ? '▼ 確認する' : '▲ 閉じる';
+          });
+          notice.appendChild(msg);
+          notice.appendChild(toggleBtn);
+          el.insertBefore(notice, el.firstChild);
+        }
+        el.classList.add('shared-section-locked');
+      });
+    }
+    function unlockSharedSections() {
+      ['orderInfo', 'paymentInfo'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.classList.remove('shared-section-locked');
+        var notice = el.querySelector('.shared-lock-notice-inner');
+        if (notice) notice.parentNode.removeChild(notice);
+        // 折りたたんだ子要素を復元
+        Array.from(el.children).forEach(function(child) {
+          if (child.dataset.splitHidden) {
+            child.style.display = '';
+            delete child.dataset.splitHidden;
+          }
+        });
+      });
+    }
+
+    // お届け先候補 フォームロック
+    function lockLocationManualForm() {
+      var form = document.querySelector('[data-location-manual-form]');
+      if (form) form.classList.add('location-form-locked');
+      var clearBtn = document.getElementById('location-clear-btn');
+      if (clearBtn) clearBtn.style.display = '';
+    }
+    function unlockLocationManualForm() {
+      var form = document.querySelector('[data-location-manual-form]');
+      if (form) form.classList.remove('location-form-locked');
+      var clearBtn = document.getElementById('location-clear-btn');
+      if (clearBtn) clearBtn.style.display = 'none';
+    }
+    (function() {
+      var locSlider = document.querySelector('[data-radio-group="location"]');
+      if (locSlider) {
+        locSlider.addEventListener('click', function(e) {
+          if (e.target.closest('[data-radio-item]')) lockLocationManualForm();
+        });
+      }
+      var clearBtn = document.getElementById('location-clear-btn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var locSlider = document.querySelector('[data-radio-group="location"]');
+          if (locSlider) {
+            locSlider.querySelectorAll('[data-radio-item]').forEach(function(item) {
+              item.classList.remove('is-active');
+              var inp = item.querySelector('[data-radio-input]');
+              if (inp) { inp.checked = false; inp.classList.remove('is-active'); }
+            });
+          }
+          unlockLocationManualForm();
+        });
+      }
+    })();
+
+    // 分割発送モード
+    var splitGroupCount = 0;
+    var deliveryInfoMap = {};
+    var editingGroupNum = null;
+
+    function isVisible(el) {
+      var node = el;
+      while (node && node !== document.body) {
+        if (node.style && node.style.display === 'none') return false;
+        node = node.parentElement;
+      }
+      return true;
+    }
+
+    function validateDeliveryFields() {
+      var card = document.getElementById('delivery-card');
+      if (!card) return true;
+      var hasError = false;
+
+      // 必須ラジオグループ: c-unit-ttl + c-text-caution の直後 [data-radio]
+      card.querySelectorAll('.c-unit-ttl').forEach(function(ttl) {
+        if (!isVisible(ttl)) return;
+        if (!ttl.querySelector('.c-text-caution')) return;
+        var next = ttl.nextElementSibling;
+        while (next) {
+          if (next.hasAttribute('data-radio')) {
+            if (isVisible(next) && !next.querySelector('[data-radio-input]:checked')) hasError = true;
+            break;
+          }
+          next = next.nextElementSibling;
+        }
+      });
+
+      // 必須テキスト入力 (c-input__require / l-form__require)
+      card.querySelectorAll('.c-input__require, .l-form__require').forEach(function(req) {
+        if (!isVisible(req)) return;
+        var row = req.closest('.c-input, .l-form__tr');
+        if (!row || !isVisible(row)) return;
+        var inp = row.querySelector('input[type="text"]');
+        if (inp && !inp.value.trim()) hasError = true;
+      });
+
+      // 納品希望日
+      var calInput = document.querySelector('[data-calendar]');
+      if (calInput && isVisible(calInput) && !calInput.value.trim()) hasError = true;
+
+      return !hasError;
+    }
+
+    function updateSplitHeadings() {
+      var n = (editingGroupNum !== null) ? editingGroupNum : splitGroupCount + 1;
+      var total = document.querySelectorAll('[data-split-product]').length;
+      var done = document.querySelectorAll('[data-split-product][data-split-done]').length;
+      var allDone = (done >= total && total > 0);
+      var titleEl = document.getElementById('split-current-title');
+      var descEl = document.getElementById('split-current-desc');
+      var deliveryEl = document.getElementById('split-delivery-desc');
+      var headingEl = document.getElementById('split-product-heading');
+      var deliveryHeadingEl = document.getElementById('split-delivery-heading');
+      if (titleEl) titleEl.textContent = '第' + n + '便';
+      if (descEl) descEl.textContent = '第' + n + '便（' + n + '回目の配送）で送付する製品を指定してください。';
+      if (deliveryEl) deliveryEl.textContent = '第' + n + '便（' + n + '回目の配送）の 納期・納品先・配送条件を指定してください。';
+      if (editingGroupNum === null) {
+        var setBtn = document.getElementById('split-set-btn');
+        if (setBtn) setBtn.textContent = '第' + n + '便の条件を指定する';
+      }
+      if (headingEl) headingEl.style.display = allDone ? 'none' : 'block';
+      if (deliveryHeadingEl) deliveryHeadingEl.style.display = (allDone && editingGroupNum === null) ? 'none' : 'block';
+    }
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function captureDeliveryInfo() {
+      var card = document.getElementById('delivery-card');
+      var nokiDate = '', nokiTime = '', nokiConfirm = '';
+      var calInput = card.querySelector('[data-calendar]');
+      if (calInput) nokiDate = calInput.value;
+      var nokiLi = card.querySelector('[data-delivery-cond]');
+      if (nokiLi) {
+        var timeInputs = nokiLi.querySelectorAll('input[type="text"]:not([data-calendar])');
+        if (timeInputs.length) nokiTime = timeInputs[timeInputs.length - 1].value;
+        var confChecked = nokiLi.querySelector('[data-radio-input]:checked');
+        if (confChecked) {
+          var cp = confChecked.closest('.c-input-radio__parts');
+          if (cp) { var cl = cp.querySelector('[data-radio-label]'); if (cl) nokiConfirm = cl.textContent.trim(); }
+        }
+      }
+      var locationName = '', locationAddr = '', locationIndex = 0, locationSelected = false;
+      var locationSlider = document.querySelector('[data-radio-group="location"]');
+      if (locationSlider) {
+        var allLocSlides = locationSlider.querySelectorAll('[data-radio-item]');
+        allLocSlides.forEach(function(slide, idx) {
+          var inp = slide.querySelector('[data-radio-input]');
+          if (inp && inp.checked) { locationIndex = idx; locationSelected = true; }
+        });
+        var checkedLoc = locationSlider.querySelector('[data-radio-input]:checked');
+        if (checkedLoc) {
+          var locSlide = checkedLoc.closest('[data-radio-item]');
+          if (locSlide) {
+            var locArea = locSlide.querySelector('.l-slider02__item-area');
+            if (locArea) {
+              var locName = locArea.querySelector('.u-text-bold');
+              var locAddr = locArea.querySelector('p.u-fs14');
+              if (locName) locationName = locName.textContent.trim();
+              if (locAddr) locationAddr = locAddr.innerHTML.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').trim();
+            }
+          }
+        }
+      }
+      var locationConfirm = '';
+      var confirmSection = card.querySelector('[data-user-hide="btoc-nohinsaki-confirm"]');
+      if (confirmSection) {
+        var ccItem = confirmSection.querySelector('[data-radio-input]:checked');
+        if (ccItem) { var ccPart = ccItem.closest('.c-input-radio__parts'); if (ccPart) { var ccLabel = ccPart.querySelector('[data-radio-label]'); if (ccLabel) locationConfirm = ccLabel.textContent.trim(); } }
+      }
+      var manualForm = card.querySelector('[data-location-manual-form]');
+      var locationZip='', locationPref='', locationCity='', locationStreet='', locationPersonName='', locationTel='', locationChakuzen=false;
+      if (manualForm) {
+        var mfInputs = manualForm.querySelectorAll('.l-form__input');
+        if (mfInputs[0]) locationZip = mfInputs[0].value;
+        if (mfInputs[1]) locationPref = mfInputs[1].value;
+        if (mfInputs[2]) locationCity = mfInputs[2].value;
+        if (mfInputs[3]) locationStreet = mfInputs[3].value;
+        if (mfInputs[4]) locationPersonName = mfInputs[4].value;
+        if (mfInputs[5]) locationTel = mfInputs[5].value;
+        var czChk = manualForm.querySelector('[data-chakuzen-check]');
+        if (czChk) locationChakuzen = czChk.checked;
+      }
+      var haisouLabel = '', mashinVal = '', soukoVal = '', kashireSize = '', kashireType = '';
+      var haisouScope = card.querySelector('[data-haisou-scope]');
+      if (haisouScope) {
+        var haisouRadio = haisouScope.querySelector('[data-haisou-radio]');
+        if (haisouRadio) {
+          var hc = haisouRadio.querySelector('[data-radio-input]:checked');
+          if (hc) { var hp = hc.closest('.c-input-radio__parts'); if (hp) { var hl = hp.querySelector('[data-radio-label]'); if (hl) haisouLabel = hl.textContent.trim(); } }
+        }
+        var mi = haisouScope.querySelector('[data-mashin-input]');
+        if (mi && isVisible(mi)) mashinVal = mi.value;
+        var si = haisouScope.querySelector('[data-souko-input]');
+        if (si && isVisible(si)) soukoVal = si.value;
+        var kb = haisouScope.querySelector('[data-kashire-border]');
+        if (kb && isVisible(kb)) {
+          var kr = kb.querySelectorAll('[data-radio]');
+          if (kr[0]) { var kc = kr[0].querySelector('[data-radio-input]:checked'); if (kc) { var kp = kc.closest('.c-input-radio__parts'); if (kp) { var kl = kp.querySelector('[data-radio-label]'); if (kl) kashireSize = kl.textContent.trim(); } } }
+          if (kr[1]) { var kc2 = kr[1].querySelector('[data-radio-input]:checked'); if (kc2) { var kp2 = kc2.closest('.c-input-radio__parts'); if (kp2) { var kl2 = kp2.querySelector('[data-radio-label]'); if (kl2) kashireType = kl2.textContent.trim(); } } }
+        }
+      }
+      var textareas = card.querySelectorAll('textarea[data-count]');
+      return {
+        nokiDate: nokiDate, nokiTime: nokiTime, nokiConfirm: nokiConfirm,
+        locationIndex: locationIndex, locationSelected: locationSelected, locationName: locationName, locationAddr: locationAddr,
+        locationConfirm: locationConfirm,
+        locationZip: locationZip, locationPref: locationPref, locationCity: locationCity, locationStreet: locationStreet,
+        locationPersonName: locationPersonName, locationTel: locationTel, locationChakuzen: locationChakuzen,
+        haisouLabel: haisouLabel, mashinVal: mashinVal, soukoVal: soukoVal,
+        kashireSize: kashireSize, kashireType: kashireType,
+        okurijyo: textareas[0] ? textareas[0].value : '',
+        sonota: textareas[1] ? textareas[1].value : ''
+      };
+    }
+
+    function buildSummaryBodyHtml(info) {
+      var bodyLines = [];
+      var nokiParts = [];
+      if (info.nokiDate) nokiParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;"><span style="color:#888;min-width:90px;flex-shrink:0;">納品希望日</span><span>' + escHtml(info.nokiDate) + '</span></div>');
+      if (info.nokiTime) nokiParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">納品希望時間</span><span>' + escHtml(info.nokiTime) + '</span></div>');
+      if (info.nokiConfirm) nokiParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">確定状況</span><span>' + escHtml(info.nokiConfirm) + '</span></div>');
+      if (nokiParts.length) bodyLines.push('<div style="margin-bottom:12px;"><div style="font-size:1.2rem;font-weight:bold;color:#555;border-bottom:1px solid #e5e5e5;padding-bottom:4px;margin-bottom:6px;">納期</div>' + nokiParts.join('') + '</div>');
+      var locParts = [];
+      if (info.locationConfirm) locParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;"><span style="color:#888;min-width:90px;flex-shrink:0;">確定状況</span><span>' + escHtml(info.locationConfirm) + '</span></div>');
+      if (info.locationSelected && (info.locationName || info.locationAddr)) {
+        if (info.locationName) locParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">納品先名</span><span style="font-weight:bold;">' + escHtml(info.locationName) + '</span></div>');
+        if (info.locationAddr) locParts.push('<div style="font-size:1.3rem;margin-top:4px;padding-left:98px;color:#555;white-space:pre-line;">' + escHtml(info.locationAddr) + '</div>');
+      } else if (!info.locationSelected) {
+        var addrLine = [info.locationZip ? '〒' + info.locationZip : '', [info.locationPref, info.locationCity, info.locationStreet].filter(Boolean).join(' ')].filter(Boolean).join(' ');
+        if (info.locationPersonName) locParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">氏名</span><span>' + escHtml(info.locationPersonName) + '</span></div>');
+        if (addrLine) locParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">住所</span><span>' + escHtml(addrLine) + '</span></div>');
+        if (info.locationTel) locParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">電話番号</span><span>' + escHtml(info.locationTel) + '</span></div>');
+      }
+      if (locParts.length) bodyLines.push('<div style="margin-bottom:12px;"><div style="font-size:1.2rem;font-weight:bold;color:#555;border-bottom:1px solid #e5e5e5;padding-bottom:4px;margin-bottom:6px;">納品先</div>' + locParts.join('') + '</div>');
+      var condParts = [];
+      if (info.haisouLabel) condParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;"><span style="color:#888;min-width:90px;flex-shrink:0;">配送区分</span><span>' + escHtml(info.haisouLabel) + '</span></div>');
+      if (info.mashinVal) condParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">マシンNo</span><span>' + escHtml(info.mashinVal) + '</span></div>');
+      if (info.soukoVal) condParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">同送倉庫</span><span>' + escHtml(info.soukoVal) + '</span></div>');
+      if (info.kashireSize) condParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">車両サイズ</span><span>' + escHtml(info.kashireSize) + '</span></div>');
+      if (info.kashireType) condParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">車種</span><span>' + escHtml(info.kashireType) + '</span></div>');
+      if (info.okurijyo) condParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">送り状記載</span><span>' + escHtml(info.okurijyo) + '</span></div>');
+      if (info.sonota) condParts.push('<div style="display:flex;gap:8px;font-size:1.3rem;margin-top:4px;"><span style="color:#888;min-width:90px;flex-shrink:0;">その他</span><span>' + escHtml(info.sonota) + '</span></div>');
+      if (condParts.length) bodyLines.push('<div><div style="font-size:1.2rem;font-weight:bold;color:#555;border-bottom:1px solid #e5e5e5;padding-bottom:4px;margin-bottom:6px;">配送条件</div>' + condParts.join('') + '</div>');
+      return bodyLines.join('');
+    }
+
+    function updateSummaryBody(groupNum, info) {
+      var el = document.querySelector('[data-split-summary="' + groupNum + '"]');
+      if (!el) return;
+      var content = el.querySelector('.js-split-sum-content');
+      if (content) content.innerHTML = buildSummaryBodyHtml(info);
+    }
+
+    function restoreDeliveryForm(info) {
+      var card = document.getElementById('delivery-card');
+      var calInput = card.querySelector('[data-calendar]');
+      if (calInput) {
+        calInput.value = info.nokiDate || '';
+        if (calInput._flatpickr && info.nokiDate) calInput._flatpickr.setDate(info.nokiDate, false);
+      }
+      var nokiLi = card.querySelector('[data-delivery-cond]');
+      if (nokiLi) {
+        var timeInputs = nokiLi.querySelectorAll('input[type="text"]:not([data-calendar])');
+        if (timeInputs.length) timeInputs[timeInputs.length - 1].value = info.nokiTime || '';
+        nokiLi.querySelectorAll('[data-radio-input]').forEach(function(inp) {
+          var parts = inp.closest('.c-input-radio__parts');
+          if (!parts) return;
+          var lbl = parts.querySelector('[data-radio-label]');
+          if (lbl) inp.checked = (lbl.textContent.trim() === info.nokiConfirm);
+        });
+      }
+      var locationSlider = document.querySelector('[data-radio-group="location"]');
+      if (locationSlider) {
+        var slides = locationSlider.querySelectorAll('[data-radio-item]');
+        slides.forEach(function(slide, idx) {
+          var inp = slide.querySelector('[data-radio-input]');
+          var isSelected = info.locationSelected && (idx === info.locationIndex);
+          if (inp) { inp.checked = isSelected; inp.classList.toggle('is-active', isSelected); }
+          slide.classList.toggle('is-active', isSelected);
+        });
+        if (info.locationSelected) { lockLocationManualForm(); } else { unlockLocationManualForm(); }
+      }
+      var confirmSection2 = card.querySelector('[data-user-hide="btoc-nohinsaki-confirm"]');
+      if (confirmSection2 && info.locationConfirm) {
+        confirmSection2.querySelectorAll('[data-radio-input]').forEach(function(inp) {
+          var pts = inp.closest('.c-input-radio__parts');
+          if (!pts) return;
+          var lbl = pts.querySelector('[data-radio-label]');
+          if (lbl) inp.checked = (lbl.textContent.trim() === info.locationConfirm);
+        });
+      }
+      var manualForm2 = card.querySelector('[data-location-manual-form]');
+      if (manualForm2 && !info.locationSelected) {
+        var mfInputs2 = manualForm2.querySelectorAll('.l-form__input');
+        if (mfInputs2[0]) mfInputs2[0].value = info.locationZip || '';
+        if (mfInputs2[1]) mfInputs2[1].value = info.locationPref || '';
+        if (mfInputs2[2]) mfInputs2[2].value = info.locationCity || '';
+        if (mfInputs2[3]) mfInputs2[3].value = info.locationStreet || '';
+        if (mfInputs2[4]) mfInputs2[4].value = info.locationPersonName || '';
+        if (mfInputs2[5]) mfInputs2[5].value = info.locationTel || '';
+        var czChk2 = manualForm2.querySelector('[data-chakuzen-check]');
+        if (czChk2) czChk2.checked = info.locationChakuzen || false;
+      }
+      var haisouScope = card.querySelector('[data-haisou-scope]');
+      if (haisouScope) {
+        var haisouRadio = haisouScope.querySelector('[data-haisou-radio]');
+        if (haisouRadio && info.haisouLabel) {
+          var matchedPart = null;
+          haisouRadio.querySelectorAll('.c-input-radio__parts').forEach(function(part) {
+            var lbl = part.querySelector('[data-radio-label]');
+            var inp = part.querySelector('[data-radio-input]');
+            if (!lbl || !inp) return;
+            inp.checked = (lbl.textContent.trim() === info.haisouLabel);
+            if (inp.checked) matchedPart = part;
+          });
+          if (matchedPart) matchedPart.dispatchEvent(new MouseEvent('click', {bubbles: false}));
+        }
+        var mashinInp = haisouScope.querySelector('[data-mashin-input]');
+        if (mashinInp) mashinInp.value = info.mashinVal || '';
+        var soukoInp = haisouScope.querySelector('[data-souko-input]');
+        if (soukoInp) soukoInp.value = info.soukoVal || '';
+        var kb = haisouScope.querySelector('[data-kashire-border]');
+        if (kb) {
+          var kr = kb.querySelectorAll('[data-radio]');
+          if (kr[0]) kr[0].querySelectorAll('.c-input-radio__parts').forEach(function(part) {
+            var lbl = part.querySelector('[data-radio-label]');
+            var inp = part.querySelector('[data-radio-input]');
+            if (lbl && inp) inp.checked = (lbl.textContent.trim() === info.kashireSize);
+          });
+          if (kr[1]) kr[1].querySelectorAll('.c-input-radio__parts').forEach(function(part) {
+            var lbl = part.querySelector('[data-radio-label]');
+            var inp = part.querySelector('[data-radio-input]');
+            if (lbl && inp) inp.checked = (lbl.textContent.trim() === info.kashireType);
+          });
+        }
+      }
+      var textareas = card.querySelectorAll('textarea[data-count]');
+      if (textareas[0]) textareas[0].value = info.okurijyo || '';
+      if (textareas[1]) textareas[1].value = info.sonota || '';
+    }
+
+    function startEditDelivery(groupNum) {
+      if (editingGroupNum !== null) stopEditDelivery();
+      editingGroupNum = groupNum;
+      var btn = document.getElementById('split-set-btn');
+      if (btn) btn.textContent = '第' + groupNum + '便の条件を更新する';
+      // 全アコーディオンを通常スタイルに戻す
+      document.querySelectorAll('[data-split-summary]').forEach(function(el) {
+        var hdr = el.querySelector('.js-split-sum-btn');
+        if (hdr) { hdr.style.background = '#eaf4fb'; hdr.style.borderBottom = ''; }
+        var span = el.querySelector('.js-split-sum-btn > span:first-child');
+        if (span) { span.style.color = '#008CD6'; }
+        var editBtnEl = el.querySelector('.js-split-edit-btn');
+        if (editBtnEl) editBtnEl.style.display = '';
+        var updateWrap = el.querySelector('.js-split-update-btn-wrap');
+        if (updateWrap) updateWrap.style.display = 'none';
+      });
+      // 編集対象アコーディオンを編集スタイルに変更
+      var editEl = document.querySelector('[data-split-summary="' + groupNum + '"]');
+      if (editEl) {
+        var hdr = editEl.querySelector('.js-split-sum-btn');
+        if (hdr) { hdr.style.background = '#fff8e1'; hdr.style.borderBottom = '1px solid #ffc107'; }
+        var span = editEl.querySelector('.js-split-sum-btn > span:first-child');
+        if (span) { span.textContent = '▶ 第' + groupNum + '便を編集中 ◀'; span.style.color = '#856404'; }
+        var editBtnEl = editEl.querySelector('.js-split-edit-btn');
+        if (editBtnEl) editBtnEl.style.display = 'none';
+        var body = editEl.querySelector('.js-split-sum-body');
+        var chevron = editEl.querySelector('.js-split-chevron');
+        var updateWrap = editEl.querySelector('.js-split-update-btn-wrap');
+        if (body) body.style.display = '';
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+        if (updateWrap) updateWrap.style.display = '';
+      }
+      // 納期・納品先エリア背景を薄黄色に
+      document.querySelectorAll('[data-delivery-cond]').forEach(function(item) {
+        item.style.background = '#fff8e1';
+      });
+      if (groupNum === 1) unlockSharedSections();
+      if (deliveryInfoMap[groupNum]) restoreDeliveryForm(deliveryInfoMap[groupNum]);
+      updateSetBtnState();
+      var dc = document.getElementById('delivery-card');
+      if (dc) dc.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+
+    function stopEditDelivery() {
+      var gn = editingGroupNum;
+      editingGroupNum = null;
+      var btn = document.getElementById('split-set-btn');
+      if (btn) btn.textContent = '第' + (splitGroupCount + 1) + '便の条件を指定する';
+      if (gn !== null) {
+        var editEl = document.querySelector('[data-split-summary="' + gn + '"]');
+        if (editEl) {
+          var hdr = editEl.querySelector('.js-split-sum-btn');
+          if (hdr) { hdr.style.background = '#eaf4fb'; hdr.style.borderBottom = ''; }
+          var span = editEl.querySelector('.js-split-sum-btn > span:first-child');
+          if (span) { span.textContent = '第' + gn + '便　設定済み'; span.style.color = '#008CD6'; }
+          var editBtnEl = editEl.querySelector('.js-split-edit-btn');
+          if (editBtnEl) editBtnEl.style.display = '';
+          var body = editEl.querySelector('.js-split-sum-body');
+          var chevron = editEl.querySelector('.js-split-chevron');
+          var updateWrap = editEl.querySelector('.js-split-update-btn-wrap');
+          if (body) body.style.display = 'none';
+          if (chevron) chevron.style.transform = '';
+          if (updateWrap) updateWrap.style.display = 'none';
+        }
+      }
+      // 納期・納品先エリア背景を薄水色に戻す
+      document.querySelectorAll('[data-delivery-cond]').forEach(function(item) {
+        item.style.background = '#eaf4fb';
+      });
+      if (gn === 1 && splitGroupCount >= 1) lockSharedSections();
+      updateSplitHeadings();
+      updateSetBtnState();
+    }
+
+    function addDeliverySummary(groupNum, info) {
+      deliveryInfoMap[groupNum] = info;
+      var summaries = document.getElementById('split-done-summaries');
+      if (!summaries) return;
+      var el = document.createElement('div');
+      el.style.cssText = 'border:1px solid #c9dff0;border-radius:6px;overflow:hidden;margin-top:12px;';
+      el.dataset.splitSummary = groupNum;
+      el.innerHTML =
+        '<div class="js-split-sum-btn" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#eaf4fb;cursor:pointer;user-select:none;">' +
+          '<span style="font-weight:bold;font-size:1.4rem;color:#008CD6;">第' + groupNum + '便　設定済み</span>' +
+          '<div style="display:flex;align-items:center;gap:8px;">' +
+            '<button class="js-split-edit-btn" type="button" style="font-size:1.2rem;padding:3px 10px;background:#fff;border:1px solid #008CD6;color:#008CD6;border-radius:4px;cursor:pointer;line-height:1.6;">編集</button>' +
+            '<span class="js-split-chevron" style="font-size:1.1rem;color:#008CD6;transition:transform .2s;">▼</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="js-split-sum-body" style="display:none;background:#fff;">' +
+          '<div class="js-split-update-btn-wrap" style="display:none;padding:10px 16px 0;">' +
+            '<button class="js-split-update-btn" type="button" style="width:100%;padding:8px 0;background:#f0a500;color:#fff;border:none;border-radius:4px;font-size:1.4rem;font-weight:bold;cursor:pointer;">第' + groupNum + '便の条件を更新する</button>' +
+          '</div>' +
+          '<div class="js-split-sum-content" style="padding:14px 16px;">' + buildSummaryBodyHtml(info) + '</div>' +
+        '</div>';
+      var headerBtn = el.querySelector('.js-split-sum-btn');
+      var body = el.querySelector('.js-split-sum-body');
+      var chevron = el.querySelector('.js-split-chevron');
+      var editBtn = el.querySelector('.js-split-edit-btn');
+      var updateBtn = el.querySelector('.js-split-update-btn');
+      headerBtn.addEventListener('click', function() {
+        var open = body.style.display !== 'none';
+        body.style.display = open ? 'none' : '';
+        chevron.style.transform = open ? '' : 'rotate(180deg)';
+      });
+      editBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        startEditDelivery(parseInt(el.dataset.splitSummary));
+      });
+      updateBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.getElementById('split-set-btn').click();
+      });
+      summaries.appendChild(el);
+      pmUpdateBtn();
+    }
+
+    function enterMultiMode() {
+      splitGroupCount = 0;
+      document.querySelectorAll('[data-split-product]').forEach(function(li) {
+        var wrapper = li.querySelector('.l-lowpage__list-wrapper');
+        if (wrapper && !li.querySelector('.js-split-check')) {
+          var checkDiv = document.createElement('div');
+          checkDiv.className = 'js-split-check';
+          checkDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;align-self:flex-start;flex-shrink:0;padding:8px 6px 0;gap:4px;';
+          checkDiv.innerHTML =
+            '<input class="js-split-checkbox" type="checkbox" style="width:20px;height:20px;cursor:pointer;accent-color:#008CD6;">' +
+            '<div class="js-split-badge" style="display:none;padding:2px 8px;background:#e3f2fd;border:1px solid #90caf9;border-radius:4px;font-size:1.1rem;color:#1565c0;font-weight:bold;white-space:nowrap;"></div>';
+          wrapper.insertBefore(checkDiv, wrapper.firstChild);
+          checkDiv.querySelector('.js-split-checkbox').addEventListener('change', updateSetBtnState);
+        }
+        delete li.dataset.splitDone;
+        delete li.dataset.splitGroup;
+      });
+      document.getElementById('split-set-btn-area').style.display = '';
+      document.querySelectorAll('[data-delivery-cond]').forEach(function(item) {
+        item.style.background = '#eaf4fb';
+        item.querySelectorAll('input[type="text"], input[type="tel"], textarea').forEach(function(inp) {
+          inp.style.background = '#fff';
+        });
+      });
+      var locSlider = document.querySelector('[data-radio-group="location"]');
+      if (locSlider) locSlider.classList.add('split-location-mode');
+      var proceedBtn = document.getElementById('proceed-btn');
+      if (!proceedBtn.dataset.origHref) {
+        proceedBtn.dataset.origHref = proceedBtn.getAttribute('href') || '/cart/order-confirm/';
+      }
+      proceedBtn.removeAttribute('href');
+      proceedBtn.style.opacity = '0.5';
+      proceedBtn.style.pointerEvents = 'none';
+      proceedBtn.style.cursor = 'not-allowed';
+      document.getElementById('split-product-heading').style.display = 'block';
+      document.getElementById('split-delivery-heading').style.display = 'block';
+      document.getElementById('split-products-bar').style.display = 'flex';
+      updateSplitHeadings();
+      updateSplitStatus();
+    }
+
+    function exitMultiMode() {
+      splitGroupCount = 0;
+      document.querySelectorAll('[data-split-product]').forEach(function(li) {
+        var chk = li.querySelector('.js-split-check');
+        if (chk) chk.parentNode.removeChild(chk);
+        delete li.dataset.splitDone;
+        delete li.dataset.splitGroup;
+      });
+      document.getElementById('split-set-btn-area').style.display = 'none';
+      document.querySelectorAll('[data-delivery-cond]').forEach(function(item) {
+        item.style.background = '';
+        item.querySelectorAll('input[type="text"], input[type="tel"], textarea').forEach(function(inp) {
+          inp.style.background = '';
+        });
+      });
+      var locSlider = document.querySelector('[data-radio-group="location"]');
+      if (locSlider) locSlider.classList.remove('split-location-mode');
+      var proceedBtn = document.getElementById('proceed-btn');
+      proceedBtn.href = proceedBtn.dataset.origHref || '/cart/order-confirm/';
+      proceedBtn.style.opacity = '';
+      proceedBtn.style.pointerEvents = '';
+      proceedBtn.style.cursor = '';
+      document.getElementById('split-product-heading').style.display = 'none';
+      document.getElementById('split-products-bar').style.display = 'none';
+      document.getElementById('split-done-summaries').innerHTML = '';
+      document.getElementById('split-delivery-heading').style.display = 'none';
+      editingGroupNum = null;
+      deliveryInfoMap = {};
+      unlockSharedSections();
+      pmUpdateBtn();
+    }
+
+    function updateSetBtnState() {
+      var btn = document.getElementById('split-set-btn');
+      if (!btn) return;
+      if (editingGroupNum !== null) {
+        btn.style.background = '#f0a500';
+        btn.style.color = '#fff';
+        btn.style.cursor = 'pointer';
+        return;
+      }
+      var anyChecked = !!document.querySelector('.js-split-checkbox:checked');
+      if (anyChecked) {
+        btn.style.background = '#008CD6';
+        btn.style.color = '#fff';
+        btn.style.cursor = 'pointer';
+      } else {
+        btn.style.background = '#e0e7ef';
+        btn.style.color = '#aaa';
+        btn.style.cursor = 'not-allowed';
+      }
+    }
+
+    function updateSplitStatus() {
+      var total = document.querySelectorAll('[data-split-product]').length;
+      var done = document.querySelectorAll('[data-split-product][data-split-done]').length;
+      var remaining = total - done;
+      document.getElementById('split-status').innerHTML =
+        '<table style="border-collapse:collapse;font-size:13px;color:#555;line-height:1.8;margin:0 30px 0 0;">' +
+          '<tr>' +
+            '<td style="white-space:nowrap;text-align:right;">分割済み</td>' +
+            '<td style="padding:0 2px;">：</td>' +
+            '<td style="text-align:right;"><strong>' + done + '</strong></td>' +
+            '<td style="padding:0 4px;text-align:center;">/</td>' +
+            '<td style="text-align:right;"><strong>' + total + '</strong></td>' +
+            '<td style="padding-left:4px;">製品</td>' +
+          '</tr>' +
+          '<tr>' +
+            '<td style="white-space:nowrap;text-align:right;">のこり</td>' +
+            '<td style="padding:0 2px;">：</td>' +
+            '<td style="text-align:right;"><strong>' + remaining + '</strong></td>' +
+            '<td style="padding:0 4px;text-align:center;">/</td>' +
+            '<td style="text-align:right;"><strong>' + total + '</strong></td>' +
+            '<td style="padding-left:4px;">製品</td>' +
+          '</tr>' +
+        '</table>';
+      if (done >= total) {
+        var proceedBtn = document.getElementById('proceed-btn');
+        proceedBtn.href = proceedBtn.dataset.origHref || '/cart/order-confirm/';
+        proceedBtn.style.opacity = '';
+        proceedBtn.style.pointerEvents = '';
+        proceedBtn.style.cursor = '';
+      }
+    }
+
+    // ==================== 製品振り分けモーダル ====================
+    var pm = { assignments: {}, drag: null, scrollTimer: null, groupCount: 0 };
+
+    function pmUpdateBtn() {
+      var btn = document.getElementById('pm-open-btn');
+      if (btn) btn.style.display = (splitGroupCount >= 2) ? '' : 'none';
+    }
+
+    function pmOpen() {
+      pm.assignments = {};
+      pm.groupCount = splitGroupCount;
+      document.querySelectorAll('[data-split-product]').forEach(function(li, idx) {
+        pm.assignments[idx] = parseInt(li.dataset.splitGroup) || 0;
+      });
+      pmBuildGrid();
+      document.getElementById('pm-modal').style.display = 'flex';
+    }
+
+    function pmClose() {
+      if (pm.drag) {
+        clearInterval(pm.scrollTimer);
+        if (pm.drag.float && pm.drag.float.parentNode) pm.drag.float.parentNode.removeChild(pm.drag.float);
+        document.removeEventListener('mousemove', pmDragMove);
+        document.removeEventListener('mouseup', pmDragEnd);
+        pm.drag = null;
+      }
+      document.getElementById('pm-modal').style.display = 'none';
+    }
+
+    function pmBuildGrid() {
+      var products = Array.from(document.querySelectorAll('[data-split-product]'));
+      var N = pm.groupCount;
+      var html = '<div class="pm-grid-wrap" style="grid-template-columns:160px repeat(' + N + ',130px);">';
+      // ヘッダー行
+      html += '<div class="pm-name-hdr"></div>';
+      for (var g = 1; g <= N; g++) {
+        var isNew = (g > splitGroupCount);
+        html += '<div class="pm-header-cell' + (isNew ? ' pm-header-new' : '') + '">' +
+          '第' + g + '便' + (isNew ? '<br><span style="font-size:1rem;font-weight:normal;">（新規追加）</span>' : '') +
+          '</div>';
+      }
+      // 製品行
+      products.forEach(function(li, idx) {
+        var nameEl = li.querySelector('.l-lowpage__list-ttl');
+        var name = nameEl ? nameEl.textContent.trim() : ('製品' + (idx + 1));
+        if (name.length > 15) name = name.substring(0, 14) + '…';
+        html += '<div class="pm-name-cell">' + name + '</div>';
+        for (var g = 1; g <= N; g++) {
+          var isNew = (g > splitGroupCount);
+          html += '<div class="pm-cell' + (isNew ? ' pm-cell-new' : '') + '" data-prod-idx="' + idx + '" data-group="' + g + '">';
+          if (pm.assignments[idx] === g) {
+            html += '<div class="pm-btn" data-prod-idx="' + idx + '">' +
+              '<span style="font-size:1.6rem;display:block;line-height:1;margin-bottom:4px;letter-spacing:.1em;">← →</span>' +
+              '<span>左右にドラッグして<br>便を変更</span></div>';
+          }
+          html += '</div>';
+        }
+      });
+      html += '</div>';
+      document.getElementById('pm-grid').innerHTML = html;
+      document.querySelectorAll('#pm-grid .pm-btn').forEach(function(btn) {
+        btn.addEventListener('mousedown', pmDragStart);
+      });
+      // 便を追加ボタンの上限制御
+      var maxGroups = products.length;
+      var addBtn = document.getElementById('pm-add-btn');
+      if (addBtn) addBtn.disabled = (pm.groupCount >= maxGroups);
+    }
+
+    function pmAddGroup() {
+      var maxGroups = document.querySelectorAll('[data-split-product]').length;
+      if (pm.groupCount >= maxGroups) return;
+      pm.groupCount++;
+      pmBuildGrid();
+      var scroll = document.getElementById('pm-scroll');
+      if (scroll) setTimeout(function() { scroll.scrollLeft = scroll.scrollWidth; }, 50);
+    }
+
+    function pmScrollCols(dir) {
+      var scroll = document.getElementById('pm-scroll');
+      if (scroll) scroll.scrollBy({ left: dir * 130, behavior: 'smooth' });
+    }
+
+    function pmDragStart(e) {
+      e.preventDefault();
+      if (pm.drag) return;
+      var btn = e.currentTarget;
+      var prodIdx = parseInt(btn.dataset.prodIdx);
+      var rect = btn.getBoundingClientRect();
+      var float = document.createElement('div');
+      float.className = 'pm-btn pm-float';
+      float.innerHTML = btn.innerHTML;
+      float.style.width = rect.width + 'px';
+      float.style.height = rect.height + 'px';
+      float.style.left = rect.left + 'px';
+      float.style.top = rect.top + 'px';
+      document.body.appendChild(float);
+      var cell = btn.closest('.pm-cell');
+      cell.removeChild(btn);
+      var ghost = document.createElement('div');
+      ghost.className = 'pm-ghost';
+      cell.appendChild(ghost);
+      pm.drag = {
+        prodIdx: prodIdx,
+        origGroup: pm.assignments[prodIdx],
+        float: float,
+        offsetX: e.clientX - rect.left,
+        offsetY: e.clientY - rect.top
+      };
+      document.addEventListener('mousemove', pmDragMove);
+      document.addEventListener('mouseup', pmDragEnd);
+    }
+
+    function pmDragMove(e) {
+      if (!pm.drag) return;
+      var d = pm.drag;
+      d.float.style.left = (e.clientX - d.offsetX) + 'px';
+      d.float.style.top = (e.clientY - d.offsetY) + 'px';
+      d.float.style.pointerEvents = 'none';
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      d.float.style.pointerEvents = '';
+      document.querySelectorAll('#pm-grid .pm-cell').forEach(function(c) { c.classList.remove('pm-cell-over'); });
+      var grid = document.getElementById('pm-grid');
+      var targetCell = el ? el.closest('.pm-cell') : null;
+      if (targetCell && grid && grid.contains(targetCell)) {
+        targetCell.classList.add('pm-cell-over');
+        d.targetGroup = parseInt(targetCell.dataset.group);
+      } else {
+        d.targetGroup = null;
+      }
+      var scroll = document.getElementById('pm-scroll');
+      clearInterval(pm.scrollTimer);
+      if (scroll) {
+        var sr = scroll.getBoundingClientRect();
+        if (e.clientX < sr.left + 80 && scroll.scrollLeft > 0) {
+          pm.scrollTimer = setInterval(function() { scroll.scrollBy({ left: -130 }); }, 500);
+        } else if (e.clientX > sr.right - 80 && scroll.scrollLeft < scroll.scrollWidth - scroll.clientWidth - 1) {
+          pm.scrollTimer = setInterval(function() { scroll.scrollBy({ left: 130 }); }, 500);
+        }
+      }
+    }
+
+    function pmDragEnd(e) {
+      if (!pm.drag) return;
+      clearInterval(pm.scrollTimer);
+      document.removeEventListener('mousemove', pmDragMove);
+      document.removeEventListener('mouseup', pmDragEnd);
+      var d = pm.drag;
+      pm.drag = null;
+      d.float.style.display = 'none';
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      d.float.parentNode.removeChild(d.float);
+      var grid = document.getElementById('pm-grid');
+      var targetCell = el ? el.closest('.pm-cell') : null;
+      if (targetCell && grid && grid.contains(targetCell)) {
+        pm.assignments[d.prodIdx] = parseInt(targetCell.dataset.group);
+      }
+      document.querySelectorAll('#pm-grid .pm-cell').forEach(function(c) { c.classList.remove('pm-cell-over'); });
+      pmBuildGrid();
+    }
+
+    function pmComplete() {
+      if (editingGroupNum !== null) stopEditDelivery();
+      var origCount = splitGroupCount;
+      var products = Array.from(document.querySelectorAll('[data-split-product]'));
+      // pm.groupCount まで（新規追加分を含む）製品の割り当てを確認
+      var groupHas = {};
+      products.forEach(function(li, idx) {
+        var g = pm.assignments[idx] || 0;
+        if (g > 0) groupHas[g] = true;
+      });
+      // 空でないグループの振り直しマップを作成（1..pm.groupCount 全体で）
+      var renumber = {};
+      var newCount = 0;
+      for (var g = 1; g <= pm.groupCount; g++) {
+        if (groupHas[g]) { newCount++; renumber[g] = newCount; }
+      }
+      // 既存アコーディオン要素をDOM更新前に収集（1..origCount）
+      var summaryEls = {};
+      for (var g = 1; g <= origCount; g++) {
+        summaryEls[g] = document.querySelector('[data-split-summary="' + g + '"]');
+      }
+      // 空になった既存グループのアコーディオンを削除
+      for (var g = 1; g <= origCount; g++) {
+        if (!groupHas[g] && summaryEls[g]) summaryEls[g].parentNode.removeChild(summaryEls[g]);
+      }
+      // deliveryInfoMapを作り直し、既存アコーディオンのテキストを更新
+      var newDeliveryInfoMap = {};
+      for (var g = 1; g <= origCount; g++) {
+        if (!renumber[g]) continue;
+        var newG = renumber[g];
+        var el = summaryEls[g];
+        if (el) {
+          el.dataset.splitSummary = newG;
+          var span = el.querySelector('.js-split-sum-btn > span:first-child');
+          if (span) span.textContent = '第' + newG + '便　設定済み';
+          var updBtn = el.querySelector('.js-split-update-btn');
+          if (updBtn) updBtn.textContent = '第' + newG + '便の条件を更新する';
+        }
+        if (deliveryInfoMap[g]) newDeliveryInfoMap[renumber[g]] = deliveryInfoMap[g];
+      }
+      deliveryInfoMap = newDeliveryInfoMap;
+      splitGroupCount = newCount;
+      // 新規追加グループ（origCount+1..pm.groupCount）に製品があればアコーディオンを追加
+      // 配送条件は移動元グループ（製品数多数決）からコピー
+      var newGroupSources = {};
+      products.forEach(function(li, idx) {
+        var srcG = parseInt(li.dataset.splitGroup) || 0;
+        var dstG = pm.assignments[idx] || 0;
+        if (dstG > origCount && dstG > 0 && srcG > 0) {
+          if (!newGroupSources[dstG]) newGroupSources[dstG] = {};
+          newGroupSources[dstG][srcG] = (newGroupSources[dstG][srcG] || 0) + 1;
+        }
+      });
+      for (var g = origCount + 1; g <= pm.groupCount; g++) {
+        if (!renumber[g]) continue;
+        var newG = renumber[g];
+        var srcCounts = newGroupSources[g] || {};
+        var srcOrigG = 0, srcBestCount = 0;
+        Object.keys(srcCounts).forEach(function(k) { if (srcCounts[k] > srcBestCount) { srcBestCount = srcCounts[k]; srcOrigG = parseInt(k); } });
+        var srcNewG = srcOrigG > 0 ? (renumber[srcOrigG] || 1) : 1;
+        var baseInfo = deliveryInfoMap[srcNewG] || deliveryInfoMap[1] || {};
+        addDeliverySummary(newG, baseInfo);
+      }
+      // 製品のdata属性とバッジを更新
+      products.forEach(function(li, idx) {
+        var oldG = pm.assignments[idx] || 0;
+        var newG = oldG > 0 ? (renumber[oldG] || 0) : 0;
+        if (newG > 0) {
+          li.dataset.splitDone = '1';
+          li.dataset.splitGroup = newG;
+        } else {
+          delete li.dataset.splitDone;
+          delete li.dataset.splitGroup;
+        }
+        var badge = li.querySelector('.js-split-badge');
+        if (badge) {
+          if (newG > 0) { badge.textContent = '第' + newG + '便'; badge.style.display = 'inline-block'; }
+          else { badge.style.display = 'none'; badge.textContent = ''; }
+        }
+      });
+      pmClose();
+      pmUpdateBtn();
+      updateSplitHeadings();
+      updateSplitStatus();
+      updateSetBtnState();
+    }
+    // ==================== / 製品振り分けモーダル ====================
+
+    document.addEventListener('DOMContentLoaded', function() {
+      applyUserTypeDisplay();
+
+      document.getElementById('split-set-btn').addEventListener('click', function() {
+        var errorEl = document.getElementById('split-error');
+        // 編集モード: 既存便の条件を更新
+        if (editingGroupNum !== null) {
+          var gn = editingGroupNum;
+          if (!validateDeliveryFields()) {
+            if (errorEl) errorEl.style.display = '';
+            return;
+          }
+          if (errorEl) errorEl.style.display = 'none';
+          var updatedInfo = captureDeliveryInfo();
+          deliveryInfoMap[gn] = updatedInfo;
+          updateSummaryBody(gn, updatedInfo);
+          stopEditDelivery();
+          window.scrollTo({top: 0, behavior: 'smooth'});
+          return;
+        }
+        // 通常モード: 選択製品に便を割り当て
+        var checked = document.querySelectorAll('.js-split-checkbox:checked');
+        if (!checked.length) return;
+        if (!validateDeliveryFields()) {
+          if (errorEl) errorEl.style.display = '';
+          return;
+        }
+        if (errorEl) errorEl.style.display = 'none';
+        var deliveryInfo = captureDeliveryInfo();
+        splitGroupCount++;
+        checked.forEach(function(chk) {
+          var li = chk.closest('[data-split-product]');
+          li.dataset.splitDone = '1';
+          li.dataset.splitGroup = splitGroupCount;
+          var badge = li.querySelector('.js-split-badge');
+          if (badge) {
+            badge.textContent = '第' + splitGroupCount + '便';
+            badge.style.display = 'inline-block';
+          }
+          chk.checked = false;
+          chk.disabled = true;
+          chk.style.opacity = '0.4';
+          chk.style.cursor = 'default';
+        });
+        addDeliverySummary(splitGroupCount, deliveryInfo);
+        if (splitGroupCount === 1) lockSharedSections();
+        updateSplitHeadings();
+        updateSetBtnState();
+        updateSplitStatus();
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+
+      var cal = document.querySelector('[data-calendar]');
+      if (cal && cal._flatpickr) { cal._flatpickr.set('minDate', 'today'); }
+
+      // 発送モード切り替えスイッチ
+      document.querySelectorAll('.shipping-mode-opt').forEach(function(opt) {
+        opt.addEventListener('click', function() {
+          document.querySelectorAll('.shipping-mode-opt').forEach(function(o) {
+            o.style.background = 'transparent';
+            o.style.color = '#555';
+            o.style.fontWeight = 'normal';
+            o.style.boxShadow = 'none';
+          });
+          opt.style.background = '#008CD6';
+          opt.style.color = '#fff';
+          opt.style.fontWeight = 'bold';
+          opt.style.boxShadow = '0 1px 4px rgba(0,0,0,.18)';
+          if (opt.dataset.mode === 'multi') { enterMultiMode(); }
+          else { exitMultiMode(); }
+        });
+      });
+
+      // マシンNo・倉庫: 配送区分連動（チャーター便同送/共配便同送のみ表示）
+      document.querySelectorAll('[data-haisou-scope]').forEach(function(scope) {
+        var haisouRadio = scope.querySelector('[data-haisou-radio]');
+        var mashinWrapper = scope.querySelector('[data-mashin-wrapper]');
+        var mashinInput = scope.querySelector('[data-mashin-input]');
+        var soukoWrapper = scope.querySelector('[data-souko-wrapper]');
+        var soukoInput = scope.querySelector('[data-souko-input]');
+        if (!haisouRadio) return;
+        function setField(wrapper, input, enabled) {
+          if (!wrapper) return;
+          wrapper.style.display = enabled ? '' : 'none';
+          if (input && !enabled) input.value = '';
+        }
+        haisouRadio.querySelectorAll('.c-input-radio__parts').forEach(function(part) {
+          part.addEventListener('click', function() {
+            var lbl = part.querySelector('[data-radio-label]');
+            if (!lbl) return;
+            var enabled = (lbl.textContent.trim() === 'チャーター便同送' || lbl.textContent.trim() === '共配便同送');
+            setField(mashinWrapper, mashinInput, enabled);
+            setField(soukoWrapper, soukoInput, enabled);
+          });
+        });
+        setField(mashinWrapper, mashinInput, false);
+        setField(soukoWrapper, soukoInput, false);
+      });
+
+      // 貸切区分: 配送区分連動（靜甲手配チャーター便のみ表示、それ以外は指定なしに自動設定）
+      document.querySelectorAll('[data-haisou-scope]').forEach(function(scope) {
+        var haisouRadio = scope.querySelector('[data-haisou-radio]');
+        if (!haisouRadio) return;
+        var kashireLabel = scope.querySelector('[data-kashire-label]');
+        var kashireBorder = scope.querySelector('[data-kashire-border]');
+        function setKashire(isCharter) {
+          if (kashireLabel) kashireLabel.style.display = isCharter ? '' : 'none';
+          if (kashireBorder) {
+            kashireBorder.style.display = isCharter ? '' : 'none';
+            if (!isCharter) {
+              kashireBorder.querySelectorAll('.c-input-radio[data-radio]').forEach(function(group) {
+                group.querySelectorAll('[data-radio-input]').forEach(function(r) { r.checked = false; });
+                var first = group.querySelector('[data-radio-input]');
+                if (first) first.checked = true;
+              });
+            }
+          }
+        }
+        haisouRadio.querySelectorAll('.c-input-radio__parts').forEach(function(part) {
+          part.addEventListener('click', function() {
+            var lbl = part.querySelector('[data-radio-label]');
+            setKashire(lbl && lbl.textContent.trim() === '靜甲手配チャーター便');
+          });
+        });
+        setKashire(false);
+      });
+
+      // 着前TEL チェックボックス
+      document.querySelectorAll('[data-chakuzen-check]').forEach(function(chk) {
+        var lbl = chk.closest('[data-check]').querySelector('[data-chakuzen-label]');
+        chk.addEventListener('change', function() {
+          lbl.textContent = chk.checked ? '必要' : '不要';
+        });
+      });
+
+    });
+  </script>
+
+
+  <!-- 製品振り分けモーダル -->
+  <div id="pm-modal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.45);align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:10px;width:min(94vw,860px);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,.28);">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #eee;flex-shrink:0;gap:12px;">
+        <div>
+          <p style="font-size:1.5rem;font-weight:bold;color:#333;">製品の移動</p>
+          <p style="font-size:1.3rem;color:#666;margin-top:4px;">水色のボタンをドラッグして配送便を変更してください。ボタンをつかんだまま左右の端まで動かすと次の便に移動できます。</p>
+        </div>
+        <button onclick="pmClose()" type="button" style="flex-shrink:0;width:32px;height:32px;background:none;border:1px solid #ccc;border-radius:50%;font-size:1.8rem;line-height:1;cursor:pointer;color:#888;display:flex;align-items:center;justify-content:center;">×</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 20px;flex-shrink:0;border-bottom:1px solid #eee;">
+        <button id="pm-nav-l" onclick="pmScrollCols(-1)" type="button" style="padding:5px 16px;background:#f0f4f8;border:1px solid #c9dff0;border-radius:4px;font-size:1.6rem;cursor:pointer;line-height:1;">◀</button>
+        <span style="font-size:1.2rem;color:#888;">便の列を左右にスクロールできます</span>
+        <button id="pm-nav-r" onclick="pmScrollCols(1)" type="button" style="padding:5px 16px;background:#f0f4f8;border:1px solid #c9dff0;border-radius:4px;font-size:1.6rem;cursor:pointer;line-height:1;">▶</button>
+        <button id="pm-add-btn" onclick="pmAddGroup()" type="button" style="margin-left:auto;padding:5px 14px;background:#fff;border:1px solid #008CD6;border-radius:4px;font-size:1.3rem;color:#008CD6;font-weight:bold;cursor:pointer;white-space:nowrap;">＋ 便を追加</button>
+      </div>
+      <div id="pm-scroll" style="overflow:auto;max-height:270px;padding:0 20px 8px;">
+        <div id="pm-grid"></div>
+      </div>
+      <div style="padding:14px 20px;border-top:1px solid #eee;flex-shrink:0;">
+        <button onclick="pmComplete()" type="button" style="width:100%;padding:12px;background:#008CD6;color:#fff;border:none;border-radius:6px;font-size:1.5rem;font-weight:bold;cursor:pointer;letter-spacing:.03em;">製品の移動を完了する</button>
+      </div>
+    </div>
+  </div>
+
+</body></html>

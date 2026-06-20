@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>新規会員登録</title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="新規会員登録">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header-register">
+      <div class="l-header-register__inner">
+        <div class="l-header-register__area">
+          <h1 class="l-header-register__logo"><a href="/"><img class="l-header-register__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+          <div class="l-header-register__ttl">新規会員登録</div>
+        </div>
+        <nav class="l-header-register__nav">
+          <ul class="l-header-register__nav-list">
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❶<span class="l-lg">&nbsp;</span><br class="l-sm">会員情報<br class="l-sm">を入力</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive is-active">❷<span class="l-lg">&nbsp;</span><br class="l-sm">入力内容<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❸<span class="l-lg">&nbsp;</span><br class="l-sm">メール<br class="l-sm">アドレス<br class="l-sm">確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❹<span class="l-lg">&nbsp;</span><br class="l-sm">登録受付<br class="l-sm">完了</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--responsive">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="p-register">
+            <div class="l-inline-responsive-none">
+              <div class="p-register__contents">
+                <p>まだ登録は完了しておりません。<br>ご入力内容をご確認いただき、間違いがなければ「この内容で登録する」ボタンを押して手続きを完了してください。</p>
+                <div class="p-register__form">
+                  <form action="/register-customer/temp-complete/">
+                    <div class="p-register__form-contents">
+                      <div class="p-register__form-table p-register__form-table--confirm">
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">氏名</div>
+                          </div>
+                          <div class="p-register__form-input-area p-register__form-input-area--grid">
+                            <p class="p-register__form-confirm-txt">田中 太郎</p>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">氏名（カナ）</div>
+                          </div>
+                          <div class="p-register__form-input-area p-register__form-input-area--grid">
+                            <p class="p-register__form-confirm-txt">タナカ タロウ</p>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">アイコン</div>
+                          </div>
+                          <div class="p-register__form-input-area">
+                            <div class="c-input-upload"><label class="c-input-upload__label c-input-upload__label--no-cursor">
+                                <div class="c-input-upload__default" style="display: none;"></div><img class="c-input-upload__image" src="/assets/images/common/ellipse.png" height="160" width="160" decoding="async" loading="lazy">
+                              </label>
+                              <div class="c-input-upload__txt"><span class="c-input-upload__filename">画像の名前が入ります.png（<span>123KB</span>）</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">会社名</div>
+                          </div>
+                          <div class="p-register__form-input-area">
+                            <p class="p-register__form-confirm-txt">靜甲株式会社</p>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">所属</div>
+                          </div>
+                          <div class="p-register__form-input-area">
+                            <p class="p-register__form-confirm-txt">東京営業所 商事事業部</p>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">電話番号</div>
+                          </div>
+                          <div class="p-register__form-input-area p-register__form-input-area--grid">
+                            <p class="p-register__form-confirm-txt">0362614395</p>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">住所</div>
+                          </div>
+                          <div class="p-register__form-input-area">
+                            <div class="p-register__form-input-area">
+                              <p class="p-register__form-confirm-txt">〒424-0809<br>東京都千代田区麹町5丁目3番地3 麹町KSスクエア3階</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">メールアドレス</div>
+                          </div>
+                          <div class="p-register__form-input-area">
+                            <p class="p-register__form-confirm-txt">info@seiko-co.com</p>
+                          </div>
+                        </div>
+                        <div class="p-register__form-tr">
+                          <div class="p-register__form-parts">
+                            <div class="p-register__form-txt">パスワード</div>
+                          </div>
+                          <div class="p-register__form-input-area p-register__form-input-area--grid">
+                            <p class="p-register__form-confirm-txt">*********</p>
+                          </div>
+                        </div>
+                      </div><button class="c-btn-normal u-mt40" type="submit">この内容で登録する</button> <a href="/register-customer/" class="c-btn-normal c-btn-normal--white u-mt32">入力画面に戻る</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="ja"><head prefix="og:http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <title>ご購入手続き</title>
+  <meta name="description" content="">
+  <meta name="author" content="靜甲株式会社">
+  <link rel="shortcut icon" href="/assets/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch180.png">
+  <link rel="canonical" href="/">
+  <meta name="viewport" content="width=device-width,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#008CD6">
+  <meta property="og:site_name" content="靜甲株式会社">
+  <meta property="og:title" content="ご購入手続き">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/assets/images/ogpimg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="preload" as="style" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <link rel="preload" as="script" href="/assets/js/bundle.js?rev=97dd4462b674e8b2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?rev=97dd4462b674e8b2">
+  <script>
+    window.addEventListener('load', async () => {
+      const imgs = document.querySelectorAll('img[src$=".svg"]');
+      for (const img of imgs) {
+        try {
+          const src = img.getAttribute('src');
+          if (!src) continue;
+          const url = new URL(src, location.href);
+          if (url.origin !== location.origin && !src.startsWith('/')) continue;
+          const res = await fetch(url.href);
+          if (!res.ok) continue;
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const svg = doc.querySelector('svg');
+          if (!svg) continue;
+          svg.classList.add(...img.classList);
+          Object.entries(img.dataset).forEach(([key, value]) => {
+            svg.dataset[key] = value;
+          });
+          if (img.width) svg.setAttribute('width', img.width);
+          if (img.height) svg.setAttribute('height', img.height);
+          img.replaceWith(svg);
+        } catch (e) {
+          console.warn('SVG inline failed:', img, e);
+        }
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body id="gotop" class="body">
+  <div class="l-body">
+    <header class="l-header-register">
+      <div class="l-header-register__inner">
+        <div class="l-header-register__area">
+          <h1 class="l-header-register__logo"><a href="/"><img class="l-header-register__logo-image" src="/assets/images/common/logo.svg" alt="" height="24" width="208" decoding="async"></a></h1>
+          <div class="l-header-register__ttl">ご購入手続き</div>
+        </div>
+        <nav class="l-header-register__nav">
+          <ul class="l-header-register__nav-list">
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive is-active">❶<span class="l-lg">&nbsp;</span><br class="l-sm">カート<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❷<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">情報<br class="l-sm">の入力</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❸<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">内容<br class="l-sm">を確認</li>
+            <li class="l-header-register__nav-list-item l-header-register__nav-list-item--responsive">❹<span class="l-lg">&nbsp;</span><br class="l-sm">ご注文<br class="l-sm">完了</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="l-backlayer js-layer" data-layer=""></div>
+    <div class="l-wrapper l-wrapper--responsive">
+      <div class="l-content">
+        <main class="l-main">
+          <div class="l-cart">
+            <div class="l-inline-wide">
+              <div class="l-cart__structure">
+                <div class="l-cart__contents">
+                  <h2 class="c-ttlnormal">カートに入っている製品（3点）</h2>
+                  <p class="u-mt40">ご注文内容をご確認ください。<br>数量の変更、選択製品の削除、製品を「あとで買う」へ移動する操作は、下記のボタンより実施ください。<br>お買い物を続ける場合は「買い物を続ける」ボタンを、ご購入手続きへ進む場合は「レジに進む」ボタンを押下してください。</p>
+                  <ul class="l-lowpage__list l-lowpage__list--cart u-mt40">
+                    <li class="l-lowpage__list-item">
+                      <div class="l-lowpage__list-wrapper"><a href="/products/xxxxx/"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy"></a>
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl"><a href="/products/xxxxx/">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</a></h3>
+                          <div class="l-lowpage__list-parts">
+                            <div class="c-category"><a href="/products/" class="c-category__item">高置架台</a></div><a href="/products/" class="c-text-company"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">倉敷化工株式会社</span></a>
+                          </div>
+                          <div class="c-text-price u-mt20">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="l-lowpage__stock-wrap"><img class="l-lowpage__stock" src="/assets/images/common/stock.svg" alt="" height="22" width="51" decoding="async">
+                            <p class="u-text-indent u-fs14 u-lh15">※在庫数が注文数量より少ないため、出荷日が遅れる可能性があります。</p>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-gap24 u-mt16 u-fw-wrap">
+                            <div class="c-btn-count">
+                              <div class="c-btn-count__txt">数量</div>
+                              <div class="c-btn-count__item"><img class="c-btn-count__icon c-btn-count__icon--minus" src="/assets/images/common/icon-minus.svg" alt="" height="24" width="24" decoding="async">
+                                <div class="c-btn-count__num-area"><span class="c-btn-count__num">0</span></div><img class="c-btn-count__icon c-btn-count__icon--plus" src="/assets/images/common/icon-plus.svg" alt="" height="24" width="24" decoding="async">
+                              </div>
+                            </div>
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-later.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">後で買う</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item">
+                      <div class="l-lowpage__list-wrapper"><a href="/products/xxxxx/"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy"></a>
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl"><a href="/products/xxxxx/">製品名製品名製品名製品名製品名製品名製品名製品名</a></h3>
+                          <div class="l-lowpage__list-parts">
+                            <div class="c-category"><a href="/products/" class="c-category__item">防振架台</a></div><a href="/products/" class="c-text-company"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社エヌ・エス・シー</span></a>
+                          </div>
+                          <div class="c-text-price u-mt20">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-gap24 u-mt16 u-fw-wrap">
+                            <div class="c-btn-count">
+                              <div class="c-btn-count__txt">数量</div>
+                              <div class="c-btn-count__item"><img class="c-btn-count__icon c-btn-count__icon--minus" src="/assets/images/common/icon-minus.svg" alt="" height="24" width="24" decoding="async">
+                                <div class="c-btn-count__num-area"><span class="c-btn-count__num">0</span></div><img class="c-btn-count__icon c-btn-count__icon--plus" src="/assets/images/common/icon-plus.svg" alt="" height="24" width="24" decoding="async">
+                              </div>
+                            </div>
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-later.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">後で買う</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item">
+                      <div class="l-lowpage__list-wrapper"><a href="/products/xxxxx/"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy"></a>
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl"><a href="/products/xxxxx/">製品名製品名製品名製品名製品名製品名製品名製品名</a></h3>
+                          <div class="l-lowpage__list-parts">
+                            <div class="c-category"><a href="/products/" class="c-category__item">防振部材</a></div><a href="/products/" class="c-text-company"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社シモヤマ</span></a>
+                          </div>
+                          <div class="c-text-price u-mt20">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-gap24 u-mt16 u-fw-wrap">
+                            <div class="c-btn-count">
+                              <div class="c-btn-count__txt">数量</div>
+                              <div class="c-btn-count__item"><img class="c-btn-count__icon c-btn-count__icon--minus" src="/assets/images/common/icon-minus.svg" alt="" height="24" width="24" decoding="async">
+                                <div class="c-btn-count__num-area"><span class="c-btn-count__num">0</span></div><img class="c-btn-count__icon c-btn-count__icon--plus" src="/assets/images/common/icon-plus.svg" alt="" height="24" width="24" decoding="async">
+                              </div>
+                            </div>
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-later.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">後で買う</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="l-lowpage__color l-sm"></div>
+                  <h2 class="c-ttlnormal u-mt80 u-mt40-sm">「あとで買う」に入っている製品（3点）</h2>
+                  <p class="u-mt32">気になる商品を一時的に保存し、あとでゆっくり検討いただけます。<br>「カートに戻す」よりいつでもワンクリックでカートに戻してご購入いただけます。</p>
+                  <ul class="l-lowpage__list l-lowpage__list--cart u-mt40">
+                    <li class="l-lowpage__list-item">
+                      <div class="l-lowpage__list-wrapper"><a href="/products/xxxxx/"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy"></a>
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl"><a href="/products/xxxxx/">製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名製品名</a></h3>
+                          <div class="l-lowpage__list-parts">
+                            <div class="c-category"><a href="/products/" class="c-category__item">高置架台</a></div><a href="/products/" class="c-text-company"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">倉敷化工株式会社</span></a>
+                          </div>
+                          <div class="c-text-price u-mt20">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="l-lowpage__stock-wrap"><img class="l-lowpage__stock" src="/assets/images/common/stock.svg" alt="" height="22" width="51" decoding="async">
+                            <p class="u-text-indent u-fs14 u-lh15">※在庫数が注文数量より少ないため、出荷日が遅れる可能性があります。</p>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-gap24 u-mt16 u-fw-wrap">
+                            <div class="c-btn-count">
+                              <div class="c-btn-count__txt">数量</div>
+                              <div class="c-btn-count__item"><img class="c-btn-count__icon c-btn-count__icon--minus" src="/assets/images/common/icon-minus.svg" alt="" height="24" width="24" decoding="async">
+                                <div class="c-btn-count__num-area"><span class="c-btn-count__num">0</span></div><img class="c-btn-count__icon c-btn-count__icon--plus" src="/assets/images/common/icon-plus.svg" alt="" height="24" width="24" decoding="async">
+                              </div>
+                            </div>
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-cart02.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">カートに戻す</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item">
+                      <div class="l-lowpage__list-wrapper"><a href="/products/xxxxx/"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy"></a>
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl"><a href="/products/xxxxx/">製品名製品名製品名製品名製品名製品名製品名製品名</a></h3>
+                          <div class="l-lowpage__list-parts">
+                            <div class="c-category"><a href="/products/" class="c-category__item">防振架台</a></div><a href="/products/" class="c-text-company"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image02.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社エヌ・エス・シー</span></a>
+                          </div>
+                          <div class="c-text-price u-mt20">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-gap24 u-mt16 u-fw-wrap">
+                            <div class="c-btn-count">
+                              <div class="c-btn-count__txt">数量</div>
+                              <div class="c-btn-count__item"><img class="c-btn-count__icon c-btn-count__icon--minus" src="/assets/images/common/icon-minus.svg" alt="" height="24" width="24" decoding="async">
+                                <div class="c-btn-count__num-area"><span class="c-btn-count__num">0</span></div><img class="c-btn-count__icon c-btn-count__icon--plus" src="/assets/images/common/icon-plus.svg" alt="" height="24" width="24" decoding="async">
+                              </div>
+                            </div>
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-cart02.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">カートに戻す</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="l-lowpage__list-item">
+                      <div class="l-lowpage__list-wrapper"><a href="/products/xxxxx/"><img class="l-lowpage__list-image" src="/assets/images/common/product-image.jpg" alt="" height="320" width="320" decoding="async" loading="lazy"></a>
+                        <div class="l-lowpage__list-contents">
+                          <h3 class="l-lowpage__list-ttl"><a href="/products/xxxxx/">製品名製品名製品名製品名製品名製品名製品名製品名</a></h3>
+                          <div class="l-lowpage__list-parts">
+                            <div class="c-category"><a href="/products/" class="c-category__item">防振部材</a></div><a href="/products/" class="c-text-company"><img class="c-text-company__icon" src="/assets/images/products/manufacturer-image01.png" alt="" height="80" width="80" decoding="async" loading="lazy"> <span class="c-text-company__item">株式会社シモヤマ</span></a>
+                          </div>
+                          <div class="c-text-price u-mt20">
+                            <div class="c-text-price__item01">12,345<span class="c-text-price__small">円（税込）＋ 送料</span></div>
+                            <div class="c-text-price__item02">定価：12,345円（税込）</div>
+                          </div>
+                          <div class="u-dp-flex u-al-center u-gap24 u-mt16 u-fw-wrap">
+                            <div class="c-btn-count">
+                              <div class="c-btn-count__txt">数量</div>
+                              <div class="c-btn-count__item"><img class="c-btn-count__icon c-btn-count__icon--minus" src="/assets/images/common/icon-minus.svg" alt="" height="24" width="24" decoding="async">
+                                <div class="c-btn-count__num-area"><span class="c-btn-count__num">0</span></div><img class="c-btn-count__icon c-btn-count__icon--plus" src="/assets/images/common/icon-plus.svg" alt="" height="24" width="24" decoding="async">
+                              </div>
+                            </div>
+                            <div class="u-dp-flex u-al-center u-gap8">
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-delete.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">削除</span></div>
+                              <div class="c-btn-icon-small"><img class="c-btn-icon-small__img" src="/assets/images/common/icon-cart02.svg" alt="" height="20" width="20" decoding="async"> <span class="c-btn-icon-small__txt">カートに戻す</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="l-cart__nav">
+                  <div class="l-cart__nav-contents">
+                    <div class="l-cart__nav-payment">
+                      <div class="l-cart__nav-payment-area">
+                        <div class="l-cart__nav-payment-tr">
+                          <p>小計</p>
+                          <div class="l-cart__nav-payment-price">12,345<span>円</span></div>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>送料</p>
+                          <p class="u-fs14">送料は確認画面で確定します</p>
+                        </div>
+                        <div class="l-cart__nav-payment-tr">
+                          <p>消費税（10%対象）</p>
+                          <div class="l-cart__nav-payment-price">123<span>円</span></div>
+                        </div>
+                      </div>
+                      <div class="l-cart__nav-payment-detail">
+                        <p class="u-text-bold">ご請求額</p>
+                        <div class="l-cart__nav-payment-price02">13,579<span>円（税込）</span></div>
+                      </div><a class="c-btn-normal c-btn-normal--orange u-mt32" href="/cart/order/">レジに進む</a>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt32">※送料につきましては、納品先と配送条件の入力内容に基づき計算されるため、最終確認画面での確定となります。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※製品の配送状況の確認や、ご注文情報の追加・変更、各種帳票（設計図、請求書、納品書等）のダウンロードは、すべてマイページの<a class="c-text-link c-text-link--inline u-fs14" href="/mypage/order/" target="_blank" rel="noopener noreferrer">案件管理<img class="c-text-link__icon c-text-link__icon--top" src="/assets/images/common/icon-external.svg" alt="" height="11" width="11" decoding="async"></a>よりスムーズに行えます。</p>
+                      <p class="u-fs14 u-text-indent u-lh15 u-mt4">※既に進行中の案件があり、今回のご注文と併せて一括管理したいお客様は、次ページの案件情報より紐付け作業を行ってください。</p><a class="c-btn-small u-mt32" href="/products/">買い物を続ける</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="l-cart__fixed l-sm">
+            <div class="l-cart__fixed-area">
+              <p class="u-text-bold">3点の製品</p>
+              <div class="u-fs16 u-text-bold"><span class="u-fs24">12,345</span> 円（税込）＋ 送料</div>
+            </div>
+            <div class="l-cart__fixed-btn-area"><a href="/products/" class="l-cart__fixed-btn-white">買い物を続ける</a> <a href="/cart/order/" class="l-cart__fixed-btn-orange">レジに進む</a></div>
+          </div>
+        </main>
+      </div><a href="#gotop" class="c-scroll"><img class="c-scroll__image" src="/assets/images/common/scroll-top.png" alt="" height="80" width="80" decoding="async" loading="lazy"></a>
+      <footer class="l-footer-register l-footer-register--02"><small>© 空調部材プロ by 靜甲</small></footer>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <script src="/assets/js/bundle.js?rev=97dd4462b674e8b2" defer="defer"></script>
+
+
+</body></html>

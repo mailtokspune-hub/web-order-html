@@ -1,0 +1,190 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.p-register {
+  padding:1.6rem 0 4rem;
+  min-height: calc(100svh - 17.2rem);
+  background-color: color(light-theme);
+  @include media(sm) {
+    min-height: auto;
+    padding:1.6rem 0 0;
+  }
+
+  &--padding{
+    @include media(sm) {
+      padding:0;
+    }
+  }
+
+  &__contents{
+    padding:4rem 4rem 5.6rem;
+    border-radius: 4px;
+    background-color: color(default-white);
+    @include media(sm) {
+      padding:4rem 1.6rem 5.6rem;
+    }
+  }
+
+  &__form{
+    margin-top: 4rem;
+  }
+
+  &__form-table{
+    display: flex;
+    flex-direction: column;
+    gap:1.6rem;
+    &--confirm{
+      padding:3.2rem;
+      border-radius: 8px;
+      border:1px solid #E5E5E5;
+      @include media(sm) {
+        padding:3.2rem 1.6rem;
+      }
+    }
+  }
+
+  &__form-tr{
+    max-width: 64rem;
+    display: flex;
+    flex-direction: column;
+    gap:.8rem;
+    &--max-width{
+      max-width: 100%;
+    }
+  }
+
+  &__form-parts{
+    display: flex;
+    align-items: center;
+    gap:1.2rem;
+  }
+
+  &__form-input-area{
+    &--grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+      @include media(sm) {
+        grid-template-columns: 1fr
+      }
+    }
+  }
+
+  &__form-txt{
+    @include fz(14, true, 24, 600, 0);
+  }
+
+  &__form-require{
+    border-radius: 2px;
+    padding:0 .5rem .1rem .4rem;
+    color:color(default-red);
+    border: 1px solid color(default-red);
+    @include fz(12, true, 18, 400, 0);
+  }
+
+  &__form-option{
+    border-radius: 2px;
+    padding:0 .5rem .1rem .4rem;
+    color:#B2B2B2;
+    border: 1px solid #B2B2B2;
+    @include fz(12, true, 18, 400, 0);
+  }
+
+  &__form-input{
+    height:4rem;
+    padding:0 1rem;
+    width:100%;
+    border: 1px solid color(border);
+    border-radius: 4px;
+    outline: none;
+    @include fz(14, true, 24, 400, 0);
+
+    &::placeholder{
+      color:color(default-gray)
+    }
+    &.is-error{
+      border: 1px solid color(default-red);
+      &::placeholder{
+        color:color(default-red)
+      }
+    }
+    &:focus{
+      border:1px solid color(theme)
+    }
+  }
+
+  &__form-post-number{
+    position: relative;
+  }
+
+  &__form-search-btn{
+    position: absolute;
+    z-index:2;
+    padding:.3rem .4rem;
+    border:1px solid #b2b2b2;
+    cursor: pointer;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color:color(default-gray);
+    @include fz(12, true, 20, 400, 0);
+    &.is-error{
+      color:color(default-red);
+      border:1px solid color(default-red);
+    }
+  }
+
+  &__form-policy{
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media(sm) {
+      align-items: flex-start
+    }
+  }
+
+  &__form-check-txt{
+    padding-left: .8rem;
+      display: flex;
+    align-items: center;
+      @include fz(16, true, 28, 400, 0);
+      @include media(sm) {
+        display: block;
+        padding-left: .8rem;
+        @include fz(16, true, 24, 400, 0);
+      }
+      .is-error{
+        color:color(default-red)
+      }
+  }
+
+  &__form-confirm-txt{
+    margin-top: .2rem;
+    padding-bottom: .2rem;
+  }
+
+  &__form-input-upload{
+    display: flex;
+    gap:2.4rem;
+  }
+
+  &__moment-grid{
+    display: grid;
+    grid-template-columns: 1fr 40rem;
+    gap:2.4rem;
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
+    @include media(sm){
+    grid-template-columns: 1fr;
+    }
+  }
+
+  &__moment-image{
+    width:100%;
+  }
+}

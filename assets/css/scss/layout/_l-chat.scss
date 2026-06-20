@@ -1,0 +1,294 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-chat {
+  position: relative;
+  height:fit-content;
+position: sticky;
+      top: 7.2rem;
+      @include media(sm) {
+        top:initial;
+        position: static;
+      }
+    &.is-sticky{
+      .l-chat__area{
+        max-height: calc(100vh - 11.8rem);
+      }
+    }
+    &__contents{
+      border-radius: 4px;
+      background-color: color(default-white);
+    }
+
+    &__ttl{
+      @include fz(14, true, 28, 600, 0);
+    }
+
+    &__ttl-area{
+      display: flex;
+      padding:.8rem 1rem;
+      align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid color(light-theme);;
+    }
+
+    &__card-icon{
+      width:4rem;
+      height:4rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    &__card-parts{
+      p{
+        @include fz(14, true, 22, 400, 0);
+      }
+      span{
+            display: block;
+          max-width: 19.5rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        color:#808080;
+        @include fz(12, true, 18, 400, 0);
+        @media screen and (min-width: 768px) and (max-width: 1280px) {
+          max-width: none;
+          white-space: initial;
+        }
+      }
+    }
+
+    &__card-date{
+      color:#808080;
+      white-space: nowrap;
+      text-align: right;
+        @include fz(12, true, 18, 400, 0);
+
+        span{
+          @include fz(11, true, 18, 400, 0);
+        }
+    }
+
+    &__card-area-parts{
+      display: flex;
+      align-items: center;
+      gap:.8rem;
+    }
+
+  &__card-area{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__area{
+    padding:.4rem .4rem 18rem .4rem;
+    max-height: calc(100vh - 18.8rem);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap:.4rem;
+    overscroll-behavior: contain; 
+    @include media(sm) {
+      max-height: initial;
+      overflow-y: initial;
+      padding:.4rem .4rem 6.4rem .4rem;
+    }
+  }
+
+  &__card{
+    padding:1.6rem;
+    border-radius: 4px;
+    border:1px solid #E5E5E5;
+    &.is-active{
+      border:1px solid #FFC600;
+      background-color: #FFF9E5;
+    }
+    &.is-inactive{
+      background-color: #F7F7F7;
+      .l-chat__card-reaction-area{
+        pointer-events: none;
+      }
+      .l-chat__card-reaction{
+        border:1px solid transparent
+      }
+    }
+    &--update{
+      background-color: #F7F7F7;
+
+      .l-chat__input-area{
+        padding:.8rem;
+        border:1px solid #B2B2B2;
+        border-radius: 4px;
+        background-color: #ffffff;
+      }
+    }
+  }
+  
+
+  &__card-reaction-area{
+    margin-top: 1.6rem;
+    display: flex;
+    gap:.4rem;
+    flex-wrap: wrap;
+  }
+
+
+  &__card-reaction{
+    cursor: pointer;
+    
+    padding:.3rem;
+    width:2.4rem;
+    border-radius: 2px;
+    transition:$transition;
+    border:1px solid #E5E5E5;
+    &:hover{
+      background-color: color(theme);
+      border:1px solid color(theme)
+    }
+  }
+
+  &__btn{
+    margin-top:1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:1.6rem;
+  }
+
+  &__textarea{
+    border-top: 1px solid color(light-theme);
+    width:38.6rem;
+    position:fixed;
+    z-index:2;
+    bottom:0;
+    padding:.4rem;
+    background-color: color(default-white);
+    @media screen and (min-width: 768px) and (max-width: 1280px) {
+      width:calc(100% - .8rem)
+    }
+    @include media(sm) {
+      width:calc(100% - .8rem)
+    }
+  }
+
+  &__textarea-files{
+    padding:0 .4rem .8rem .4rem;
+    display: flex;
+    flex-direction: column;
+    gap:.4rem;
+  }
+
+  &__textarea-filename{
+    color:#808080;
+    @include fz(14, true,18, 400, 0);
+  }
+
+  &__textarea-upload{
+    button{
+      position: relative;
+      width:1.4rem;
+      height:1.4rem;
+      &::after{
+            position: absolute;
+    top: calc(50% + 2px);
+    left:0;
+    width: 1.4rem;
+    height: 1.4rem;
+    transition:$transition;
+    transform: translateY(-50%);
+    background-image: url(/assets/images/common/close-circle-inactive.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
+      }
+      &:hover{
+        &:after{
+          background-image: url(/assets/images/common/close-circle.svg);
+        }
+      }
+    }
+  }
+
+
+  &__textarea-contents{
+    position: relative;
+  }
+
+  &__textarea-parts{
+    position: absolute;
+    display: flex;
+    gap:.8rem;
+    z-index:3;
+    right:.8rem;
+    top:.8rem
+  }
+
+  &__textarea-icon{
+    cursor: pointer;
+    transition:$transition;
+    width:3.2rem;
+    border-radius: 4px;
+    padding:.4rem;
+    border:1px solid #E5E5E5;
+
+    &--file{
+      path{
+        transition:$transition;
+      }
+      &:hover{
+        color:color(default-black);
+    border: 1px solid #808080;
+    background-color: #F7F7F7;
+      path{
+        fill:color(default-black)
+      }
+      }
+    }
+
+    &--send{
+      cursor: default;
+      &.is-active{
+        cursor: pointer;
+        border:1px solid color(theme);
+        background-color: color(theme);
+        path{
+          fill:#ffffff;
+        }
+        &:hover{
+              background-color: #0064c1;
+        }
+      }
+    }
+  }
+
+  &__textarea-item{
+    width:100%;
+    padding:1.2rem 8.4rem 1.2rem .8rem;
+    outline: none;
+    border-radius: 4px;
+    height: 4.8rem; 
+    transition:$transition;
+    resize: none;
+    overflow-y: hidden;
+    border:1px solid #E5E5E5;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+    display: none;
+    }
+    &:focus{
+      border:1px solid color(theme)
+    }
+  }
+
+  &__image{
+    @media screen and (min-width: 768px) and (max-width: 1280px) {
+      max-width: 40rem;;
+    }
+  }
+}
+
+

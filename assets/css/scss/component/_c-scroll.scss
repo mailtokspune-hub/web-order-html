@@ -1,0 +1,32 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-scroll{
+  position: fixed;
+  transition:.4s;
+  opacity: 0;
+  z-index:5;
+    visibility: hidden;
+  right:1.6rem;
+  bottom:3.4rem;
+  @include media(sm) {
+    bottom:12.4rem
+  }
+  &__image{
+    width:4rem;
+  }
+
+  .is-scroll & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .is-no-scroll & {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+

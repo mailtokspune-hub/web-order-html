@@ -1,0 +1,130 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-nav-mega {
+    display: none;
+    @media screen and (max-width: 960px) {
+      border-top: 1px solid color(lightest-gray);
+      position: fixed;
+      height: 100%;
+      overflow-y: auto;
+      max-height: calc(100% - 5.6rem);
+      top:5.6rem;
+      width:100%;
+      z-index:80;
+      background-color: color(default-white);
+    }
+
+    .is-nav-active & {
+      @media screen and (max-width: 960px) {
+        display: block;
+      }
+    }
+
+    &__area{
+      padding:1.6rem;
+      &--grid{
+        display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap:.8rem;
+      }
+    }
+
+    &__list{
+    margin-top: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    padding:1.6rem;
+    gap:1.4rem;
+    @include media(sm) {
+      padding:0 1rem 0;
+      gap:2.4rem 3.2rem;
+    }
+  }
+
+  &__list-item{
+    @include media(sm) {
+      width:100%;
+    }
+  }
+
+  &__list-link{
+    display: flex;
+    align-items: center;
+    gap:.4rem;
+    padding:.4rem .5rem;
+    border-radius: 4px;
+    @include fz(14, true, 14, 600, 0);
+    @include media(sm) {
+      gap:.5rem;
+      @include fz(16, true, 16, 600, 0);
+    }
+    &:hover{
+      color:color(theme);
+      background-color: #E5F3FB;
+      @include media(sm) {
+        background-color: #ffffff;
+      }
+      
+      .l-nav-mega__list-icon{
+        path{
+          fill:color(theme)
+        }
+      }
+      .l-footer__list-icon{
+        path{
+          fill:color(theme)
+        }
+      }
+    }
+  }
+
+  &__list-icon{
+    @include media(sm) {
+      width:2.4rem;
+    }
+    &--external{
+      @include media(sm) {
+      width:1.6rem;
+    }
+    }
+  }
+  &__info{
+    margin-top: 4rem;
+    display: flex;
+    padding:0 2.4rem;
+    gap:2.4rem;
+    @include media(sm) {
+      justify-content: space-between;
+      padding:0 1.6rem 4rem;
+    }
+  }
+
+  &__info-item{
+    @include fz(12, true, 24, 400, 0);
+  }
+}
+
+.l-nav-mega02{
+  position: fixed;
+  top:11rem;
+  width:100%;
+  z-index:40;
+  transition:$transition;
+  opacity:0;
+  height:100%;
+  max-height: calc(100% - 11rem);
+  overflow-y: auto;
+  visibility: hidden;
+  background-color: color(default-white);
+  
+
+  &.is-active{
+    opacity:1;
+    visibility: visible;
+  }
+}

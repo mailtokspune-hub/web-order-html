@@ -1,0 +1,33 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-category{
+  display: flex;
+  gap:.4rem;
+
+  &--no-link{
+    .c-category__item{
+      cursor: initial;
+    &:hover{
+    background-color: color(default-black);
+    }
+    }
+  }
+  &__item{
+    white-space: nowrap;
+    transition: $transition;
+    border-radius: 2px;
+    padding:.2rem .6rem .3rem;
+    color:color(default-white);
+    background-color: color(default-black);
+    @include fz(12, true, 18, 600, 0);
+
+    &:hover{
+      background-color: color(theme);
+    }
+  }
+}
+

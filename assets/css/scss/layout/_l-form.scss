@@ -1,0 +1,200 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.l-form{
+
+  &__table{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:1.6rem;
+    &--confirm{
+      padding:3.2rem;
+      border-radius: 8px;
+      gap:3.2rem;
+      border:1px solid #E5E5E5;
+      @include media(sm) {
+        border:0;
+        padding:3.2rem 0;
+      }
+      &::before,&::after{
+        @include media(sm) {
+          position: absolute;
+          
+          left: 50%;
+          content:"";
+          transform: translateX(-50%);
+          width: calc(100% + 3.2rem);
+          height: 1px;
+          background-color:color(light-theme);
+        }
+        
+      }
+      &::before{
+        @include media(sm) {
+          top: 0;
+        }
+      }
+      &::after{
+        @include media(sm) {
+          bottom:0;
+        }
+      }
+    }
+  }
+
+  &__tr{
+    max-width: 64rem;
+    display: flex;
+    flex-direction: column;
+    gap:.8rem;
+    &--width{
+      max-width: 100%;
+    }
+  }
+
+  &__parts{
+    display: flex;
+    align-items: center;
+    gap:1.2rem;
+  }
+
+  &__input-area{
+    &--grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+      @include media(sm) {
+        grid-template-columns: 1fr
+      }
+    }
+  }
+
+  &__txt{
+    @include fz(14, true, 24, 600, 0);
+  }
+
+  &__require{
+    border-radius: 2px;
+    padding:0 .5rem .1rem .4rem;
+    color:color(default-red);
+    border: 1px solid color(default-red);
+    @include fz(12, true, 18, 400, 0);
+  }
+
+  &__option{
+    border-radius: 2px;
+    padding:0 .5rem .1rem .4rem;
+    color:#B2B2B2;
+    border: 1px solid #B2B2B2;
+    @include fz(12, true, 18, 400, 0);
+  }
+
+  &__input{
+    height:4rem;
+    padding:0 1rem;
+    width:100%;
+    border: 1px solid color(border);
+    border-radius: 3px;
+    outline: none;
+    @include fz(14, true, 24, 400, 0);
+
+    &::placeholder{
+      color:color(default-gray)
+    }
+    &.is-error{
+      border: 1px solid color(default-red);
+    }
+    &:focus{
+      border:1px solid color(theme)
+    }
+  }
+
+  &__textarea-wrapper{
+    position: relative;
+  }
+
+  &__textarea{
+    height:16rem;
+    padding:1rem;
+    width:100%;
+    border: 1px solid color(border);
+    border-radius: 3px;
+    outline: none;
+    resize: none;
+
+    &.is-error{
+      border:1px solid color(default-red)
+    }
+    &:focus{
+      border:1px solid color(theme)
+    }
+  }
+
+  &__textarea-num{
+    position: absolute;
+    right:.8rem;
+    bottom:1.2rem;
+    color:#B2B2B2;
+    @include fz(12, true, 20, 400, 0);
+  }
+
+  &__post-number{
+    position: relative;
+  }
+
+  &__search-btn{
+    position: absolute;
+    z-index:2;
+    padding:.3rem .4rem;
+    border:1px solid #b2b2b2;
+    cursor: pointer;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color:color(default-gray);
+    @include fz(12, true, 20, 400, 0);
+    &.is-error{
+      color:color(default-red);
+      border:1px solid color(default-red);
+    }
+  }
+
+  &__policy{
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media(sm) {
+      align-items: flex-start
+    }
+  }
+
+  &__check-txt{
+    padding-left: .8rem;
+      display: flex;
+    align-items: center;
+      @include fz(16, true, 28, 400, 0);
+      @include media(sm) {
+        display: block;
+        padding-left: .8rem;
+        @include fz(16, true, 24, 400, 0);
+      }
+      .is-error{
+        color:color(default-red)
+      }
+  }
+
+  &__confirm-txt{
+  }
+
+  &__input-upload{
+    display: flex;
+    gap:2.4rem;
+  }
+
+  
+}

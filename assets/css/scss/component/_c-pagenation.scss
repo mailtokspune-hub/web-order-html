@@ -1,0 +1,47 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use '../fundation/variable' as *;
+@use '../fundation/mixin' as *;
+@use '../fundation/function' as *;
+
+.c-pagenation{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:2rem;
+  @include media(tl) {
+    gap:1.2rem;
+  }
+  @include media(sm) {
+    gap:1rem;
+  }
+  &__item{
+    padding:.4rem .8rem .5rem;
+    display: block;
+    transition: $transition;
+    color:color(light-gray);
+    border-radius: 2px;
+    @include fz(14, true, 14, 400, 0);
+    &.is-active{
+      color:color(default-black);
+      font-weight: bold;
+      background-color: color(lightest-gray);
+      &:hover{
+        color:color(default-black);
+        background-color: color(lightest-gray);
+      }
+    }
+    &:hover{
+        color:color(theme);
+        background-color: color(hover-theme);
+        path{
+          fill:color(theme)
+        }
+    }
+    &.is-inactive:hover{
+      color:color(light-gray);
+        background-color: transparent;
+    }
+  }
+}
+
